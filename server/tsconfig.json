@@ -1,18 +1,13 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "target": "es6",
+        "target": "es2018",
         "noImplicitAny": true,
-        "moduleResolution": "node",
-        "typeRoots": ["node"],
-        "sourceMap": true,
         "outDir": "../build-server",
         "rootDir": "./",
-        "baseUrl": ".",
-        "experimentalDecorators": true,
-        "paths": {
-            "*": ["node_modules/*", "types/*"]
-        }
+        "sourceMap": true
     },
-    "include": ["./"]
+    "include": [
+        "./**/*"
+    ]
 }

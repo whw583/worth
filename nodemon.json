@@ -1,0 +1,7 @@
+{
+  "watch": [
+    "server"
+  ],
+  "ext":"ts",
+  "exec": "ts-node -P server/tsconfig.json server/server/server.ts"
+}
