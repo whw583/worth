@@ -9,11 +9,10 @@ import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
 import { HomeComponent } from './page/home/home.component'
 import { AboutComponent } from './page/about/about.component'
-import { NavComponent } from './shared/nav/nav.component';
+import { NavComponent } from './shared/nav/nav.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import {MaterialModule} from './module/material/material.module'
-
-
+import { MaterialModule } from './module/material/material.module'
+import { ToolbarComponent } from './shared/toolbar/toolbar.component'
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -21,7 +20,13 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 
 @NgModule({
-    declarations: [AppComponent, HomeComponent, AboutComponent, NavComponent],
+    declarations: [
+        AppComponent,
+        HomeComponent,
+        AboutComponent,
+        NavComponent,
+        ToolbarComponent,
+    ],
     imports: [
         AppRoutingModule,
         BrowserModule,
@@ -34,7 +39,7 @@ export function HttpLoaderFactory(http: HttpClient) {
             },
         }),
         BrowserAnimationsModule,
-        MaterialModule
+        MaterialModule,
     ],
     bootstrap: [AppComponent],
 })
