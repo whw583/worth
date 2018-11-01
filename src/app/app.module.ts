@@ -14,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MaterialModule } from './module/material/material.module'
 import { ToolbarComponent } from './shared/toolbar/toolbar.component'
 
+import { FlexLayoutModule } from '@angular/flex-layout'
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http)
@@ -40,6 +41,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         }),
         BrowserAnimationsModule,
         MaterialModule,
+        FlexLayoutModule
     ],
     bootstrap: [AppComponent],
 })
