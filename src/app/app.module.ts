@@ -9,8 +9,9 @@ import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
 import { HomeComponent } from './page/home/home.component'
 import { AboutComponent } from './page/about/about.component'
-import { NavComponent } from './shared/nav/nav.component'
-
+import { NavComponent } from './shared/nav/nav.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import {MaterialModule} from './module/material/material.module'
 
 
 
@@ -32,6 +33,8 @@ export function HttpLoaderFactory(http: HttpClient) {
                 deps: [HttpClient],
             },
         }),
+        BrowserAnimationsModule,
+        MaterialModule
     ],
     bootstrap: [AppComponent],
 })
