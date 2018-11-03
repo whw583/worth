@@ -16,7 +16,8 @@ import { MaterialModule } from './module/material/material.module'
 import { ToolbarComponent } from './shared/toolbar/toolbar.component'
 
 import { FlexLayoutModule } from '@angular/flex-layout'
-import { SearchComponent } from './shared/search/search.component'
+import { SearchComponent } from './shared/search/search.component';
+import { TableComponent } from './shared/table/table.component'
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -30,6 +31,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         AboutComponent,
         ToolbarComponent,
         SearchComponent,
+        TableComponent,
     ],
     imports: [
         AppRoutingModule,
