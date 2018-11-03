@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser'
 import { NgModule } from '@angular/core'
+import { MatInputModule } from '@angular/material/input'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 import { HttpClientModule, HttpClient } from '@angular/common/http'
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core'
@@ -14,6 +16,7 @@ import { MaterialModule } from './module/material/material.module'
 import { ToolbarComponent } from './shared/toolbar/toolbar.component'
 
 import { FlexLayoutModule } from '@angular/flex-layout'
+import { SearchComponent } from './shared/search/search.component'
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -26,6 +29,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         HomeComponent,
         AboutComponent,
         ToolbarComponent,
+        SearchComponent,
     ],
     imports: [
         AppRoutingModule,
@@ -41,8 +45,9 @@ export function HttpLoaderFactory(http: HttpClient) {
         BrowserAnimationsModule,
         MaterialModule,
         FlexLayoutModule,
+        FormsModule,
+        ReactiveFormsModule,
     ],
     bootstrap: [AppComponent],
 })
-export class AppModule {
-}
+export class AppModule {}

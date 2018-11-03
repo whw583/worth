@@ -13,14 +13,14 @@
         <button mat-button routerLink="/dashboard">Dashboard</button>
     </div>
 
-    <button mat-button [mat-menu-trigger-for]="menu" fxHide="false"
+    <button  mat-button [mat-menu-trigger-for]="menu" fxHide="false"
             fxHide.gt-sm>
         <mat-icon>menu</mat-icon>
     </button>
 
 </mat-toolbar>
 
-<mat-menu x-position="before" #menu="matMenu">
+<mat-menu  x-position="before" #menu="matMenu">
     <button mat-menu-item routerLink="/products">Products</button>
     <button mat-menu-item routerLink="/dashboard">Dashboard</button>
     <!--<button mat-menu-item>Help</button>-->
