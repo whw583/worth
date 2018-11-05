@@ -16,11 +16,13 @@ import { MaterialModule } from './module/material/material.module'
 import { ToolbarComponent } from './shared/toolbar/toolbar.component'
 
 import { FlexLayoutModule } from '@angular/flex-layout'
-import { SearchComponent } from './shared/search/search.component';
-import { TableComponent } from './shared/table/table.component';
-import { ReportComponent } from './page/report/report.component';
-import { EstimationsTableComponent } from './shared/estimations-table/estimations-table.component';
+import { SearchComponent } from './shared/search/search.component'
+import { TableComponent } from './shared/table/table.component'
+import { ReportComponent } from './page/report/report.component'
+import { EstimationsTableComponent } from './shared/estimations-table/estimations-table.component'
 import { FooterComponent } from './shared/footer/footer.component'
+
+import { RecaptchaService } from './service/recaptcha/recaptcha.service'
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -56,6 +58,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         FormsModule,
         ReactiveFormsModule,
     ],
+    providers: [RecaptchaService],
     bootstrap: [AppComponent],
 })
 export class AppModule {}
