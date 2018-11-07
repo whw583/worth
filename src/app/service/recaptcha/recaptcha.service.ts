@@ -15,8 +15,8 @@ export class RecaptchaService {
     private isUpdating = false
 
     constructor() {
-        this.warmTokenTimestamp()
-        this.runTokenUpdateScheduler()
+        // this.warmTokenTimestamp()
+        // this.runTokenUpdateScheduler()
     }
 
     private warmTokenTimestamp() {
@@ -92,7 +92,11 @@ export class RecaptchaService {
                     resolve(token)
                 } else if (count > 50) {
                     clearInterval(id)
-                    reject(new Error('can not get token after retry 50 times'))
+                    reject(
+                        new Error(
+                            'This my custom error in recaptcha.service .Can not get token after retry 50 times'
+                        )
+                    )
                 }
             }, 500)
         })
