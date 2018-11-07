@@ -13,18 +13,11 @@ export class HomeComponent implements OnInit {
     ) {}
 
     ngOnInit() {}
-
-    testRecaptcha() {
-        const token = this.recaptchaService.getToken()
-        console.log('test recaptcha')
-        console.log(this.recaptchaService.getToken())
-        const params = new HttpParams()
-        params.append('token', token)
-
-        this.httpClient
-            .get(`/api/test?token=${token}`, { params: params })
-            .subscribe(res => {
-                console.log(res)
-            })
+    async testRecaptcha() {
+        const start = Date.now()
+        const token = await this.recaptchaService.getToken()
+        console.log('time used---------')
+        console.log(Date.now() - start)
+        console.log(token)
     }
 }
