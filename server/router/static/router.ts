@@ -1,11 +1,9 @@
 import * as Router from 'koa-router'
 import axios from 'axios'
 const router = new Router()
+import { recaptchaSecrectKey, recaptchaUrl } from '../../config/config'
 
-const recaptchaUrl = 'https://recaptcha.net/recaptcha/api/siteverify'
-const recaptchaSecrectKey = '6Ld6uXgUAAAAAHnuYuQjqRy7UOY5WTfbdiGYBLOT'
-
-router.get('/api/test', async ctx => {
+router.get('/test/test', async ctx => {
     const token = ctx.query.token
 
     const { data } = await axios.post(

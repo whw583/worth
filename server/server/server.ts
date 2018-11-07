@@ -1,9 +1,11 @@
 import * as Koa from 'koa'
 const app = new Koa()
-import {router} from '../router/static/static.router'
+import {autoLoadRouter} from './auto-load-router'
 
-app
-    .use(router.routes())
-    .use(router.allowedMethods());
+
+
+
+// auto load router
+autoLoadRouter(app)
 
 app.listen(3000)
