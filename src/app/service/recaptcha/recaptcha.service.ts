@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { fromEvent, merge, interval } from 'rxjs'
+import { fromEvent, merge, interval, from } from 'rxjs'
 
 @Injectable({
     providedIn: 'root',
@@ -68,16 +68,43 @@ export class RecaptchaService {
         })
     }
 
-    async getToken(): Promise<string> {
+    private catchOneToken(): string | null {
         const now = Date.now()
         const isNew = now - this.createTimestamp < this.tokenLastTime
-
+        let token: string
         if (this.token && isNew) {
             // tell token update scheduler , you should update now
             this.createTimestamp = 0
-            return this.token
+            token = this.token
+        }
+        return token
+    }
+
+    private retryGetToken(): Promise<string> {
+        return new Promise((resolve, reject) => {
+            let count = 0
+            const id = setInterval(() => {
+                const token: string = this.catchOneToken()
+                count++
+
+                if (token) {
+                    clearInterval(id)
+                    resolve(token)
+                } else if (count > 50) {
+                    clearInterval(id)
+                    reject(new Error('can not get token after retry 50 times'))
+                }
+            }, 500)
+        })
+    }
+
+    async getToken() {
+        let token = this.catchOneToken()
+
+        if (!token) {
+            token = await this.retryGetToken()
         }
 
-        return await this.requestToken()
+        return token
     }
 }
