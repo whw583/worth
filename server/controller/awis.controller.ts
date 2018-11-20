@@ -4,7 +4,7 @@ import { awis } from '../config/config'
 const { region, secret, key } = awis
 import { readFile } from 'fs'
 import { promisify } from 'util'
-import { parseXml } from '../helper/parse-xml'
+import { parseXML } from '../helper/parse-xml'
 
 export async function test(): Promise<object> {
     const xml: string = await promisify(readFile)(
@@ -12,7 +12,7 @@ export async function test(): Promise<object> {
         'utf-8'
     )
 
-    return parseXml(xml)
+    return parseXML(xml)
 }
 
 export async function getOneAlexa(domain: string) {

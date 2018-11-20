@@ -6,10 +6,10 @@ import { connect } from 'mongoose'
 import { dbUrl } from '../config/config'
 
 // connect to mongodb
-connect(
-    dbUrl,
-    { useNewUrlParser: true }
-)
+// connect(
+//     dbUrl,
+//     { useNewUrlParser: true }
+// )
 
 // auto load router
 autoLoadRouter(app)
