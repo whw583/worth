@@ -7,6 +7,15 @@ export function parseUrlInfoXMLToJson(processedXml: string): object {
         decodeEntities: false,
     })
 
+    // if not success throw error
+    const successText = getText($('responseStatus').first(), 'statusCode')
+
+    if (successText !== 'Success') {
+        throw new Error(
+            'responseStatus statusCode is not Success. Do not parse url info xml to json.'
+        )
+    }
+
     //
     const alexa = $('alexa')
     const contentData = alexa.find('contentData').first()
@@ -89,16 +98,12 @@ export function parseUrlInfoXMLToJson(processedXml: string): object {
             const usageStatistic = $(element)
 
             // like months day
-            const timeRange = usageStatistic
-                .find('timeRange')
-                .children()[0].name
+            const timeRange = usageStatistic.find('timeRange').children()[0]
+                .name
             //
             return {
                 timeRange: {
-                    [timeRange]: getText(
-                        usageStatistic,
-                        'timeRange  > *'
-                    ),
+                    [timeRange]: getText(usageStatistic, 'timeRange  > *'),
                 },
                 rank: {
                     value: getText(usageStatistic, 'rank value'),
@@ -159,8 +164,7 @@ export function parseUrlInfoXMLToJson(processedXml: string): object {
             // like months day
             const timeRange = contributingSubdomain
                 .find('timeRange')
-                .children()
-                [0].name
+                .children()[0].name
 
             //
             return {
