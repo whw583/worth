@@ -1,0 +1,1023 @@
+{
+  "dataUrl": "yahoo.com",
+  "siteData": {
+    "title": "Yahoo!",
+    "description": "A major internet portal and service provider offering search results, customizable content, chatrooms, free e-mail, clubs, and pager.",
+    "onlineSince": "18-Jan-1995"
+  },
+  "speed": {
+    "medianLoadTime": "2261",
+    "percentile": "38"
+  },
+  "adultContent": "no",
+  "language": {
+    "locale": "en"
+  },
+  "linksInCount": "546270",
+  "ownedDomains": [
+    {
+      "domain": "yahoo.net",
+      "title": "yahoo.net"
+    },
+    {
+      "domain": "yahooligans.com",
+      "title": "yahooligans.com"
+    }
+  ],
+  "rank": "6",
+  "rankByCountry": [
+    {
+      "code": "AO",
+      "contribution": {
+        "pageViews": "1.2%",
+        "users": "1.4%"
+      }
+    },
+    {
+      "code": "IN",
+      "contribution": {
+        "pageViews": "7.6%",
+        "users": "8.4%"
+      }
+    },
+    {
+      "code": "ID",
+      "contribution": {
+        "pageViews": "3.2%",
+        "users": "3.5%"
+      }
+    },
+    {
+      "code": "EG",
+      "contribution": {
+        "pageViews": "1.0%",
+        "users": "1.1%"
+      }
+    },
+    {
+      "code": "SG",
+      "contribution": {
+        "pageViews": "0.6%",
+        "users": "0.6%"
+      }
+    },
+    {
+      "code": "BD",
+      "contribution": {
+        "pageViews": "0.4%",
+        "users": "0.5%"
+      }
+    },
+    {
+      "code": "MY",
+      "contribution": {
+        "pageViews": "0.8%",
+        "users": "1.0%"
+      }
+    },
+    {
+      "code": "VE",
+      "contribution": {
+        "pageViews": "0.5%",
+        "users": "0.6%"
+      }
+    },
+    {
+      "code": "TW",
+      "contribution": {
+        "pageViews": "9.5%",
+        "users": "5.4%"
+      }
+    },
+    {
+      "code": "PH",
+      "contribution": {
+        "pageViews": "1.3%",
+        "users": "1.3%"
+      }
+    },
+    {
+      "code": "ES",
+      "contribution": {
+        "pageViews": "1.3%",
+        "users": "1.6%"
+      }
+    },
+    {
+      "code": "PK",
+      "contribution": {
+        "pageViews": "0.9%",
+        "users": "1.0%"
+      }
+    },
+    {
+      "code": "US",
+      "contribution": {
+        "pageViews": "29.9%",
+        "users": "27.7%"
+      }
+    },
+    {
+      "code": "HK",
+      "contribution": {
+        "pageViews": "1.5%",
+        "users": "1.2%"
+      }
+    },
+    {
+      "code": "SD",
+      "contribution": {
+        "pageViews": "0.5%",
+        "users": "0.5%"
+      }
+    },
+    {
+      "code": "RO",
+      "contribution": {
+        "pageViews": "0.7%",
+        "users": "1.0%"
+      }
+    },
+    {
+      "code": "IR",
+      "contribution": {
+        "pageViews": "2.5%",
+        "users": "2.0%"
+      }
+    },
+    {
+      "code": "AU",
+      "contribution": {
+        "pageViews": "0.7%",
+        "users": "0.8%"
+      }
+    },
+    {
+      "code": "SA",
+      "contribution": {
+        "pageViews": "0.7%",
+        "users": "0.9%"
+      }
+    },
+    {
+      "code": "NG",
+      "contribution": {
+        "pageViews": "1.6%",
+        "users": "1.7%"
+      }
+    },
+    {
+      "code": "AR",
+      "contribution": {
+        "pageViews": "0.9%",
+        "users": "1.1%"
+      }
+    },
+    {
+      "code": "GB",
+      "contribution": {
+        "pageViews": "1.8%",
+        "users": "2.2%"
+      }
+    },
+    {
+      "code": "FR",
+      "contribution": {
+        "pageViews": "2.6%",
+        "users": "2.8%"
+      }
+    },
+    {
+      "code": "CO",
+      "contribution": {
+        "pageViews": "0.5%",
+        "users": "0.6%"
+      }
+    },
+    {
+      "code": "BR",
+      "contribution": {
+        "pageViews": "2.7%",
+        "users": "3.6%"
+      }
+    },
+    {
+      "code": "IT",
+      "contribution": {
+        "pageViews": "1.4%",
+        "users": "1.9%"
+      }
+    },
+    {
+      "code": "GR",
+      "contribution": {
+        "pageViews": "0.8%",
+        "users": "0.7%"
+      }
+    },
+    {
+      "code": "ZA",
+      "contribution": {
+        "pageViews": "0.6%",
+        "users": "0.7%"
+      }
+    },
+    {
+      "code": "MX",
+      "contribution": {
+        "pageViews": "1.8%",
+        "users": "2.0%"
+      }
+    },
+    {
+      "code": "DZ",
+      "contribution": {
+        "pageViews": "0.8%",
+        "users": "0.8%"
+      }
+    },
+    {
+      "code": "CA",
+      "contribution": {
+        "pageViews": "2.2%",
+        "users": "1.9%"
+      }
+    },
+    {
+      "code": "JP",
+      "contribution": {
+        "pageViews": "2.2%",
+        "users": "2.2%"
+      }
+    },
+    {
+      "code": "CN",
+      "contribution": {
+        "pageViews": "1.4%",
+        "users": "1.9%"
+      }
+    },
+    {
+      "code": "O",
+      "contribution": {
+        "pageViews": "12.2%",
+        "users": "13.7%"
+      }
+    },
+    {
+      "code": "DE",
+      "contribution": {
+        "pageViews": "1.5%",
+        "users": "1.8%"
+      }
+    }
+  ],
+  "categories": [
+    {
+      "title": "On the Web/Web Portals",
+      "absolutePath": "Top/Computers/Internet/On_the_Web/Web_Portals"
+    },
+    {
+      "title": "Companies/Yahoo Inc.",
+      "absolutePath": "Top/Computers/Companies/Yahoo_Inc."
+    },
+    {
+      "title": "Business and Economy/Computers and Internet",
+      "absolutePath": "Top/Regional/North_America/United_States/California/Localities/S/Sunnyvale/Business_and_Economy/Computers_and_Internet"
+    }
+  ],
+  "usageStatistics": [
+    {
+      "timeRange": {
+        "months": "3"
+      },
+      "rank": {
+        "value": "6",
+        "delta": "0"
+      },
+      "reach": {
+        "rank": {
+          "value": "6",
+          "delta": "0"
+        },
+        "perMillion": {
+          "value": "64,430",
+          "delta": "-4.27%"
+        }
+      },
+      "pageViews": {
+        "perMillion": {
+          "value": "6,106.6",
+          "delta": "-0.980%"
+        },
+        "rank": {
+          "value": "12",
+          "delta": "1"
+        },
+        "perUser": {
+          "value": "3.50",
+          "delta": "+3.6%"
+        }
+      }
+    },
+    {
+      "timeRange": {
+        "months": "1"
+      },
+      "rank": {
+        "value": "9",
+        "delta": "+3"
+      },
+      "reach": {
+        "rank": {
+          "value": "9",
+          "delta": "+3"
+        },
+        "perMillion": {
+          "value": "59,180",
+          "delta": "-7.271%"
+        }
+      },
+      "pageViews": {
+        "perMillion": {
+          "value": "5,814",
+          "delta": "-2.77%"
+        },
+        "rank": {
+          "value": "11",
+          "delta": "-1"
+        },
+        "perUser": {
+          "value": "3.65",
+          "delta": "+4.9%"
+        }
+      }
+    },
+    {
+      "timeRange": {
+        "months": ""
+      },
+      "rank": {
+        "value": "7",
+        "delta": "-2"
+      },
+      "reach": {
+        "rank": {
+          "value": "8",
+          "delta": "-1"
+        },
+        "perMillion": {
+          "value": "58,810",
+          "delta": "-0.537%"
+        }
+      },
+      "pageViews": {
+        "perMillion": {
+          "value": "5,784",
+          "delta": "-1.19%"
+        },
+        "rank": {
+          "value": "11",
+          "delta": "-2"
+        },
+        "perUser": {
+          "value": "3.64",
+          "delta": "-0.817%"
+        }
+      }
+    },
+    {
+      "timeRange": {
+        "months": ""
+      },
+      "rank": {
+        "value": "7",
+        "delta": "-3"
+      },
+      "reach": {
+        "rank": {
+          "value": "7",
+          "delta": "-1"
+        },
+        "perMillion": {
+          "value": "60,400",
+          "delta": "+9.8%"
+        }
+      },
+      "pageViews": {
+        "perMillion": {
+          "value": "5,737",
+          "delta": "+12.3%"
+        },
+        "rank": {
+          "value": "11",
+          "delta": "-2"
+        },
+        "perUser": {
+          "value": "3.66",
+          "delta": "+2%"
+        }
+      }
+    }
+  ],
+  "contributingSubdomains": [
+    {
+      "dataUrl": "search.yahoo.com",
+      "timeRange": {
+        "months": "1"
+      },
+      "reach": {
+        "percentage": "38.60%"
+      },
+      "pageViews": {
+        "percentage": "33.00%",
+        "perUser": "3.12"
+      }
+    },
+    {
+      "dataUrl": "mail.yahoo.com",
+      "timeRange": {
+        "months": "1"
+      },
+      "reach": {
+        "percentage": "29.76%"
+      },
+      "pageViews": {
+        "percentage": "17.92%",
+        "perUser": "2.20"
+      }
+    },
+    {
+      "dataUrl": "login.yahoo.com",
+      "timeRange": {
+        "months": "1"
+      },
+      "reach": {
+        "percentage": "17.47%"
+      },
+      "pageViews": {
+        "percentage": "13.66%",
+        "perUser": "2.85"
+      }
+    },
+    {
+      "dataUrl": "yahoo.com",
+      "timeRange": {
+        "months": "1"
+      },
+      "reach": {
+        "percentage": "19.26%"
+      },
+      "pageViews": {
+        "percentage": "7.83%",
+        "perUser": "1.48"
+      }
+    },
+    {
+      "dataUrl": "fantasysports.yahoo.com",
+      "timeRange": {
+        "months": "1"
+      },
+      "reach": {
+        "percentage": "3.82%"
+      },
+      "pageViews": {
+        "percentage": "5.81%",
+        "perUser": "5.55"
+      }
+    },
+    {
+      "dataUrl": "news.yahoo.com",
+      "timeRange": {
+        "months": "1"
+      },
+      "reach": {
+        "percentage": "4.68%"
+      },
+      "pageViews": {
+        "percentage": "5.03%",
+        "perUser": "3.92"
+      }
+    },
+    {
+      "dataUrl": "finance.yahoo.com",
+      "timeRange": {
+        "months": "1"
+      },
+      "reach": {
+        "percentage": "3.43%"
+      },
+      "pageViews": {
+        "percentage": "2.35%",
+        "perUser": "2.50"
+      }
+    },
+    {
+      "dataUrl": "sports.yahoo.com",
+      "timeRange": {
+        "months": "1"
+      },
+      "reach": {
+        "percentage": "3.24%"
+      },
+      "pageViews": {
+        "percentage": "2.03%",
+        "perUser": "2.28"
+      }
+    },
+    {
+      "dataUrl": "answers.yahoo.com",
+      "timeRange": {
+        "months": "1"
+      },
+      "reach": {
+        "percentage": "5.52%"
+      },
+      "pageViews": {
+        "percentage": "1.68%",
+        "perUser": "1.11"
+      }
+    },
+    {
+      "dataUrl": "tw.yahoo.com",
+      "timeRange": {
+        "months": "1"
+      },
+      "reach": {
+        "percentage": "3.34%"
+      },
+      "pageViews": {
+        "percentage": "0.93%",
+        "perUser": "1.02"
+      }
+    },
+    {
+      "dataUrl": "bid.yahoo.com",
+      "timeRange": {
+        "months": "1"
+      },
+      "reach": {
+        "percentage": "0.62%"
+      },
+      "pageViews": {
+        "percentage": "0.88%",
+        "perUser": "5.22"
+      }
+    },
+    {
+      "dataUrl": "in.yahoo.com",
+      "timeRange": {
+        "months": "1"
+      },
+      "reach": {
+        "percentage": "2.11%"
+      },
+      "pageViews": {
+        "percentage": "0.64%",
+        "perUser": "1.11"
+      }
+    },
+    {
+      "dataUrl": "mall.yahoo.com",
+      "timeRange": {
+        "months": "1"
+      },
+      "reach": {
+        "percentage": "0.39%"
+      },
+      "pageViews": {
+        "percentage": "0.56%",
+        "perUser": "5.24"
+      }
+    },
+    {
+      "dataUrl": "fr.yahoo.com",
+      "timeRange": {
+        "months": "1"
+      },
+      "reach": {
+        "percentage": "1.95%"
+      },
+      "pageViews": {
+        "percentage": "0.55%",
+        "perUser": "1.03"
+      }
+    },
+    {
+      "dataUrl": "buy.yahoo.com",
+      "timeRange": {
+        "months": "1"
+      },
+      "reach": {
+        "percentage": "0.48%"
+      },
+      "pageViews": {
+        "percentage": "0.50%",
+        "perUser": "3.82"
+      }
+    },
+    {
+      "dataUrl": "stock.yahoo.com",
+      "timeRange": {
+        "months": "1"
+      },
+      "reach": {
+        "percentage": "0.43%"
+      },
+      "pageViews": {
+        "percentage": "0.49%",
+        "perUser": "4.16"
+      }
+    },
+    {
+      "dataUrl": "espanol.yahoo.com",
+      "timeRange": {
+        "months": "1"
+      },
+      "reach": {
+        "percentage": "1.37%"
+      },
+      "pageViews": {
+        "percentage": "0.39%",
+        "perUser": "1.04"
+      }
+    },
+    {
+      "dataUrl": "shopping.yahoo.com",
+      "timeRange": {
+        "months": "1"
+      },
+      "reach": {
+        "percentage": "0.70%"
+      },
+      "pageViews": {
+        "percentage": "0.36%",
+        "perUser": "1.88"
+      }
+    },
+    {
+      "dataUrl": "maktoob.yahoo.com",
+      "timeRange": {
+        "months": "1"
+      },
+      "reach": {
+        "percentage": "1.11%"
+      },
+      "pageViews": {
+        "percentage": "0.31%",
+        "perUser": "1.02"
+      }
+    },
+    {
+      "dataUrl": "br.yahoo.com",
+      "timeRange": {
+        "months": "1"
+      },
+      "reach": {
+        "percentage": "0.99%"
+      },
+      "pageViews": {
+        "percentage": "0.29%",
+        "perUser": "1.06"
+      }
+    },
+    {
+      "dataUrl": "id.yahoo.com",
+      "timeRange": {
+        "months": "1"
+      },
+      "reach": {
+        "percentage": "0.95%"
+      },
+      "pageViews": {
+        "percentage": "0.27%",
+        "perUser": "1.02"
+      }
+    },
+    {
+      "dataUrl": "uk.yahoo.com",
+      "timeRange": {
+        "months": "1"
+      },
+      "reach": {
+        "percentage": "0.93%"
+      },
+      "pageViews": {
+        "percentage": "0.26%",
+        "perUser": "1.04"
+      }
+    },
+    {
+      "dataUrl": "style.yahoo.com",
+      "timeRange": {
+        "months": "1"
+      },
+      "reach": {
+        "percentage": "0.49%"
+      },
+      "pageViews": {
+        "percentage": "0.25%",
+        "perUser": "1.88"
+      }
+    },
+    {
+      "dataUrl": "hk.yahoo.com",
+      "timeRange": {
+        "months": "1"
+      },
+      "reach": {
+        "percentage": "0.88%"
+      },
+      "pageViews": {
+        "percentage": "0.25%",
+        "perUser": "1.02"
+      }
+    },
+    {
+      "dataUrl": "groups.yahoo.com",
+      "timeRange": {
+        "months": "1"
+      },
+      "reach": {
+        "percentage": "0.54%"
+      },
+      "pageViews": {
+        "percentage": "0.23%",
+        "perUser": "1.54"
+      }
+    },
+    {
+      "dataUrl": "my.yahoo.com",
+      "timeRange": {
+        "months": "1"
+      },
+      "reach": {
+        "percentage": "0.75%"
+      },
+      "pageViews": {
+        "percentage": "0.21%",
+        "perUser": "1.03"
+      }
+    },
+    {
+      "dataUrl": "es.yahoo.com",
+      "timeRange": {
+        "months": "1"
+      },
+      "reach": {
+        "percentage": "0.73%"
+      },
+      "pageViews": {
+        "percentage": "0.21%",
+        "perUser": "1.04"
+      }
+    },
+    {
+      "dataUrl": "en-maktoob.yahoo.com",
+      "timeRange": {
+        "months": "1"
+      },
+      "reach": {
+        "percentage": "0.73%"
+      },
+      "pageViews": {
+        "percentage": "0.21%",
+        "perUser": "1.02"
+      }
+    },
+    {
+      "dataUrl": "help.yahoo.com",
+      "timeRange": {
+        "months": "1"
+      },
+      "reach": {
+        "percentage": "0.51%"
+      },
+      "pageViews": {
+        "percentage": "0.20%",
+        "perUser": "1.41"
+      }
+    },
+    {
+      "dataUrl": "de.yahoo.com",
+      "timeRange": {
+        "months": "1"
+      },
+      "reach": {
+        "percentage": "0.66%"
+      },
+      "pageViews": {
+        "percentage": "0.19%",
+        "perUser": "1.03"
+      }
+    },
+    {
+      "dataUrl": "ph.yahoo.com",
+      "timeRange": {
+        "months": "1"
+      },
+      "reach": {
+        "percentage": "0.54%"
+      },
+      "pageViews": {
+        "percentage": "0.15%",
+        "perUser": "1.04"
+      }
+    },
+    {
+      "dataUrl": "ca.yahoo.com",
+      "timeRange": {
+        "months": "1"
+      },
+      "reach": {
+        "percentage": "0.46%"
+      },
+      "pageViews": {
+        "percentage": "0.14%",
+        "perUser": "1.12"
+      }
+    },
+    {
+      "dataUrl": "it.yahoo.com",
+      "timeRange": {
+        "months": "1"
+      },
+      "reach": {
+        "percentage": "0.46%"
+      },
+      "pageViews": {
+        "percentage": "0.13%",
+        "perUser": "1.03"
+      }
+    },
+    {
+      "dataUrl": "noticias.yahoo.com",
+      "timeRange": {
+        "months": "1"
+      },
+      "reach": {
+        "percentage": "0.27%"
+      },
+      "pageViews": {
+        "percentage": "0.13%",
+        "perUser": "1.69"
+      }
+    },
+    {
+      "dataUrl": "celebrity.yahoo.com",
+      "timeRange": {
+        "months": "1"
+      },
+      "reach": {
+        "percentage": "0.25%"
+      },
+      "pageViews": {
+        "percentage": "0.12%",
+        "perUser": "1.74"
+      }
+    },
+    {
+      "dataUrl": "admanagerplus.yahoo.com",
+      "timeRange": {
+        "months": "1"
+      },
+      "reach": {
+        "percentage": "0.02%"
+      },
+      "pageViews": {
+        "percentage": "0.11%",
+        "perUser": "25"
+      }
+    },
+    {
+      "dataUrl": "sg.yahoo.com",
+      "timeRange": {
+        "months": "1"
+      },
+      "reach": {
+        "percentage": "0.33%"
+      },
+      "pageViews": {
+        "percentage": "0.11%",
+        "perUser": "1.20"
+      }
+    },
+    {
+      "dataUrl": "gemini.yahoo.com",
+      "timeRange": {
+        "months": "1"
+      },
+      "reach": {
+        "percentage": "0.06%"
+      },
+      "pageViews": {
+        "percentage": "0.11%",
+        "perUser": "7.0"
+      }
+    },
+    {
+      "dataUrl": "ro.yahoo.com",
+      "timeRange": {
+        "months": "1"
+      },
+      "reach": {
+        "percentage": "0.38%"
+      },
+      "pageViews": {
+        "percentage": "0.11%",
+        "perUser": "1.02"
+      }
+    },
+    {
+      "dataUrl": "view.yahoo.com",
+      "timeRange": {
+        "months": "1"
+      },
+      "reach": {
+        "percentage": "0.29%"
+      },
+      "pageViews": {
+        "percentage": "0.11%",
+        "perUser": "1.32"
+      }
+    },
+    {
+      "dataUrl": "us.yahoo.com",
+      "timeRange": {
+        "months": "1"
+      },
+      "reach": {
+        "percentage": "0.32%"
+      },
+      "pageViews": {
+        "percentage": "0.09%",
+        "perUser": "1.02"
+      }
+    },
+    {
+      "dataUrl": "malaysia.yahoo.com",
+      "timeRange": {
+        "months": "1"
+      },
+      "reach": {
+        "percentage": "0.32%"
+      },
+      "pageViews": {
+        "percentage": "0.09%",
+        "perUser": "1.02"
+      }
+    },
+    {
+      "dataUrl": "gr.yahoo.com",
+      "timeRange": {
+        "months": "1"
+      },
+      "reach": {
+        "percentage": "0.31%"
+      },
+      "pageViews": {
+        "percentage": "0.09%",
+        "perUser": "1.02"
+      }
+    },
+    {
+      "dataUrl": "au.yahoo.com",
+      "timeRange": {
+        "months": "1"
+      },
+      "reach": {
+        "percentage": "0.26%"
+      },
+      "pageViews": {
+        "percentage": "0.07%",
+        "perUser": "1.02"
+      }
+    },
+    {
+      "dataUrl": "vida-estilo.yahoo.com",
+      "timeRange": {
+        "months": "1"
+      },
+      "reach": {
+        "percentage": "0.17%"
+      },
+      "pageViews": {
+        "percentage": "0.07%",
+        "perUser": "1.47"
+      }
+    },
+    {
+      "dataUrl": "OTHER",
+      "timeRange": {
+        "months": "1"
+      },
+      "reach": {
+        "percentage": "0.00%"
+      },
+      "pageViews": {
+        "percentage": "0.89%",
+        "perUser": "1.48"
+      }
+    }
+  ]
+}

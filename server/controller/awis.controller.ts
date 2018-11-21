@@ -2,20 +2,8 @@ import { sign } from 'aws4'
 import * as rp from 'request-promise'
 import { awis } from '../config/config'
 const { region, secret, key } = awis
-import { readFile } from 'fs'
-import { promisify } from 'util'
-import { parseXML } from '../helper/parse-xml'
 
-export async function test(): Promise<object> {
-    const xml: string = await promisify(readFile)(
-        __dirname + '/test.xml',
-        'utf-8'
-    )
-
-    return parseXML(xml)
-}
-
-export async function getOneAlexa(domain: string) {
+export async function getUrlInfoXml(domain: string): Promise<string> {
     const credentials = {
         accessKeyId: key,
         secretAccessKey: secret,

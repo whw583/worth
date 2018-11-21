@@ -1,18 +1,28 @@
 import * as Router from 'koa-router'
 const router = new Router()
-import { getOneAlexa } from '../../controller/awis.controller'
+import { getUrlInfoXml } from '../../controller/awis.controller'
+import { parseUrlInfoXMLToJson } from '../../helper/parse-xml'
+import { preprocessXML } from '../../helper/preprocess-xml'
 
-import { test } from '../../controller/awis.controller'
+router.get('/api/test/:test/:domain', async ctx => {
+    const { domain, test } = ctx.params
+    const xml = await getUrlInfoXml(domain)
+    const processedXml = await preprocessXML(xml)
 
-router.get('/api/test', async ctx => {
-    ctx.body = await test()
+    let body: string | object = processedXml
+
+    if (test === 'json') {
+        body = parseUrlInfoXMLToJson(processedXml)
+    }
+
+    ctx.body = body
 })
 
 router.get('/api/websites/:domain', async (ctx, next) => {
     const { domain } = ctx.params
-    const res = await getOneAlexa(domain)
+    const xml = await getUrlInfoXml(domain)
 
-    ctx.body = res
+    ctx.body = xml
 })
 
 router.post('/api/websites', async (ctx, next) => {

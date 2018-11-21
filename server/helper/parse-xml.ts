@@ -1,10 +1,7 @@
 import { load } from 'cheerio'
-import { preprocessXML } from './preprocess-xml'
 
-export async function parseXML(xml: string): Promise<any> {
-    const processedXML = await preprocessXML(xml)
-
-    const $ = load(processedXML, {
+export function parseUrlInfoXMLToJson(processedXml: string): object {
+    const $ = load(processedXml, {
         normalizeWhitespace: false,
         xmlMode: true,
         decodeEntities: false,
@@ -90,9 +87,18 @@ export async function parseXML(xml: string): Promise<any> {
         .find('usageStatistics usageStatistic')
         .map(function(index, element) {
             const usageStatistic = $(element)
+
+            // like months day
+            const timeRange = usageStatistic
+                .find('timeRange')
+                .children()[0].name
+            //
             return {
                 timeRange: {
-                    months: getText(usageStatistic, 'timeRange months'),
+                    [timeRange]: getText(
+                        usageStatistic,
+                        'timeRange  > *'
+                    ),
                 },
                 rank: {
                     value: getText(usageStatistic, 'rank value'),
@@ -102,6 +108,16 @@ export async function parseXML(xml: string): Promise<any> {
                     rank: {
                         value: getText(usageStatistic, 'reach rank value'),
                         delta: getText(usageStatistic, 'reach  rank delta'),
+                    },
+                    perMillion: {
+                        value: getText(
+                            usageStatistic,
+                            'reach perMillion  value'
+                        ),
+                        delta: getText(
+                            usageStatistic,
+                            'reach perMillion   delta'
+                        ),
                     },
                 },
 
@@ -140,10 +156,20 @@ export async function parseXML(xml: string): Promise<any> {
         .find('contributingSubdomains contributingSubdomain')
         .map(function(index, element) {
             const contributingSubdomain = $(element)
+            // like months day
+            const timeRange = contributingSubdomain
+                .find('timeRange')
+                .children()
+                [0].name
+
+            //
             return {
                 dataUrl: getText(contributingSubdomain, 'dataUrl'),
                 timeRange: {
-                    months: getText(contributingSubdomain, 'timeRange months'),
+                    [timeRange]: getText(
+                        contributingSubdomain,
+                        'timeRange  > * '
+                    ),
                 },
                 reach: {
                     percentage: getText(

@@ -1,17 +1,4 @@
 import { parseString, Builder } from 'xml2js'
-function tagNameProcessors(name: string) {
-    // Remove 'aws:' prefix.
-    name = name.replace(/^aws:/, '')
-    // Make first char lower case.
-    return name.charAt(0).toLowerCase() + name.slice(1)
-}
-
-function attrNameProcessors(name: string) {
-    // Remove 'aws:' prefix.
-    name = name.replace(/^aws:/, '')
-    // Make first char lower case.
-    return name.charAt(0).toLowerCase() + name.slice(1)
-}
 
 export async function preprocessXML(xml: string): Promise<string> {
     const obj = await new Promise((resolve, reject) => {
@@ -33,4 +20,20 @@ export async function preprocessXML(xml: string): Promise<string> {
     })
 
     return new Builder().buildObject(obj)
+}
+
+//
+
+function attrNameProcessors(name: string) {
+    // Remove 'aws:' prefix.
+    name = name.replace(/^aws:/, '')
+    // Make first char lower case.
+    return name.charAt(0).toLowerCase() + name.slice(1)
+}
+
+function tagNameProcessors(name: string) {
+    // Remove 'aws:' prefix.
+    name = name.replace(/^aws:/, '')
+    // Make first char lower case.
+    return name.charAt(0).toLowerCase() + name.slice(1)
 }
