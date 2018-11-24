@@ -1,20 +1,7 @@
-import { load } from 'cheerio'
+import { loadXml, getText } from '../common'
 
 export function parseUrlInfoXMLToJson(processedXml: string): object {
-    const $ = load(processedXml, {
-        normalizeWhitespace: false,
-        xmlMode: true,
-        decodeEntities: false,
-    })
-
-    // if not success throw error
-    const successText = getText($('responseStatus').first(), 'statusCode')
-
-    if (successText !== 'Success') {
-        throw new Error(
-            'responseStatus statusCode is not Success. Do not parse url info xml to json.'
-        )
-    }
+    const $ = loadXml(processedXml)
 
     //
     const alexa = $('alexa')
@@ -212,12 +199,4 @@ export function parseUrlInfoXMLToJson(processedXml: string): object {
     }
 
     return obj
-}
-
-// get one text
-function getText(where: Cheerio, selector: string): string {
-    return where
-        .find(selector)
-        .first()
-        .text()
 }

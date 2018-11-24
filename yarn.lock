@@ -1101,6 +1101,16 @@ autoprefixer@9.1.5:
     postcss "^7.0.2"
     postcss-value-parser "^3.2.3"
 
+awis@^1.0.10:
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/awis/-/awis-1.0.10.tgz#5551151f7ad9d8c6dd6b36248681a1397ec7700b"
+  integrity sha512-YxFDc+knAhxyTzn21vGXNVA4e3It1H7YVd/sSYksLWG0CO9O9o1Zbq9azvXzBA9/y8KYs60FLB0LTo5DB45uoA==
+  dependencies:
+    aws4 "^1.6.0"
+    lodash "^4.17.4"
+    request "^2.83.0"
+    xml2js "^0.4.19"
+
 aws-sign2@~0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/aws-sign2/-/aws-sign2-0.7.0.tgz#b46e890934a9591f2d2f6f86d7e6a9f1b3fe76a8"
