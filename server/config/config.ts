@@ -10,3 +10,6 @@ export const awis = {
     key: 'AKIAJJ3M7D4UZ36SCK5A',
     secret: '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',
 }
+
+// total page views in the world
+export const totalPageViews = 1

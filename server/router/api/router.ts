@@ -1,7 +1,11 @@
 import * as Router from 'koa-router'
 const router = new Router()
-import { test } from '../../controller/api'
+import { controller } from '../../controller/api'
 
-router.get('/test/:domain', test)
+router.get('/api/report/:domain', controller.getOneReport)
+
+router.post('/api/report/:domain', controller.createReportIfNotExist)
+
+router.put('/api/report/:domain', controller.updateOrCreateOneReport)
 
 export { router }

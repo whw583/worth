@@ -12,9 +12,9 @@ set('useCreateIndex', true)
 connect(
     dbUrl,
     { useNewUrlParser: true }
-).then(function() {
-    app.listen(3000)
-})
+)
 
 // auto load router
 autoLoadRouter(app)
+
+app.listen(3000)

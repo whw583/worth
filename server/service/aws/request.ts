@@ -18,6 +18,8 @@ export async function requestXml(
 
     const url = `https://${host}${path}`
 
+    console.log('request url:' + url)
+
     const opts = { url, host, service, path, resolveWithFullResponse: true }
 
     const signRes = sign(opts, credentials)
