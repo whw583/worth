@@ -11,5 +11,8 @@ export const awis = {
     secret: 'GcBPynH3fDI8Zjtnlfkl7S+cheMvKDV8YDMv4NVD',
 }
 
-// total page views in the world
-export const totalPageViews = 1
+// total page views in the world , unit million
+export const totalPageViewsPerMillionPerDay = 9735.16439394
+
+// revenue from ad , unit perPageView dollar
+export const revenuePerPageView = 0.001
