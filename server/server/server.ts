@@ -1,21 +1,32 @@
 import * as Koa from 'koa'
 const app = new Koa()
 import { autoLoadRouter } from './auto-load-router'
-import { connect, set } from 'mongoose'
-
+import * as mongoose from 'mongoose'
 import { dbUrl } from '../config/config'
+import bodyParser = require('koa-bodyparser')
 
 //
-set('useCreateIndex', true)
+
+mongoose.set('useCreateIndex', true)
 
 // connect to mongodb
-connect(
-    dbUrl,
-    { useNewUrlParser: true }
-).catch(function(error) {
-    console.log('catch error in connect db ')
-    throw error
-})
+mongoose
+    .connect(
+        dbUrl,
+        { useNewUrlParser: true }
+    )
+    .then(function() {
+        console.log('mongoose connected...')
+        console.log('listen on port 3000...')
+        app.listen(3000)
+    })
+    .catch(function(error) {
+        console.log('mongoose connect error')
+        console.log(error)
+    })
+
+// body parser
+app.use(bodyParser())
 
 // handle error
 app.use(async (ctx, next) => {
@@ -35,5 +46,3 @@ app.on('error', (err, ctx) => {
 
 // auto load router
 autoLoadRouter(app)
-
-app.listen(3000)

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser'
 import { NgModule } from '@angular/core'
-import { MatInputModule } from '@angular/material/input'
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 import { HttpClientModule, HttpClient } from '@angular/common/http'
@@ -23,6 +23,7 @@ import { EstimationsTableComponent } from './shared/estimations-table/estimation
 import { FooterComponent } from './shared/footer/footer.component'
 
 import { RecaptchaService } from './service/recaptcha/recaptcha.service'
+import { ConfigService } from './service/config/config.service'
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -58,7 +59,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         FormsModule,
         ReactiveFormsModule,
     ],
-    providers: [RecaptchaService],
+    providers: [RecaptchaService, ConfigService],
     bootstrap: [AppComponent],
 })
 export class AppModule {}
