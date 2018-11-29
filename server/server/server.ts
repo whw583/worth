@@ -3,7 +3,7 @@ const app = new Koa()
 import { autoLoadRouter } from './auto-load-router'
 import * as mongoose from 'mongoose'
 import { dbUrl } from '../config/config'
-import bodyParser = require('koa-bodyparser')
+const bodyParser = require('koa-bodyparser')
 
 //
 

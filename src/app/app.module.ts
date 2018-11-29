@@ -3,7 +3,11 @@ import { NgModule } from '@angular/core'
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
-import { HttpClientModule, HttpClient } from '@angular/common/http'
+import {
+    HttpClientModule,
+    HttpClient,
+    HTTP_INTERCEPTORS,
+} from '@angular/common/http'
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core'
 import { TranslateHttpLoader } from '@ngx-translate/http-loader'
 
@@ -22,8 +26,10 @@ import { ReportComponent } from './page/report/report.component'
 import { EstimationsTableComponent } from './shared/estimations-table/estimations-table.component'
 import { FooterComponent } from './shared/footer/footer.component'
 
+// my service
 import { RecaptchaService } from './service/recaptcha/recaptcha.service'
 import { ConfigService } from './service/config/config.service'
+import { TokenInterceptorService } from './service/interceptor/token-interceptor.service'
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -59,7 +65,15 @@ export function HttpLoaderFactory(http: HttpClient) {
         FormsModule,
         ReactiveFormsModule,
     ],
-    providers: [RecaptchaService, ConfigService],
+    providers: [
+        RecaptchaService,
+        ConfigService,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: TokenInterceptorService,
+            multi: true,
+        },
+    ],
     bootstrap: [AppComponent],
 })
 export class AppModule {}

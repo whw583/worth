@@ -1,34 +1,21 @@
 import { Component, OnInit } from '@angular/core'
-import { RecaptchaService } from '../../service/recaptcha/recaptcha.service'
-import { HttpClient, HttpParams } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http'
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-    constructor(
-        private recaptchaService: RecaptchaService,
-        private httpClient: HttpClient
-    ) {}
+    constructor(private httpClient: HttpClient) {}
 
     ngOnInit() {}
-    async testRecaptcha() {
-        const start = Date.now()
-        const token = (await this.recaptchaService.getToken())
-
-        console.log('time used---------')
-        console.log(Date.now() - start)
-        this.request(token, 'homepage', 'google.com')
+    testRecaptcha() {
+        this.request('google.com')
     }
 
-    request(token: string, action: string, domain: string) {
-        const params = new HttpParams()
-            .append('token', token)
-            .append('action', action)
-
+    request(domain: string) {
         this.httpClient
-            .post(`/api/report/${domain}`, {}, { params })
+            .post(`/api/report/${domain}`, {})
             .subscribe(function(res) {
                 console.log(res)
             })
