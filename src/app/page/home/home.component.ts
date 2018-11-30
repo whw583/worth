@@ -1,23 +1,17 @@
 import { Component, OnInit } from '@angular/core'
-import { HttpClient } from '@angular/common/http'
+import { ReportProviderService } from '../../service/report/report-provider.service'
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-    constructor(private httpClient: HttpClient) {}
+    constructor(private report: ReportProviderService) {}
 
     ngOnInit() {}
-    testRecaptcha() {
-        this.request('google.com')
-    }
-
-    request(domain: string) {
-        this.httpClient
-            .post(`/api/report/${domain}`, {})
-            .subscribe(function(res) {
-                console.log(res)
-            })
+    test() {
+        this.report.getReport('google.com').subscribe(res => {
+            console.log(res)
+        })
     }
 }

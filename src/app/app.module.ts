@@ -30,7 +30,7 @@ import { FooterComponent } from './shared/footer/footer.component'
 import { RecaptchaService } from './service/recaptcha/recaptcha.service'
 import { ConfigService } from './service/config/config.service'
 import { TokenInterceptorService } from './service/interceptor/token-interceptor.service'
-
+import { ReportProviderService } from './service/report/report-provider.service'
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http)
@@ -73,6 +73,7 @@ export function HttpLoaderFactory(http: HttpClient) {
             useClass: TokenInterceptorService,
             multi: true,
         },
+        ReportProviderService,
     ],
     bootstrap: [AppComponent],
 })

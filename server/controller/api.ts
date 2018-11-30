@@ -1,9 +1,11 @@
 import { Context } from 'koa'
 import { report } from '../service/report/service'
 
+
 async function getOneReport(ctx: Context) {
-    const { domain } = ctx.params
-    const res = await report.getOne(domain)
+    const { dataUrl } = ctx.params
+
+    const res = await report.getOne(dataUrl)
     if (!res) {
         ctx.status = 404
         ctx.body = { success: false, msg: 'nod such dataUrl' }
@@ -14,16 +16,16 @@ async function getOneReport(ctx: Context) {
 }
 
 async function createReportIfNotExist(ctx: Context) {
-    const { domain } = ctx.params
-    const res = await report.createIfNotExist(domain)
+    const {  dataUrl } = ctx.params
+    const res = await report.createIfNotExist(dataUrl)
 
-    ctx.body = { ...res, dataUrl: domain, success: true }
+    ctx.body = { ...res, success: true }
 }
 
 async function updateOrCreateOneReport(ctx: Context) {
-    const { domain } = ctx.params
-    const res = await report.updateOrCreateOne(domain)
-    ctx.body = { ...res, dataUrl: domain, success: true }
+    const {  dataUrl } = ctx.params
+    const res = await report.updateOrCreateOne(dataUrl)
+    ctx.body = { ...res, dataUrl: dataUrl, success: true }
 }
 
 //

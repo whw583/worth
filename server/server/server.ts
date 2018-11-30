@@ -5,6 +5,7 @@ import * as mongoose from 'mongoose'
 import { dbUrl } from '../config/config'
 const bodyParser = require('koa-bodyparser')
 
+
 //
 
 mongoose.set('useCreateIndex', true)
@@ -27,6 +28,7 @@ mongoose
 
 // body parser
 app.use(bodyParser())
+
 
 // handle error
 app.use(async (ctx, next) => {

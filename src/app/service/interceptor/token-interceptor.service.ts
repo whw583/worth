@@ -19,15 +19,20 @@ export class TokenInterceptorService implements HttpInterceptor {
         req: HttpRequest<any>,
         next: HttpHandler
     ): Observable<HttpEvent<any>> {
+        console.log(req.url)
+        const isProtected = req.url.startsWith('/api/protected/')
+        if (!isProtected) {
+            return next.handle(req)
+        }
+
         return from(this.recaptcha.getToken()).pipe(
             switchMap(token => {
-                const clonedRequest = req.clone({
+                const reqWithToken = req.clone({
                     headers: req.headers
                         .set('recaptcha-token', token)
                         .set('recaptcha-action', 'homepage'),
                 })
-                console.log('new headers', clonedRequest.headers.keys())
-                return next.handle(clonedRequest)
+                return next.handle(reqWithToken)
             })
         )
     }

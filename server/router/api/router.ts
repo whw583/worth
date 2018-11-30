@@ -1,16 +1,27 @@
 import * as Router from 'koa-router'
+
 const router = new Router()
 import { controller } from '../../controller/api'
 import { verifyRecaptcha } from '../../middleware/verify-recaptcha'
+import { validDataUrl } from '../../middleware/valid-data-url'
 
-router.get('/api/report/:domain', controller.getOneReport)
+router.prefix('/api')
+
+ router.use('/*/:dataUrl', validDataUrl)
+ router.use('/protected/', verifyRecaptcha)
+
+router.get('/report/:dataUrl', controller.getOneReport)
 
 router.post(
-    '/api/report/:domain',
-    verifyRecaptcha,
+    '/protected/report/:dataUrl',
+
     controller.createReportIfNotExist
 )
 
-router.put('/api/report/:domain', controller.updateOrCreateOneReport)
+router.put(
+    '/protected/report/:dataUrl',
+
+    controller.updateOrCreateOneReport
+)
 
 export { router }

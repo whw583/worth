@@ -51,6 +51,7 @@ function getReportStatistics(usageStatistics: Array<any>): Array<any> {
 //
 export function generate(urlInfo: object): object {
     const {
+        dataUrl,
         usageStatistics,
         linksInCount,
         siteData,
@@ -83,5 +84,13 @@ export function generate(urlInfo: object): object {
 
     const now = Date.now()
 
-    return { siteData, rank, lastModified, now, report, usageStatistics }
+    return {
+        dataUrl,
+        siteData,
+        rank,
+        lastModified,
+        now,
+        report,
+        usageStatistics,
+    }
 }

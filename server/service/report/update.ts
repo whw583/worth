@@ -1,12 +1,14 @@
 import { UrlInfo } from '../../model/url-info'
 import { awis } from '../aws/service'
 
-export async function updateOrCreateOne(domain: string): Promise<object> {
-    const urlInfoRes = await awis.getUrlInfo(domain)
+export async function updateOrCreateOne(dataUrl: string): Promise<object> {
+    const urlInfoRes = await awis.getUrlInfo(dataUrl)
 
-    return await UrlInfo.updateOne(
-        { dataUrl: domain },
-        { ...urlInfoRes, lastModified: new Date() },
+    const res = await UrlInfo.updateOne(
+        { dataUrl: dataUrl },
+        { ...urlInfoRes, lastModified: Date.now() },
         { upsert: true }
     )
+
+    return { ...res, dataUrl }
 }

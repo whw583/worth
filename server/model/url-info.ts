@@ -18,7 +18,7 @@ const schema = new Schema({
     categories: [Object],
     usageStatistics: [Object],
     contributingSubdomains: [Object],
-    lastModified: { type: Date, required: true },
+    lastModified: { type: Number, required: true },
 })
 
 export const UrlInfo = model('UrlInfo', schema)
