@@ -1,24 +1,21 @@
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 
-import * as URL from 'url-parse'
-import psl from 'psl'
-
 @Injectable({
     providedIn: 'root',
 })
 export class ReportProviderService {
     constructor(private http: HttpClient) {}
 
-    getReport(url: string) {
-        return this.http.get(`/api/report/${url}`)
+    getReport(dataUrl: string) {
+        return this.http.get(`/api/report/${dataUrl}`)
     }
 
-    createReport(url: string) {
-        return this.http.post(`/api/protected/${url}`, {})
+    createReport(dataUrl: string) {
+        return this.http.post(`/api/protected/${dataUrl}`, {})
     }
 
-    updateReport(url: string) {
-        return this.http.put(`/api/protected/${url}`, {})
+    updateReport(dataUrl: string) {
+        return this.http.put(`/api/protected/${dataUrl}`, {})
     }
 }

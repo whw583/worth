@@ -1,15 +1,25 @@
 import { Component, OnInit } from '@angular/core'
 import { ReportProviderService } from '../../service/report/report-provider.service'
+import { UrlService } from '../../service/url/url.service'
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-    constructor(private report: ReportProviderService) {}
+    constructor(
+        private report: ReportProviderService,
+        private url: UrlService
+    ) {}
 
     ngOnInit() {}
     test() {
+        console.log(this.url.getDataUrl(' http://google.com '))
+        console.log(this.url.getDataUrl(' https://google.com '))
+        console.log(this.url.getDataUrl(' http: //google.com '))
+        console.log(this.url.getDataUrl(' http://google.com/test?test=1 '))
+        console.log(this.url.getDataUrl('google .com '))
+
         this.report.getReport('google.com').subscribe(res => {
             console.log(res)
         })

@@ -31,6 +31,7 @@ import { RecaptchaService } from './service/recaptcha/recaptcha.service'
 import { ConfigService } from './service/config/config.service'
 import { TokenInterceptorService } from './service/interceptor/token-interceptor.service'
 import { ReportProviderService } from './service/report/report-provider.service'
+import { UrlService } from './service/url/url.service'
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http)
@@ -74,6 +75,7 @@ export function HttpLoaderFactory(http: HttpClient) {
             multi: true,
         },
         ReportProviderService,
+        UrlService,
     ],
     bootstrap: [AppComponent],
 })
