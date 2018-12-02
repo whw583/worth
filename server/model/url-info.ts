@@ -16,7 +16,10 @@ const schema = new Schema({
     ownedDomains: [Object],
     rankByCountry: [Object],
     categories: [Object],
-    usageStatistics: [Object],
+    usageStatistics: {
+        type: [Object],
+        required: true,
+    },
     contributingSubdomains: [Object],
     lastModified: { type: Number, required: true },
 })

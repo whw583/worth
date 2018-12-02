@@ -17,8 +17,6 @@ export class AppComponent {
         let lang = 'en'
         const hostNameArr = hostname.split('.')
 
-        console.log(hostNameArr)
-
         // test localhost first only for dev
         if (hostNameArr[hostNameArr.length - 1] === 'localhost') {
             if (hostNameArr.length >= 2) {

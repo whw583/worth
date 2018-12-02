@@ -11,6 +11,7 @@ export class UrlService {
         const hostName = url
             .trim()
             .replace(/^https?:\/\//, '')
+            .split('?')[0]
             .split('/')[0]
 
         const isValid = psl.isValid(hostName)
