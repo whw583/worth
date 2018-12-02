@@ -14,8 +14,8 @@ export class ReportProviderService {
         this.alertSubject.next(dataUrl)
     }
 
-    getAlertSubject(): Subject<string> {
-        return this.alertSubject
+    getAlertSubject(): Observable<string> {
+        return this.alertSubject.asObservable()
     }
 
     getReport(dataUrl: string): Observable<IReportData> {
