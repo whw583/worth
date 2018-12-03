@@ -2,7 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core'
 import { ActivatedRoute, UrlSegment } from '@angular/router'
 import { ReportProviderService } from '../../service/report/report-provider.service'
 import { UrlService } from '../../service/url/url.service'
-import { Subscription } from 'rxjs'
+import { Subscription, Subject } from 'rxjs'
+import { takeUntil } from 'rxjs/operators'
 import { IReportData } from '../../service/report/report-data.interface'
 
 @Component({
@@ -12,7 +13,7 @@ import { IReportData } from '../../service/report/report-data.interface'
 })
 export class ReportComponent implements OnInit, OnDestroy {
     reportData: IReportData
-    urlSubscription: Subscription
+    private ngUnsubscribe = new Subject()
 
     constructor(
         private activatedRoute: ActivatedRoute,
@@ -33,6 +34,7 @@ export class ReportComponent implements OnInit, OnDestroy {
             return
         }
 
+        // http observable
         this.report.getReport(dataUrl).subscribe(
             reportData => {
                 this.reportData = reportData
@@ -44,15 +46,16 @@ export class ReportComponent implements OnInit, OnDestroy {
     }
 
     handleUrlChange() {
-        this.urlSubscription = this.activatedRoute.url.subscribe(
-            (urlSegmentArr: UrlSegment[]) => {
+        this.activatedRoute.url
+            .pipe(takeUntil(this.ngUnsubscribe))
+            .subscribe((urlSegmentArr: UrlSegment[]) => {
                 console.log('url subscribe run ----------------------')
                 this.setReportData()
-            }
-        )
+            })
     }
 
     ngOnDestroy() {
-        this.urlSubscription.unsubscribe()
+        this.ngUnsubscribe.next()
+        this.ngUnsubscribe.complete()
     }
 }

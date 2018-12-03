@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { fromEvent, merge, interval, from } from 'rxjs'
+import { fromEvent, merge, interval } from 'rxjs'
 import { ConfigService } from '../config/config.service'
 
 @Injectable({
@@ -16,8 +16,8 @@ export class RecaptchaService {
     private isUpdating = false
 
     constructor(private config: ConfigService) {
-         this.warmTokenTimestamp()
-         this.runTokenUpdateScheduler()
+        this.warmTokenTimestamp()
+        this.runTokenUpdateScheduler()
     }
 
     private warmTokenTimestamp() {
@@ -93,7 +93,7 @@ export class RecaptchaService {
                 if (token) {
                     clearInterval(id)
                     resolve(token)
-                } else if (count > 50) {
+                } else if (count > 10) {
                     clearInterval(id)
                     reject(
                         new Error(
@@ -108,8 +108,12 @@ export class RecaptchaService {
     async getToken() {
         let token = this.catchOneToken()
 
-        if (!token) {
-            token = await this.retryGetToken()
+        try {
+            if (!token) {
+                token = await this.retryGetToken()
+            }
+        } catch (e) {
+            token = await this.requestToken()
         }
 
         return token
