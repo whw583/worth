@@ -1,12 +1,31 @@
+
+
 <div class="search-box">
 
 
-<h1>CALCULATE WEBSITE WORTH</h1>
-<p>SiteWorthTraffic is a free service designed to estimate value, daily pageviews, daily visitors and daily revenue of a website.</p>
+    <h1>CALCULATE WEBSITE WORTH</h1>
+    <p>SiteWorthTraffic is a free service designed to estimate value, daily pageviews, daily visitors and daily revenue
+        of a website.</p>
 
-<div class="input-block" >
-  <div class='cell'><input type='search' [(ngModel)]="value"  placeholder='any valid url or domain'></div>
-  <div class='cell'><div class='button' (click)="handleClick()">Submit</div></div>
-</div>
+    <div class="input-block">
+        <div class='cell'><input type='search' [(ngModel)]="value" placeholder='any valid url or domain'></div>
+        <div class='cell'>
+            <div class='button disabled' disabled="true" (click)="handleClick()">
+                Submit
+            </div>
+        </div>
+    </div>
+    <div class="message-block">
+        <mat-progress-bar
+
+               color="primary"
+               mode="indeterminate"
+
+              >
+        </mat-progress-bar>
+
+    </div>
+
+
 
 </div>

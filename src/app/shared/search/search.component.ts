@@ -2,24 +2,23 @@ import { Component, OnInit } from '@angular/core'
 import { ReportProviderService } from '../../service/report/report-provider.service'
 import { UrlService } from '../../service/url/url.service'
 import { Router } from '@angular/router'
-import { Observable } from 'rxjs'
-import { switchMap } from 'rxjs/operators'
+
 @Component({
     selector: 'app-search',
     templateUrl: './search.component.html',
     styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent implements OnInit {
-    value = 'test'
+    value = ''
+    message = 'this is alert message'
 
     constructor(
         private report: ReportProviderService,
         private url: UrlService,
         private router: Router
     ) {}
-    test() {
-        console.log(this)
-    }
+
+    ngOnInit() {}
 
     handleClick() {
         const dataUrl = this.url.getDataUrl(this.value)
@@ -37,6 +36,4 @@ export class SearchComponent implements OnInit {
             }
         )
     }
-
-    ngOnInit() {}
 }

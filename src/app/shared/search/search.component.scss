@@ -40,6 +40,7 @@
     }
 }
 
+
 .input-block div.cell {
     display: table-cell;
 }
@@ -85,3 +86,23 @@ input[type='search'] {
 
     white-space: nowrap;
 }
+
+// for message
+.message-block{
+    width: 400px;
+    margin: 2px auto 0;
+    color:red;
+   font-size: 1.2rem;
+   padding-left: 0px;
+
+    @media only screen and (max-width: 600px) {
+       // background-color: lightblue;
+        width: 90%;
+    }
+}
+
+.disabled {
+    cursor:not-allowed;
+}
+
+
