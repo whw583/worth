@@ -8,6 +8,7 @@ export async function verifyRecaptcha(ctx: Context, next: Function) {
     console.log('verify recaptcha------------')
 
     const isVerify = await recaptcha.verify(token, action)
+
     if (!isVerify) {
         ctx.status = 401
         ctx.body = { success: false, msg: 'recaptcha token not valid' }

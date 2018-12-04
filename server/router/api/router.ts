@@ -10,7 +10,7 @@ router.prefix('/api')
 
 router.use(handleApiError)
 router.use('/*/:dataUrl', validDataUrl)
-// router.use('/protected/', verifyRecaptcha)
+ router.use('/protected/', verifyRecaptcha)
 
 router.get('/report/:dataUrl', controller.getOneReport)
 
