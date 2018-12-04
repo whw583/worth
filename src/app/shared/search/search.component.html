@@ -1,5 +1,3 @@
-
-
 <div class="search-box">
 
 
@@ -8,24 +6,30 @@
         of a website.</p>
 
     <div class="input-block">
-        <div class='cell'><input type='search' [(ngModel)]="value" placeholder='any valid url or domain'></div>
+        <div class='cell'><input type='search' (input)="onValueChange($event)" [(ngModel)]="value"
+                                 placeholder='any valid url or domain'></div>
         <div class='cell'>
-            <div class='button disabled' disabled="true" (click)="handleClick()">
+            <div [ngClass]='{button:true,"submit-button":true,clickable:!showProgressBar}' (click)="handleClick()">
                 Submit
             </div>
         </div>
     </div>
     <div class="message-block">
-        <mat-progress-bar
+        <div *ngIf="showProgressBar" class="processing-block">
+            <mat-progress-bar color="primary" mode="indeterminate"></mat-progress-bar>
+            <div class="processing-text">processing...</div>
+        </div>
 
-               color="primary"
-               mode="indeterminate"
+        <div *ngIf="showRequestError" class="request-error">
+            <p>No such data url or something went wrong. </p>
+        </div>
 
-              >
-        </mat-progress-bar>
+        <div *ngIf="showInvalidUrl" class="invalid-url">
+            <p>Please enter valid url or domain.</p>
+        </div>
+
 
     </div>
-
 
 
 </div>
