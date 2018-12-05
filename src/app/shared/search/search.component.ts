@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { ReportProviderService } from '../../service/report/report-provider.service'
 import { UrlService } from '../../service/url/url.service'
 import { Router } from '@angular/router'
-import {timeout} from 'rxjs/operators'
+import { timeout } from 'rxjs/operators'
 
 @Component({
     selector: 'app-search',
@@ -14,6 +14,7 @@ export class SearchComponent implements OnInit {
     showProgressBar = false
     showRequestError = false
     showRequestErrorUnauth = false
+    showRequestErrorNotFound = false
     showInvalidUrl = false
 
     constructor(
@@ -43,26 +44,32 @@ export class SearchComponent implements OnInit {
         // show processing block
         this.showProgressBar = true
 
-        this.report.createReport(dataUrl).pipe(timeout(20000)).subscribe(
-            async () => {
-                await this.router.navigateByUrl(`/report/${dataUrl}`)
-                console.log('success')
-            },
-            error => {
-                const status: number = error.status
-                if (status === 401) {
-                    this.showRequestErrorUnauth = true
-                } else {
-                    this.showRequestError = true
+        this.report
+            .createReport(dataUrl)
+            .pipe(timeout(20000))
+            .subscribe(
+                async () => {
+                    await this.router.navigateByUrl(`/report/${dataUrl}`)
+                    console.log('success')
+                },
+                error => {
+                    this.showProgressBar = false
+                    const status: number = error.status
+                    //
+                    if (status === 401) {
+                        this.showRequestErrorUnauth = true
+                    } else if (status === 404) {
+                        this.showRequestErrorNotFound = true
+                    } else {
+                        this.showRequestError = true
+                    }
+                },
+                () => {
+                    console.log('complete ...')
+                    // hide processing message block
+                    this.showProgressBar = false
                 }
-                this.showProgressBar = false
-            },
-            () => {
-                console.log('complete ...')
-                // hide processing message block
-                this.showProgressBar = false
-            }
-        )
+            )
     }
 
     onValueChange(e) {
@@ -72,6 +79,7 @@ export class SearchComponent implements OnInit {
     clearErrorMessage() {
         this.showRequestError = false
         this.showRequestErrorUnauth = false
+        this.showRequestErrorNotFound = false
         this.showInvalidUrl = false
     }
 }

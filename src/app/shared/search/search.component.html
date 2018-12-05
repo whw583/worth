@@ -20,9 +20,6 @@
             <div class="processing-text">processing...</div>
         </div>
 
-        <div *ngIf="showRequestError" class="error-message">
-            <p>No such data url or something went wrong. </p>
-        </div>
 
         <div *ngIf="showInvalidUrl" class="error-message">
             <p>Please enter valid url or domain.</p>
@@ -30,6 +27,14 @@
 
         <div *ngIf="showRequestErrorUnauth" class="error-message">
             <p>You action seem like bot.Try again later</p>
+        </div>
+
+        <div *ngIf="showRequestErrorNotFound" class="error-message">
+            <p>data url not found.</p>
+        </div>
+
+        <div *ngIf="showRequestError" class="error-message">
+            <p>Something went wrong.Try again later. </p>
         </div>
 
 
