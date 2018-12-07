@@ -17,14 +17,14 @@ export interface IReportData {
     rankByCountry: Array<IRankByCountryElement>
 }
 
-interface IReportStatistic {
+export interface IReportStatistic {
     uniquePageViews: Number
     uniqueVisitors: Number
     revenue: Number
     timeRange: Number
 }
 
-interface IUsageStatistic {
+export interface IUsageStatistic {
     timeRange: {
         months?: string
         days?: string
@@ -63,7 +63,7 @@ interface IUsageStatistic {
     }
 }
 
-interface IContributingSubdomain {
+export interface IContributingSubdomain {
     dataUrl: string
     timeRange: {
         months: string
@@ -77,7 +77,7 @@ interface IContributingSubdomain {
     }
 }
 
-interface IRankByCountryElement {
+export interface IRankByCountryElement {
     code: string
     contribution: {
         pageViews: string

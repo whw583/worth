@@ -1,3 +1,39 @@
-<p>
-  report-ad-revenue works!
-</p>
+
+<div class="table-block">
+
+<h3 class="table-head">Revenue Estimation</h3>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="timeRange">
+    <th mat-header-cell *matHeaderCellDef> TimeRange day(s) </th>
+    <td mat-cell *matCellDef="let element"> {{element.timeRange |localNumber}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="revenue">
+    <th mat-header-cell *matHeaderCellDef> Revenue </th>
+    <td mat-cell *matCellDef="let element"> {{element.revenue |localNumber}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="uniqueVisitors">
+    <th mat-header-cell *matHeaderCellDef> Unique Visitors </th>
+    <td mat-cell *matCellDef="let element"> {{element.uniqueVisitors|localNumber}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="uniquePageViews">
+    <th mat-header-cell *matHeaderCellDef> Unique Page Views </th>
+    <td mat-cell *matCellDef="let element"> {{element.uniquePageViews |localNumber}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+</div>
