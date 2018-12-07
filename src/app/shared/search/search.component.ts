@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, Input, OnInit } from '@angular/core'
 import { ReportProviderService } from '../../service/report/report-provider.service'
 import { UrlService } from '../../service/url/url.service'
 import { Router } from '@angular/router'
 import { timeout } from 'rxjs/operators'
+import { IReportData } from '../../service/report/report-data.interface'
 
 @Component({
     selector: 'app-search',
@@ -16,6 +17,9 @@ export class SearchComponent implements OnInit {
     showRequestErrorUnauth = false
     showRequestErrorNotFound = false
     showInvalidUrl = false
+
+    @Input()
+    reportData: IReportData
 
     constructor(
         private report: ReportProviderService,

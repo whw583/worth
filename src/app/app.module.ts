@@ -23,7 +23,6 @@ import { FlexLayoutModule } from '@angular/flex-layout'
 import { SearchComponent } from './shared/search/search.component'
 import { TableComponent } from './shared/table/table.component'
 import { ReportComponent } from './page/report/report.component'
-import { EstimationsTableComponent } from './shared/estimations-table/estimations-table.component'
 import { FooterComponent } from './shared/footer/footer.component'
 
 // my service
@@ -32,10 +31,19 @@ import { ConfigService } from './service/config/config.service'
 import { TokenInterceptorService } from './service/interceptor/token-interceptor.service'
 import { ReportProviderService } from './service/report/report-provider.service'
 import { UrlService } from './service/url/url.service'
+import { DataGridComponent } from './shared/data-grid/data-grid.component'
+import { ReportExplainComponent } from './shared/report-explain/report-explain.component';
+import { ReportAlexaRankComponent } from './shared/report-alexa-rank/report-alexa-rank.component';
+import { ReportAdRevenueComponent } from './shared/report-ad-revenue/report-ad-revenue.component';
+import { ReportRankByCountryComponent } from './shared/report-rank-by-country/report-rank-by-country.component';
+import { ReportContributingSubdomainsComponent } from './shared/report-contributing-subdomains/report-contributing-subdomains.component';
+import { LocalNumberPipe } from './pipe/local-number.pipe'
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http)
 }
+
+//
 
 @NgModule({
     declarations: [
@@ -46,8 +54,14 @@ export function HttpLoaderFactory(http: HttpClient) {
         SearchComponent,
         TableComponent,
         ReportComponent,
-        EstimationsTableComponent,
         FooterComponent,
+        DataGridComponent,
+        ReportExplainComponent,
+        ReportAlexaRankComponent,
+        ReportAdRevenueComponent,
+        ReportRankByCountryComponent,
+        ReportContributingSubdomainsComponent,
+        LocalNumberPipe,
     ],
     imports: [
         AppRoutingModule,

@@ -1,40 +1,12 @@
-<app-search  ></app-search>
-
-<div class=" explain-p">
-    <div *ngIf="!reportData">no such dataUrl.</div>
-    <div *ngIf="reportData then dataBlock"></div>
-    <ng-template #dataBlock>
-        <div>totalWorth: {{reportData?.report.websiteWorth}}</div>
-        <div *ngFor="let reportStatic  of reportData?.report.reportStatistics ">
-            <div>timeRange: {{reportStatic.timeRange}}</div>
-            <div>revenue: {{reportStatic.revenue}}</div>
-            <div>unique page views : {{reportStatic.uniquePageViews}}</div>
-            <div>unique visitors: {{reportStatic.uniqueVisitors}}</div>
-            <div>----------------------------------------</div>
-        </div>
-        <div>dataUrl: {{reportData?.dataUrl}}</div>
-        <div>lastModified: {{reportData?.lastModified}}</div>
-        <div>title: {{reportData?.siteData.title}}</div>
-        <div>description: {{reportData?.siteData.description}}</div>
-        <div>onlineSince: {{reportData?.siteData.onlineSince}}</div>
-    </ng-template>
+<app-search [reportData]="reportData"></app-search>
 
 
-    <h3>COMPRESS-IMAGE.NET TRAFFIC WORTH</h3>
-    <p>We estimate the website value of compress-image.net is currently at $ 77 USD and reaches roughly 53 unique users
-        each day that generate 106 daily pageviews with a daily revenue (from advertisements, i.e Google AdSense) of $ 0
-        USD approximately. According to Alexa (the Web Information Company) the Global Traffic Rank is 10,888,127 (view
-        Alexa traffic graphs). </p>
-</div>
+<app-report-explain></app-report-explain>
+{{'1234503.578'|localNumber}}
+<app-report-ad-revenue [reportData]="reportData"></app-report-ad-revenue>
 
+<app-report-alexa-rank [reportData]="reportData"></app-report-alexa-rank>
 
+<app-report-rank-by-country [reportData]="reportData"></app-report-rank-by-country>
 
-
-
-
-
-
-
-<app-estimations-table></app-estimations-table>
-
-<app-estimations-table></app-estimations-table>
+<app-report-contributing-subdomains [reportData]="reportData"></app-report-contributing-subdomains>

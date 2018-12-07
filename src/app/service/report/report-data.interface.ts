@@ -13,6 +13,8 @@ export interface IReportData {
         reportStatistics: Array<IReportStatistic>
     }
     usageStatistics: Array<IUsageStatistic>
+    contributingSubdomains: Array<IContributingSubdomain>
+    rankByCountry: Array<IRankByCountryElement>
 }
 
 interface IReportStatistic {
@@ -58,5 +60,27 @@ interface IUsageStatistic {
             value: string
             delta: string
         }
+    }
+}
+
+interface IContributingSubdomain {
+    dataUrl: string
+    timeRange: {
+        months: string
+    }
+    reach: {
+        percentage: string
+    }
+    pageViews: {
+        percentage: string
+        perUser: string
+    }
+}
+
+interface IRankByCountryElement {
+    code: string
+    contribution: {
+        pageViews: string
+        users: string
     }
 }

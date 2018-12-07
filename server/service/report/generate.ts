@@ -57,6 +57,8 @@ export function generate(urlInfo: object): object {
         siteData,
         rank,
         lastModified,
+        contributingSubdomains,
+        rankByCountry,
     } = urlInfo as any
 
     const reportStatistics = getReportStatistics(usageStatistics)
@@ -92,5 +94,7 @@ export function generate(urlInfo: object): object {
         now,
         report,
         usageStatistics,
+        contributingSubdomains,
+        rankByCountry,
     }
 }
