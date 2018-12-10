@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
-import { Observable, Subject, BehaviorSubject } from 'rxjs'
-import { skip } from 'rxjs/operators'
+import { Observable, Subject } from 'rxjs'
 import { IReportData } from './report-data.interface'
 
 @Injectable({
     providedIn: 'root',
 })
 export class ReportProviderService {
-    private alertSubject = new BehaviorSubject<string>('')
+    private alertSubject = new Subject<string>()
     constructor(private http: HttpClient) {}
 
     updateReportAlert(dataUrl: string) {
@@ -16,7 +15,7 @@ export class ReportProviderService {
     }
 
     getAlertSubject(): Observable<string> {
-        return this.alertSubject.pipe(skip(1))
+        return this.alertSubject.asObservable()
     }
 
     getReport(dataUrl: string): Observable<IReportData> {

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { fromEvent, merge, interval } from 'rxjs'
+import {  interval } from 'rxjs'
 import { ConfigService } from '../config/config.service'
 
 @Injectable({
@@ -21,14 +21,11 @@ export class RecaptchaService {
     }
 
     private warmTokenTimestamp() {
-        merge(
-            fromEvent(document, 'click'),
-            fromEvent(document, 'scroll'),
-            fromEvent(document, 'touchmove'),
-            fromEvent(document, 'keypress')
-        ).subscribe(event => {
-            this.activeTimestamp = Date.now()
-        })
+        setInterval(() => {
+            if (!document.hidden) {
+                this.activeTimestamp = Date.now()
+            }
+        }, 1000)
     }
 
     private runTokenUpdateScheduler() {

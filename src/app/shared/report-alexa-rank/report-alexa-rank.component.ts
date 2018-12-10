@@ -5,61 +5,56 @@ import {
     AfterViewInit,
     ElementRef,
     ViewChild,
+    OnDestroy,
 } from '@angular/core'
 import {
     IReportData,
     IUsageStatistic,
 } from '../../service/report/report-data.interface'
 import { Chart } from 'chart.js'
+import { ReplaySubject } from 'rxjs'
+
 @Component({
     selector: 'app-report-alexa-rank',
     templateUrl: './report-alexa-rank.component.html',
     styleUrls: ['./report-alexa-rank.component.scss'],
 })
-export class ReportAlexaRankComponent implements OnInit, AfterViewInit {
+export class ReportAlexaRankComponent
+    implements OnInit, AfterViewInit, OnDestroy {
+    viewChildSubject = new ReplaySubject(1)
     @ViewChild('myChartRef')
     myChartRef: ElementRef<HTMLCanvasElement>
 
     chart: Chart
-    usageStatistics: IUsageStatistic[] = []
     @Input()
     set reportData(reportData: IReportData) {
         if (reportData) {
-            this.usageStatistics = this.usageStatistics
-        } else {
-            this.usageStatistics = []
+            this.viewChildSubject.subscribe(value => {
+                this.createChart(reportData.usageStatistics)
+            })
         }
     }
 
     constructor() {}
 
-    getData() {
-        const newestEle = this.usageStatistics[this.usageStatistics.length - 1]
-        const labels = ['90', '30', '7', '1']
-        const dataArr = []
-        for (let i = 0; i < 3; i++) {
-            let element = this.usageStatistics[i]
-            if (!element) {
-                element = newestEle
-            }
-            const label = labels[i]
-            const rank = element.rank
-            dataArr.push({ label, rank })
-        }
-    }
-
     ngOnInit() {}
 
-    createChart() {
+    createChart(usageStatistics: IUsageStatistic[]) {
+        if (this.chart) {
+            this.chart.destroy()
+        }
+
+        const data = usageStatistics.map(value => Number(value.rank.value))
+
         const ctx = this.myChartRef.nativeElement.getContext('2d')
         this.chart = new Chart(ctx, {
-            type: 'bar',
+            type: 'line',
             data: {
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                labels: ['90 days', '30 days', '7 days', '1 day'],
                 datasets: [
                     {
                         label: '# of Votes',
-                        data: [12, 19, 3, 5, 2, 3],
+                        data: data,
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
                             'rgba(54, 162, 235, 0.2)',
@@ -80,23 +75,15 @@ export class ReportAlexaRankComponent implements OnInit, AfterViewInit {
                     },
                 ],
             },
-            options: {
-                scales: {
-                    yAxes: [
-                        {
-                            ticks: {
-                                beginAtZero: true,
-                            },
-                        },
-                    ],
-                },
-            },
+            options: {},
         })
     }
 
     ngAfterViewInit(): void {
-        this.createChart()
-        console.log('ng after view init')
-        console.log(this.chart)
+        this.viewChildSubject.next(true)
+    }
+
+    ngOnDestroy(): void {
+        this.viewChildSubject.complete()
     }
 }
