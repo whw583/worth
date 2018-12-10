@@ -64,11 +64,15 @@ export class ReportContributingSubdomainsComponent
             // max element is
             const dataArrSlice = sortedDataArr.slice(0, 4)
 
-            const otherNumber = dataArrSlice.reduce(
-                (previousValue, { percentageNum }) =>
-                    previousValue + percentageNum,
-                0
-            )
+            let otherNumber =
+                100 -
+                dataArrSlice.reduce(
+                    (previousValue, { percentageNum }) =>
+                        previousValue + percentageNum,
+                    0
+                )
+            // make sure otherNumber is like 10.55
+            otherNumber = Math.round(otherNumber * 100) / 100
 
             dataArrSlice.push({ dataUrl: 'other', percentageNum: otherNumber })
             chartDataArr = dataArrSlice
