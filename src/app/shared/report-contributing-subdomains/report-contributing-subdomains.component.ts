@@ -13,6 +13,7 @@ import {
 import { Chart } from 'chart.js'
 import { ReplaySubject } from 'rxjs'
 import { take } from 'rxjs/operators'
+import { IChartData } from './chart-data-interface'
 @Component({
     selector: 'app-report-contributing-subdomains',
     templateUrl: './report-contributing-subdomains.component.html',
@@ -22,7 +23,6 @@ export class ReportContributingSubdomainsComponent
     implements OnInit, AfterViewInit {
     @ViewChild('myChartRef')
     myChartRef: ElementRef<HTMLCanvasElement>
-    contributingSubdomains: IContributingSubdomain[]
     viewChildSubject = new ReplaySubject(1)
     chart: Chart
 
@@ -32,7 +32,7 @@ export class ReportContributingSubdomainsComponent
             return
         }
         this.viewChildSubject.pipe(take(1)).subscribe(() => {
-            this.createChart()
+            this.createChart(reportData)
         })
     }
 
@@ -40,40 +40,92 @@ export class ReportContributingSubdomainsComponent
 
     ngOnInit() {}
 
-    createChart() {
+    getChartData(reportData: IReportData): IChartData[] {
+        const { contributingSubdomains, dataUrl } = reportData
+
+        // extra data
+        const dataArr = contributingSubdomains.map(
+            ({ dataUrl, pageViews: { percentage } }) => {
+                const percentageNum = Number(percentage.split(/%$/).join(''))
+                return { dataUrl, percentageNum }
+            }
+        )
+
+        // sort data
+        const sortedDataArr = dataArr.sort(function(a, b) {
+            return b.percentageNum - a.percentageNum
+        })
+
+        //
+        let chartDataArr: IChartData[] = []
+
+        //
+        if (sortedDataArr.length > 5) {
+            // max element is
+            const dataArrSlice = sortedDataArr.slice(0, 4)
+
+            const otherNumber = dataArrSlice.reduce(
+                (previousValue, { percentageNum }) =>
+                    previousValue + percentageNum,
+                0
+            )
+
+            dataArrSlice.push({ dataUrl: 'other', percentageNum: otherNumber })
+            chartDataArr = dataArrSlice
+        } else if (sortedDataArr.length === 0) {
+            chartDataArr.push({ dataUrl, percentageNum: 100 })
+        } else {
+            // sortedDataArr length 1 to 4
+            chartDataArr = sortedDataArr
+        }
+
+        return chartDataArr
+    }
+
+    createChart(reportData: IReportData) {
         if (this.chart) {
             this.chart.destroy()
         }
 
+        const chartDataArr = this.getChartData(reportData)
+
+        // labels
+        const dataUrlArr = chartDataArr.map(({ dataUrl }) => dataUrl)
+
+        // data
+        const percentageNumArr = chartDataArr.map(
+            ({ percentageNum }) => percentageNum
+        )
+
+        // backgroundColor
+        const backgroundColorArr = [
+            '#3e95cd',
+            '#8e5ea2',
+            '#3cba9f',
+            '#e8c3b9',
+            '#c45850',
+        ].slice(0, chartDataArr.length)
+
+        //
         const ctx = this.myChartRef.nativeElement.getContext('2d')
+
+        //
         this.chart = new Chart(ctx, {
             type: 'pie',
             data: {
-                labels: [
-                    'Africa',
-                    'Asia',
-                    'Europe',
-                    'Latin America',
-                    'North America',
-                ],
+                labels: dataUrlArr,
                 datasets: [
                     {
                         label: 'Population (millions)',
-                        backgroundColor: [
-                            '#3e95cd',
-                            '#8e5ea2',
-                            '#3cba9f',
-                            '#e8c3b9',
-                            '#c45850',
-                        ],
-                        data: [2478, 5267, 734, 784, 433],
+                        backgroundColor: backgroundColorArr,
+                        data: percentageNumArr,
                     },
                 ],
             },
             options: {
                 title: {
-                    display: true,
-                    text: 'Predicted world population (millions) in 2050',
+                    display: false,
+                    text: 'Contributing Subdomains',
                 },
             },
         })
