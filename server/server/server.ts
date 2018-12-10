@@ -1,34 +1,14 @@
 import * as Koa from 'koa'
 const app = new Koa()
 import { autoLoadRouter } from './auto-load-router'
-import * as mongoose from 'mongoose'
-import { dbUrl } from '../config/config'
+import { connectWithRetry } from './connect-mongoose'
 const bodyParser = require('koa-bodyparser')
 
-
-//
-
-mongoose.set('useCreateIndex', true)
-
-// connect to mongodb
-mongoose
-    .connect(
-        dbUrl,
-        { useNewUrlParser: true }
-    )
-    .then(function() {
-        console.log('mongoose connected...')
-        console.log('listen on port 3000...')
-        app.listen(3000)
-    })
-    .catch(function(error) {
-        console.log('mongoose connect error')
-        console.log(error)
-    })
+// connect to mongodb use mongoose
+connectWithRetry(app)
 
 // body parser
 app.use(bodyParser())
-
 
 // handle error
 app.use(async (ctx, next) => {

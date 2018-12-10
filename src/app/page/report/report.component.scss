@@ -1,1 +1,27 @@
 
+.graph-block{
+  display: flex;
+  max-width: 900px;
+  margin:auto;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+}
+.graph-item{
+  flex-basis: 49%;
+
+}
+
+
+
+@media only screen and (max-width: 600px) {
+ .graph-block{
+
+ }
+  .graph-item{
+    flex-basis: 95%;
+
+  }
+}
+

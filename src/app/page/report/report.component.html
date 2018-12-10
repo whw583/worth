@@ -5,8 +5,11 @@
 
 <app-report-ad-revenue [reportData]="reportData"></app-report-ad-revenue>
 
-<app-report-alexa-rank [reportData]="reportData"></app-report-alexa-rank>
+<div class="graph-block">
+    <app-report-alexa-rank class="graph-item" [reportData]="reportData"></app-report-alexa-rank>
+
+    <app-report-contributing-subdomains class="graph-item" [reportData]="reportData"></app-report-contributing-subdomains>
+
+</div>
 
 <app-report-rank-by-country [reportData]="reportData"></app-report-rank-by-country>
-
-<app-report-contributing-subdomains [reportData]="reportData"></app-report-contributing-subdomains>

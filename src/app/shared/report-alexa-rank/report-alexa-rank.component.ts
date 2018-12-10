@@ -11,8 +11,9 @@ import {
     IReportData,
     IUsageStatistic,
 } from '../../service/report/report-data.interface'
-import { Chart } from 'chart.js'
+import { Chart, ChartTooltipOptions, ChartYAxe } from 'chart.js'
 import { ReplaySubject } from 'rxjs'
+import { take } from 'rxjs/operators'
 
 @Component({
     selector: 'app-report-alexa-rank',
@@ -26,10 +27,11 @@ export class ReportAlexaRankComponent
     myChartRef: ElementRef<HTMLCanvasElement>
 
     chart: Chart
+
     @Input()
     set reportData(reportData: IReportData) {
         if (reportData) {
-            this.viewChildSubject.subscribe(value => {
+            this.viewChildSubject.pipe(take(1)).subscribe(value => {
                 this.createChart(reportData.usageStatistics)
             })
         }
@@ -53,29 +55,38 @@ export class ReportAlexaRankComponent
                 labels: ['90 days', '30 days', '7 days', '1 day'],
                 datasets: [
                     {
-                        label: '# of Votes',
+                        fill: false,
+                        label: 'Recent Alexa Rank',
+                        backgroundColor: 'rgba(247, 212, 168, 0.2)',
+                        borderColor: 'steelblue',
                         data: data,
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)',
-                        ],
-                        borderColor: [
-                            'rgba(255,99,132,1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)',
-                        ],
-                        borderWidth: 1,
                     },
                 ],
             },
-            options: {},
+            options: {
+                legend: {
+                    display: false
+                },
+                scales: {
+                    yAxes: [
+                        {
+                            ticks: {
+                                reverse: true,
+                                suggestedMin: 1,
+                                callback: (
+                                    value: number,
+                                    index: number,
+                                    values: any
+                                ) => {
+                                    if (value > 0 && Number.isInteger(value)) {
+                                        return value
+                                    }
+                                },
+                            },
+                        },
+                    ],
+                },
+            },
         })
     }
 
