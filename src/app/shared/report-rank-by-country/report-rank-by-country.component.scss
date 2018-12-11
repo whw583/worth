@@ -1,14 +1,23 @@
 table {
-  max-width: 900px;
-  margin: auto;
-  width: 100%;
+    max-width: 900px;
+    margin: auto;
+    width: 100%;
 }
 
 th.mat-sort-header-sorted {
-  color: black;
+    color: black;
 }
 
-h3{
-  text-align: center;
-  color: lightgreen;
+.table-header {
+    font-weight: bold;
+
+}
+.td {
+
+    font-size: 16px;
+}
+
+h3 {
+    text-align: center;
+    color: lightgreen;
 }

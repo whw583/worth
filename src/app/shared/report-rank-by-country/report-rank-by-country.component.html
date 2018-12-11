@@ -4,20 +4,20 @@
 
   <!-- Position Column -->
   <ng-container matColumnDef="code">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> country </th>
-    <td mat-cell *matCellDef="let element"> {{element.code}} </td>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> <div class="table-header">country</div> </th>
+    <td mat-cell *matCellDef="let element"> <div class="td">{{element.code}}</div> </td>
   </ng-container>
 
   <!-- Name Column -->
   <ng-container matColumnDef="pageViews">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> pageViews % </th>
-    <td mat-cell *matCellDef="let element"> {{element.pageViews}} </td>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> <div class="table-header">pageViews %</div> </th>
+    <td mat-cell *matCellDef="let element"> <div class="td">{{element.pageViews}}</div> </td>
   </ng-container>
 
   <!-- Weight Column -->
   <ng-container matColumnDef="users">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> users %</th>
-    <td mat-cell *matCellDef="let element"> {{element.users}} </td>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> <div class="table-header">pageViews %</div></th>
+    <td mat-cell *matCellDef="let element"> <div class="td">{{element.users}}</div> </td>
   </ng-container>
 
 
