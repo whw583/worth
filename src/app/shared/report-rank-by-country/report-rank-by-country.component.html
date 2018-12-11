@@ -1,3 +1,26 @@
-<p>
-  report-rank-by-country works!
-</p>
+<h3>Rank By country</h3>
+
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="code">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> country </th>
+    <td mat-cell *matCellDef="let element"> {{element.code}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="pageViews">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> pageViews % </th>
+    <td mat-cell *matCellDef="let element"> {{element.pageViews}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="users">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> users %</th>
+    <td mat-cell *matCellDef="let element"> {{element.users}} </td>
+  </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

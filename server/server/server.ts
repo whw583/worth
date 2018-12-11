@@ -4,8 +4,10 @@ import { autoLoadRouter } from './auto-load-router'
 import { connectWithRetry } from './connect-mongoose'
 const bodyParser = require('koa-bodyparser')
 
+
+
 // connect to mongodb use mongoose
-connectWithRetry(app)
+connectWithRetry()
 
 // body parser
 app.use(bodyParser())
@@ -28,3 +30,6 @@ app.on('error', (err, ctx) => {
 
 // auto load router
 autoLoadRouter(app)
+
+console.log('server listen on port 3000...')
+app.listen(3000)

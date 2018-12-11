@@ -1,6 +1,6 @@
 import * as mongoose from 'mongoose'
 import { dbUrl } from '../config/config'
-import * as Koa from 'koa'
+
 const options = {
     autoIndex: false, // Don't build indexes
     reconnectTries: 30, // Retry up to 30 times
@@ -12,8 +12,13 @@ const options = {
     useNewUrlParser: true,
 }
 
-const connectWithRetry = (app: Koa) => {
-    console.log('MongoDB connection with retry')
+let retryCount = 0
+const retryLimit = 3
+
+const connectWithRetry = () => {
+    console.log(`MongoDB connection with retry, connecting...`)
+
+    //
     mongoose
         .connect(
             dbUrl,
@@ -21,13 +26,18 @@ const connectWithRetry = (app: Koa) => {
         )
         .then(() => {
             console.log('MongoDB is connected')
-            console.log('server listen on port 3000...')
-            app.listen(3000)
         })
         .catch(err => {
+            if (retryCount >= retryLimit) {
+                console.log('retry limit exceed, try again later...')
+                process.exit(1)
+            }
+            retryCount++
+
             console.log(
                 'MongoDB connection unsuccessful, retry after 5 seconds.'
             )
+
             setTimeout(connectWithRetry, 5000)
         })
 }
