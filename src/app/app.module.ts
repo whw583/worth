@@ -32,12 +32,15 @@ import { TokenInterceptorService } from './service/interceptor/token-interceptor
 import { ReportProviderService } from './service/report/report-provider.service'
 import { UrlService } from './service/url/url.service'
 import { DataGridComponent } from './shared/data-grid/data-grid.component'
-import { ReportExplainComponent } from './shared/report-explain/report-explain.component';
-import { ReportAlexaRankComponent } from './shared/report-alexa-rank/report-alexa-rank.component';
-import { ReportAdRevenueComponent } from './shared/report-ad-revenue/report-ad-revenue.component';
-import { ReportRankByCountryComponent } from './shared/report-rank-by-country/report-rank-by-country.component';
-import { ReportContributingSubdomainsComponent } from './shared/report-contributing-subdomains/report-contributing-subdomains.component';
-import { LocalNumberPipe } from './pipe/local-number.pipe'
+import { ReportExplainComponent } from './shared/report-explain/report-explain.component'
+import { ReportAlexaRankComponent } from './shared/report-alexa-rank/report-alexa-rank.component'
+import { ReportAdRevenueComponent } from './shared/report-ad-revenue/report-ad-revenue.component'
+import { ReportRankByCountryComponent } from './shared/report-rank-by-country/report-rank-by-country.component'
+import { ReportContributingSubdomainsComponent } from './shared/report-contributing-subdomains/report-contributing-subdomains.component'
+import { LocalNumberPipe } from './pipe/local-number/local-number.pipe'
+import { PrettyNumberPipe } from './pipe/pretty-number/pretty-number.pipe';
+import { CodeToCountryPipe } from './pipe/code-to-country/code-to-country.pipe'
+
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http)
@@ -62,6 +65,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         ReportRankByCountryComponent,
         ReportContributingSubdomainsComponent,
         LocalNumberPipe,
+        PrettyNumberPipe,
+        CodeToCountryPipe,
     ],
     imports: [
         AppRoutingModule,

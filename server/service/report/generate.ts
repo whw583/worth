@@ -3,7 +3,7 @@ import {
     revenuePerPageView,
 } from '../../config/config'
 
-function getReportStatistics(usageStatistics: Array<any>): Array<any> {
+export function getReportStatistics(usageStatistics: Array<any>): Array<any> {
     const timeRangeArr = [
         { timeRange: 365, dataRefIndex: 0 },
         { timeRange: 90, dataRefIndex: 0 },
@@ -50,6 +50,7 @@ function getReportStatistics(usageStatistics: Array<any>): Array<any> {
 
 //
 export function generate(urlInfo: object): object {
+    // was used to generate report
     const {
         dataUrl,
         usageStatistics,
@@ -57,10 +58,9 @@ export function generate(urlInfo: object): object {
         siteData,
         rank,
         lastModified,
-        contributingSubdomains,
-        rankByCountry,
     } = urlInfo as any
 
+    //
     const reportStatistics = getReportStatistics(usageStatistics)
 
     const linksInCountWorth = linksInCount ? linksInCount * 100 : 0
@@ -94,7 +94,5 @@ export function generate(urlInfo: object): object {
         now,
         report,
         usageStatistics,
-        contributingSubdomains,
-        rankByCountry,
     }
 }

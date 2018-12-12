@@ -59,6 +59,9 @@ export class ReportRankByCountryComponent implements OnInit, OnChanges {
             .sort((a, b) => {
                 return b.pageViews - a.pageViews
             })
+            .filter(value => {
+                return value.code.length === 2 && value.pageViews >= 1
+            })
 
         //
 
