@@ -16,7 +16,6 @@ async function getOneReport(ctx: Context) {
 }
 
 async function createReportIfNotExist(ctx: Context) {
-    console.log('create report if not exist--------------')
     const { dataUrl } = ctx.params
     const res = await report.createIfNotExist(dataUrl)
 
@@ -38,7 +37,7 @@ const controller = {
     getOneReport,
     createReportIfNotExist,
     updateOrCreateOneReport,
-    getTopSites
+    getTopSites,
 }
 
 export { controller }

@@ -21,7 +21,6 @@ import { ToolbarComponent } from './shared/toolbar/toolbar.component'
 
 import { FlexLayoutModule } from '@angular/flex-layout'
 import { SearchComponent } from './shared/search/search.component'
-import { TableComponent } from './shared/table/table.component'
 import { ReportComponent } from './page/report/report.component'
 import { FooterComponent } from './shared/footer/footer.component'
 
@@ -39,7 +38,8 @@ import { ReportRankByCountryComponent } from './shared/report-rank-by-country/re
 import { ReportContributingSubdomainsComponent } from './shared/report-contributing-subdomains/report-contributing-subdomains.component'
 import { LocalNumberPipe } from './pipe/local-number/local-number.pipe'
 import { PrettyNumberPipe } from './pipe/pretty-number/pretty-number.pipe';
-import { CodeToCountryPipe } from './pipe/code-to-country/code-to-country.pipe'
+import { CodeToCountryPipe } from './pipe/code-to-country/code-to-country.pipe';
+import { TopListComponent } from './shared/top-list/top-list.component'
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -55,7 +55,6 @@ export function HttpLoaderFactory(http: HttpClient) {
         AboutComponent,
         ToolbarComponent,
         SearchComponent,
-        TableComponent,
         ReportComponent,
         FooterComponent,
         DataGridComponent,
@@ -67,6 +66,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         LocalNumberPipe,
         PrettyNumberPipe,
         CodeToCountryPipe,
+        TopListComponent,
     ],
     imports: [
         AppRoutingModule,

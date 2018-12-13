@@ -19,5 +19,9 @@ export async function getTopSitesList(): Promise<object[]> {
         .limit(10)
 
     // return urlInfos
-    return urlInfos.map(val => report.generate(val))
+    return urlInfos.map(val => report.generate(val)).map((val: any) => {
+        // remove report and usageStatistics
+        const { report, usageStatistics, ...temp } = val
+        return { ...temp, websiteWorth: report.websiteWorth }
+    })
 }
