@@ -1,0 +1,21 @@
+.block {
+    max-width: 900px;
+    margin:7px auto;
+
+}
+
+button{
+    color: steelblue;
+    font-size: 18px;
+    &:hover{
+       opacity: 0.8;
+    }
+
+}
+
+.spinner-button{
+    position: relative;
+    top: 5px;
+
+
+}

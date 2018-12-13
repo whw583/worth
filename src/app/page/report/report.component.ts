@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core'
 import { ActivatedRoute, UrlSegment } from '@angular/router'
 import { ReportProviderService } from '../../service/report/report-provider.service'
 import { UrlService } from '../../service/url/url.service'
-import { Subscription, Subject } from 'rxjs'
+import {  Subject } from 'rxjs'
 import { takeUntil } from 'rxjs/operators'
 import { IReportData } from '../../service/report/report-data.interface'
 
@@ -23,6 +23,16 @@ export class ReportComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         this.handleUrlChange()
+        this.handleUpdateAlert()
+    }
+
+    handleUpdateAlert() {
+        this.report
+            .getAlertSubject()
+            .pipe(takeUntil(this.ngUnsubscribe))
+            .subscribe(() => {
+                this.setReportData()
+            })
     }
 
     setReportData() {
@@ -49,7 +59,6 @@ export class ReportComponent implements OnInit, OnDestroy {
         this.activatedRoute.url
             .pipe(takeUntil(this.ngUnsubscribe))
             .subscribe((urlSegmentArr: UrlSegment[]) => {
-                console.log('url subscribe run ----------------------')
                 this.setReportData()
             })
     }

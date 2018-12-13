@@ -7,14 +7,14 @@ import { IReportData } from './report-data.interface'
     providedIn: 'root',
 })
 export class ReportProviderService {
-    private alertSubject = new Subject<string>()
+    private alertSubject = new Subject()
     constructor(private http: HttpClient) {}
 
-    updateReportAlert(dataUrl: string) {
-        this.alertSubject.next(dataUrl)
+    updateReportAlert() {
+        this.alertSubject.next()
     }
 
-    getAlertSubject(): Observable<string> {
+    getAlertSubject(): Observable<any> {
         return this.alertSubject.asObservable()
     }
 
