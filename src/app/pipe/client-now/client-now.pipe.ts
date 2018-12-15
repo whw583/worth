@@ -5,6 +5,8 @@ import { Pipe, PipeTransform } from '@angular/core'
 })
 export class ClientNowPipe implements PipeTransform {
     transform(diff: number, args?: any): number {
-        return Date.now() - Math.abs(diff)
+        const clientTimestamp = Date.now() - Math.abs(diff)
+        console.log(clientTimestamp)
+        return clientTimestamp
     }
 }
