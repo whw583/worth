@@ -41,8 +41,7 @@ import { PrettyNumberPipe } from './pipe/pretty-number/pretty-number.pipe';
 import { CodeToCountryPipe } from './pipe/code-to-country/code-to-country.pipe';
 import { TopListComponent } from './shared/top-list/top-list.component';
 import { ReportUpdaterComponent } from './shared/report-updater/report-updater.component';
-import { TimestampToDatePipe } from './pipe/timestamp-to-date/timestamp-to-date.pipe';
-import { ClientNowPipe } from './pipe/client-now/client-now.pipe'
+import { TimeAgoPipe } from './pipe/time-ago/time-ago.pipe'
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -71,8 +70,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         CodeToCountryPipe,
         TopListComponent,
         ReportUpdaterComponent,
-        TimestampToDatePipe,
-        ClientNowPipe,
+        TimeAgoPipe,
     ],
     imports: [
         AppRoutingModule,

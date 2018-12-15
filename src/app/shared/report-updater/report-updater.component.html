@@ -1,5 +1,5 @@
 <div class="block">
-    Report updated {{reportData?.now - reportData?.lastModified |clientNow |date:'medium'}} |
+    Report updated {{reportData?.now - reportData?.lastModified |timeAgo}} |
     <button *ngIf="isUpdating" class="spinner-button" mat-flat-button>
         <mat-spinner diameter="25"></mat-spinner>
     </button>
