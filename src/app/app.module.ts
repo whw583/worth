@@ -19,10 +19,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MaterialModule } from './module/material/material.module'
 import { ToolbarComponent } from './shared/toolbar/toolbar.component'
 
-import { FlexLayoutModule } from '@angular/flex-layout'
+ import { FlexLayoutModule } from '@angular/flex-layout'
 import { SearchComponent } from './shared/search/search.component'
 import { ReportComponent } from './page/report/report.component'
 import { FooterComponent } from './shared/footer/footer.component'
+import { NotFoundComponent } from './page/not-found/not-found.component'
 
 // my service
 import { RecaptchaService } from './service/recaptcha/recaptcha.service'
@@ -37,16 +38,21 @@ import { ReportAdRevenueComponent } from './shared/report-ad-revenue/report-ad-r
 import { ReportRankByCountryComponent } from './shared/report-rank-by-country/report-rank-by-country.component'
 import { ReportContributingSubdomainsComponent } from './shared/report-contributing-subdomains/report-contributing-subdomains.component'
 import { LocalNumberPipe } from './pipe/local-number/local-number.pipe'
-import { PrettyNumberPipe } from './pipe/pretty-number/pretty-number.pipe';
-import { CodeToCountryPipe } from './pipe/code-to-country/code-to-country.pipe';
-import { TopListComponent } from './shared/top-list/top-list.component';
-import { ReportUpdaterComponent } from './shared/report-updater/report-updater.component';
-import { TimeAgoPipe } from './pipe/time-ago/time-ago.pipe'
+import { PrettyNumberPipe } from './pipe/pretty-number/pretty-number.pipe'
+import { CodeToCountryPipe } from './pipe/code-to-country/code-to-country.pipe'
+import { TopListComponent } from './shared/top-list/top-list.component'
+import { ReportUpdaterComponent } from './shared/report-updater/report-updater.component'
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http)
 }
+
+import { MyMomentModule } from './module/my-moment/my-moment.module'
+
+//
+
+import { ClientTimestampPipe } from './pipe/client-timestamp/client-timestamp.pipe'
 
 //
 
@@ -55,6 +61,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         AppComponent,
         HomeComponent,
         AboutComponent,
+        NotFoundComponent,
         ToolbarComponent,
         SearchComponent,
         ReportComponent,
@@ -70,7 +77,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         CodeToCountryPipe,
         TopListComponent,
         ReportUpdaterComponent,
-        TimeAgoPipe,
+        ClientTimestampPipe,
     ],
     imports: [
         AppRoutingModule,
@@ -85,9 +92,10 @@ export function HttpLoaderFactory(http: HttpClient) {
         }),
         BrowserAnimationsModule,
         MaterialModule,
-        FlexLayoutModule,
+          FlexLayoutModule,
         FormsModule,
         ReactiveFormsModule,
+        MyMomentModule,
     ],
     providers: [
         RecaptchaService,
