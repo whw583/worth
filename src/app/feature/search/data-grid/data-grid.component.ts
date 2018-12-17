@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core'
-import { IReportData } from '../../service/report/report-data.interface'
-
+import { IReportData } from '../../../core/report/report-data.interface'
 @Component({
     selector: 'app-data-grid',
     templateUrl: './data-grid.component.html',

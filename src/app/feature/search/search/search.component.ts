@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core'
-import { ReportProviderService } from '../../service/report/report-provider.service'
-import { UrlService } from '../../service/url/url.service'
+import { ReportProviderService } from '../../../core/report/report-provider.service'
+import { UrlService } from '../../../core/url/url.service'
 import { Router } from '@angular/router'
 import { timeout } from 'rxjs/operators'
-import { IReportData } from '../../service/report/report-data.interface'
+import { IReportData } from '../../../core/report/report-data.interface'
 
 @Component({
     selector: 'app-search',

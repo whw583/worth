@@ -9,7 +9,7 @@ import {
 import {
     IReportData,
     IContributingSubdomain,
-} from '../../service/report/report-data.interface'
+} from '../../../core/report/report-data.interface'
 import { Chart } from 'chart.js'
 import { ReplaySubject } from 'rxjs'
 import { take } from 'rxjs/operators'

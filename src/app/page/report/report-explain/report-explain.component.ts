@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core'
-import { IReportData } from '../../service/report/report-data.interface'
+import { IReportData } from '../../../core/report/report-data.interface'
 
 @Component({
   selector: 'app-report-explain',

@@ -8,6 +8,7 @@
     <div class="input-block">
         <div class='cell'><input type='search' (input)="onValueChange($event)" [(ngModel)]="value"
                                  placeholder='any valid url or domain'></div>
+
         <div class='cell'>
             <div [ngClass]='{button:true,"submit-button":true,clickable:!showProgressBar}' (click)="handleClick()">
                 Submit

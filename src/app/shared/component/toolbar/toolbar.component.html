@@ -1,0 +1,53 @@
+<mat-toolbar color="primary">
+    <button mat-button routerLink="/">
+        <mat-icon>home</mat-icon>
+        {{ title }}
+    </button>
+
+    <!-- This fills the remaining space of the current row -->
+    <span class="fill-remaining-space"></span>
+
+    <div class="top-button-block">
+        <button mat-button routerLink="/report/google.com">google.com</button>
+        <button mat-button routerLink="/report/yahoo.com">yahoo.com</button>
+        <button mat-button routerLink="/report/test">test</button>
+        <button mat-button routerLink="/report/test.com">test.com</button>
+    </div>
+
+    <button class="menu-block" (click)="handleMenuButtonClick()" mat-button>
+        <mat-icon>menu</mat-icon>
+    </button>
+</mat-toolbar>
+
+<mat-toolbar color="primary" *ngIf="show" class="bottom-button-block">
+    <mat-toolbar-row>
+        <div>Custom Toolbar</div>
+    </mat-toolbar-row>
+
+    <mat-toolbar-row>
+        <div>Second Line</div>
+    </mat-toolbar-row>
+
+    <mat-toolbar-row>
+        <div class="mat-toolbar-row-span">Third Line</div>
+    </mat-toolbar-row>
+
+    <mat-toolbar-row>
+        <div class="mat-toolbar-row-span">
+            <button mat-button [mat-menu-trigger-for]="menu" >
+               Language <mat-icon>arrow_drop_down</mat-icon>
+            </button>
+
+            <mat-menu x-position="before" #menu="matMenu">
+                <button mat-menu-item routerLink="/report/google.com">google.com</button>
+                <button mat-menu-item routerLink="/report/yahoo.com">yahoo.com</button>
+                <button mat-menu-item routerLink="/report/test">test</button>
+                <button mat-menu-item routerLink="/report/test.com">test.com</button>
+
+                <!--<button mat-menu-item>Help</button>-->
+            </mat-menu>
+
+
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>

@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core'
 import {
     IReportData,
     IReportStatistic,
-} from '../../service/report/report-data.interface'
+} from '../../../core/report/report-data.interface'
 
 export interface PeriodicElement {
     name: string

@@ -10,7 +10,7 @@ import {
 import {
     IReportData,
     IUsageStatistic,
-} from '../../service/report/report-data.interface'
+} from '../../../core/report/report-data.interface'
 import { Chart, ChartTooltipOptions, ChartYAxe } from 'chart.js'
 import { ReplaySubject } from 'rxjs'
 import { take } from 'rxjs/operators'

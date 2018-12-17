@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
-import { ReportProviderService } from '../../service/report/report-provider.service'
-import { UrlService } from '../../service/url/url.service'
+import { ReportProviderService } from '../../core/report/report-provider.service'
+import { UrlService } from '../../core/url/url.service'
 
 @Component({
     selector: 'app-home',

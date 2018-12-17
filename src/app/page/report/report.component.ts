@@ -1,10 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core'
 import { ActivatedRoute, UrlSegment } from '@angular/router'
-import { ReportProviderService } from '../../service/report/report-provider.service'
-import { UrlService } from '../../service/url/url.service'
-import {  Subject } from 'rxjs'
+import { ReportProviderService } from '../../core/report/report-provider.service'
+import { UrlService } from '../../core/url/url.service'
+import { Subject } from 'rxjs'
 import { takeUntil } from 'rxjs/operators'
-import { IReportData } from '../../service/report/report-data.interface'
+import { IReportData } from '../../core/report/report-data.interface'
 
 @Component({
     selector: 'app-report',

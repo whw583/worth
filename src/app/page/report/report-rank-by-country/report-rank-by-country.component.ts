@@ -1,4 +1,4 @@
-import { IReportData } from '../../service/report/report-data.interface'
+import { IReportData } from '../../../core/report/report-data.interface'
 import {
     Component,
     OnInit,

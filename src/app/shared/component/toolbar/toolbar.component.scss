@@ -1,0 +1,37 @@
+.fill-remaining-space {
+    /*This fills the remaining space, by using flexbox.
+ Every toolbar row uses a flexbox row layout. */
+    flex: 1 1 auto;
+}
+
+mat-toolbar {
+    //  background-color: black !important;
+    opacity: 0.8;
+    color: white !important;
+}
+
+.mat-menu-block {
+    width: 100% !important;
+    color: red;
+}
+
+mat-toolbar-row div {
+    width: 100%;
+    text-align: center;
+}
+
+.bottom-button-block,
+.menu-block {
+    display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .top-button-block{
+    display: none;
+  }
+
+  .bottom-button-block,
+  .menu-block {
+    display: block;
+  }
+}

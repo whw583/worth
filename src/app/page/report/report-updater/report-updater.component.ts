@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core'
-import { ReportProviderService } from '../../service/report/report-provider.service'
-import { IReportData } from '../../service/report/report-data.interface'
+import { ReportProviderService } from '../../../core/report/report-provider.service'
+import { IReportData } from '../../../core/report/report-data.interface'
 import { ActivatedRoute } from '@angular/router'
 
 @Component({
