@@ -8,7 +8,7 @@
     <span class="fill-remaining-space"></span>
 
     <div class="top-button-block">
-        <button mat-button routerLink="/report/google.com">google.com</button>
+        <button mat-button routerLink="/about">about</button>
         <button mat-button routerLink="/report/yahoo.com">yahoo.com</button>
 
         <button mat-button [mat-menu-trigger-for]="menu">
@@ -18,7 +18,7 @@
     </div>
 
     <!--trigger button-->
-    <button class="menu-block"    (click)="handleMenuButtonClick()" mat-button>
+    <button class="menu-block" (click)="handleMenuButtonClick()" mat-button>
         <mat-icon>menu</mat-icon>
     </button>
 </mat-toolbar>
@@ -26,11 +26,7 @@
 <!--on small block-->
 <mat-toolbar color="primary" *ngIf="show" class="bottom-button-block">
     <mat-toolbar-row>
-        <div>
-            <button mat-button routerLink="/report/google.com">
-                google.com
-            </button>
-        </div>
+        <div><button mat-button routerLink="/about">about</button></div>
     </mat-toolbar-row>
 
     <mat-toolbar-row>
@@ -41,7 +37,7 @@
 
     <mat-toolbar-row>
         <div class="mat-toolbar-row-span">
-            <button mat-button   [mat-menu-trigger-for]="menu">
+            <button mat-button [mat-menu-trigger-for]="menu">
                 Language
                 <mat-icon>arrow_drop_down</mat-icon>
             </button>
@@ -50,10 +46,10 @@
 </mat-toolbar>
 
 <mat-menu #menu="matMenu">
-  <span  (mouseleave)="closeMyMenu()" >
-    <button mat-menu-item routerLink="/report/google.com">google.com</button>
-    <button mat-menu-item routerLink="/report/yahoo.com">yahoo.com</button>
-    <button mat-menu-item routerLink="/report/test">test</button>
-    <button mat-menu-item routerLink="/report/test.com">test.com</button>
+    <span (mouseleave)="closeMyMenu()">
+        <a mat-menu-item [href]="protocolPrefix + url">English</a>
+        <a mat-menu-item [href]="protocolPrefix + 'cn.' + url">中国</a>
+        <a mat-menu-item [href]="protocolPrefix + 'tw.' + url">台湾</a>
+        <a mat-menu-item [href]="protocolPrefix + 'hk.' + url">香港</a>
     </span>
 </mat-menu>

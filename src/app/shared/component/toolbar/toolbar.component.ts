@@ -6,6 +6,7 @@ import {
     HostListener,
 } from '@angular/core'
 import { MatMenuTrigger } from '@angular/material'
+import psl from 'psl'
 
 @Component({
     selector: 'app-toolbar',
@@ -15,11 +16,29 @@ import { MatMenuTrigger } from '@angular/material'
 export class ToolbarComponent implements OnInit {
     show = false
     title = 'Home'
+    url: string
+    protocolPrefix: string
 
     @ViewChildren(MatMenuTrigger)
     triggers: QueryList<MatMenuTrigger>
     constructor() {}
-    ngOnInit() {}
+    ngOnInit() {
+        this.setUrlWithoutSubdomain()
+    }
+
+    setUrlWithoutSubdomain() {
+        let url = window.location.href.replace(/^https?:\/\//, '')
+        this.protocolPrefix = window.location.protocol + '//'
+        console.log(window.location)
+        const urlSplitArr = url.split('.')
+
+        if (urlSplitArr[0].length === 2) {
+            urlSplitArr.shift()
+            url = urlSplitArr.join('.')
+        }
+
+        this.url = url
+    }
 
     handleMenuButtonClick() {
         this.show = !this.show
