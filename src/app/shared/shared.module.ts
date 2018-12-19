@@ -9,6 +9,8 @@ import { PrettyNumberPipe } from './pipe/pretty-number/pretty-number.pipe'
 import { ClientTimestampPipe } from './pipe/client-timestamp/client-timestamp.pipe'
 import { LocalNumberPipe } from './pipe/local-number/local-number.pipe'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { RouterModule } from '@angular/router'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 @NgModule({
     declarations: [
@@ -37,11 +39,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
         //
         ReactiveFormsModule,
         FormsModule,
+        BrowserAnimationsModule,
+        CommonModule,
     ],
     imports: [
         CommonModule,
+        RouterModule.forChild([]),
         MaterialModule,
         ReactiveFormsModule,
+        BrowserAnimationsModule,
         MyMomentModule,
     ],
 })
