@@ -1,12 +1,23 @@
 .table-block {
     max-width: 900px;
-    margin:auto;
-
+    margin: auto;
 }
-table{
-  width: 100%;
+table {
+    width: 100%;
 }
 
 th.mat-sort-header-sorted {
     color: black;
 }
+
+//
+//
+.data-url-span {
+    color: #00bcd4;
+    &:hover {
+        text-decoration: underline;
+        cursor: default;
+    }
+}
+
+//

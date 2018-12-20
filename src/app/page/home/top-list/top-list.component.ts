@@ -13,10 +13,10 @@ import { ITopListElement } from './interface'
 })
 export class TopListComponent implements OnInit {
     displayedColumns: string[] = [
-        'rank',
-        'dataUrl',
-        'lastModified',
         'websiteWorth',
+        'lastModified',
+        'dataUrl',
+      //  'rank',
     ]
     dataSource = new MatTableDataSource<ITopListElement>([])
 

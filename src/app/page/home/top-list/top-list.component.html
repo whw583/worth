@@ -1,22 +1,27 @@
 <div class="table-block">
     <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
-        <!-- Position Column -->
-        <ng-container matColumnDef="rank">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>rank.</th>
-            <td mat-cell *matCellDef="let element">
-                {{ element.rank | localNumber }}
-            </td>
-        </ng-container>
+
 
         <!-- Name Column -->
         <ng-container matColumnDef="dataUrl">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>dataUrl</th>
             <td mat-cell *matCellDef="let element">
-                <span [routerLink]="'/report/' + element.dataUrl">
+                <span
+                    class="data-url-span"
+                    [routerLink]="'/report/' + element.dataUrl"
+                >
                     {{ element.dataUrl }}
                 </span>
             </td>
         </ng-container>
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="rank">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>rank.</th>
+        <td mat-cell *matCellDef="let element">
+          <div class="rank-block"> {{ element.rank | localNumber }} </div>
+        </td>
+      </ng-container>
 
         <!-- Weight Column -->
         <ng-container matColumnDef="lastModified">

@@ -1,125 +1,121 @@
 .search-box {
-  padding: 2rem 2rem 2rem 2rem;
- // background-color: #00bcd4;
- // background-color: #1D4E69;
-  background-color: #273547;
-  min-height: 35vh;
+    padding: 2rem 2rem 2rem 2rem;
+    background-color: #00bcd4;
+    min-height: 35vh;
 
-  h1,
-  p {
-    text-align: center;
-    color: #fff;
-    margin: 0 auto;
-    max-width: 700px;
-  }
-
-  p {
-    padding-top: 0.5rem;
-  }
-
-  @media only screen and (max-width: 600px) {
-    padding: 1rem 2rem 2rem 2rem;
-    h1 {
-      font-size: 1.4rem;
+    h1,
+    p {
+        text-align: center;
+        color: #fff;
+        margin: 0 auto;
+        max-width: 700px;
     }
-  }
+
+    p {
+        padding-top: 0.5rem;
+    }
+
+    @media only screen and (max-width: 600px) {
+        padding: 1rem 2rem 2rem 2rem;
+        h1 {
+            font-size: 1.4rem;
+        }
+    }
 }
 
 .input-block {
-  display: table;
+    display: table;
 
-  /* I want the whole search box
+    /* I want the whole search box
    to be exactly this wide. */
 
-  width: 400px;
-  margin: 50px auto 0;
+    width: 400px;
+    margin: 50px auto 0;
 
-  @media only screen and (max-width: 600px) {
-    background-color: lightblue;
-    width: 90%;
-  }
+    @media only screen and (max-width: 600px) {
+        background-color: lightblue;
+        width: 90%;
+    }
 }
 
 .input-block div.cell {
-  display: table-cell;
+    display: table-cell;
 }
 
 .input-block div.cell:last-child {
-  /* Makes sure this cell is only wide enough
+    /* Makes sure this cell is only wide enough
    for the button label. */
-  width: 1px;
+    width: 1px;
 }
 
 input[type='search'],
 .button {
-  width: 100%;
-  height: 35px;
+    width: 100%;
+    height: 35px;
 
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 
-  font-family: inherit;
-  font-size: inherit;
+    font-family: inherit;
+    font-size: inherit;
 }
 
 input[type='search'] {
-  margin: 0;
-  padding: 0 10px;
-  background-color: #f8f8f8;
-  border: 0;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
+    margin: 0;
+    padding: 0 10px;
+    background-color: #f8f8f8;
+    border: 0;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
 
 .button {
-  line-height: 35px;
-  margin: 0;
-  padding: 0 20px;
+    line-height: 35px;
+    margin: 0;
+    padding: 0 20px;
 
-  color: #fff;
-  background-color: #ff1717;
-  font-weight: bold;
+    color: #fff;
+    background-color: #ff1717;
+    font-weight: bold;
 
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 
-  white-space: nowrap;
+    white-space: nowrap;
 }
 
 // for message
 .message-block {
-  width: 400px;
-  margin: 2px auto 0;
-  font-size: 1.2rem;
-  padding-left: 0px;
+    width: 400px;
+    margin: 2px auto 0;
+    font-size: 1.2rem;
+    padding-left: 0px;
 
-  @media only screen and (max-width: 600px) {
-    // background-color: lightblue;
-    width: 90%;
-  }
+    @media only screen and (max-width: 600px) {
+        // background-color: lightblue;
+        width: 90%;
+    }
 }
-
-
 
 // process block
 .processing-block {
-  .processing-text {
-    color: lightgreen;
-    text-align: center;
-  }
+    .processing-text {
+        color: lightgreen;
+        text-align: center;
+    }
 }
 
 .error-message p {
-  color: red;
-  padding-left: 15px;
-  text-align: center;
+    color: red;
+    padding-left: 15px;
+    text-align: center;
 }
 
-.submit-button{
-  cursor: wait;
+.submit-button {
+    cursor: wait;
 }
 
-.clickable{
-  cursor: default;
-
+.clickable {
+    cursor: default;
 }
+
