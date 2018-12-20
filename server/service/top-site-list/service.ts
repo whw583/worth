@@ -15,8 +15,8 @@ export async function getTopSitesList(): Promise<object[]> {
             speed: false,
         }
     )
-        .sort({ lastModified: 1 })
-        .limit(10)
+        .sort({ lastModified: -1 })
+        .limit(20)
 
     // return urlInfos
     return urlInfos.map(val => report.generate(val)).map((val: any) => {

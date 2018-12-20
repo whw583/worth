@@ -10,7 +10,8 @@ import { ClientTimestampPipe } from './pipe/client-timestamp/client-timestamp.pi
 import { LocalNumberPipe } from './pipe/local-number/local-number.pipe'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { RouterModule } from '@angular/router'
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UnitExplainComponent } from './component/unit-explain/unit-explain.component'
 
 @NgModule({
     declarations: [
@@ -22,11 +23,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
         ClientTimestampPipe,
         LocalNumberPipe,
         PrettyNumberPipe,
+        UnitExplainComponent,
     ],
     exports: [
         // component
         FooterComponent,
         ToolbarComponent,
+      UnitExplainComponent,
 
         // module
         MaterialModule,
@@ -41,10 +44,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
         FormsModule,
         BrowserAnimationsModule,
         CommonModule,
+        RouterModule,
     ],
     imports: [
         CommonModule,
-        RouterModule.forChild([]),
+        RouterModule,
         MaterialModule,
         ReactiveFormsModule,
         BrowserAnimationsModule,
