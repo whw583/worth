@@ -35,7 +35,6 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class ReportAdRevenueComponent {
     @Input()
     set reportData(value: IReportData) {
-        console.log(value)
         if (value) {
             this.dataSource = value.report.reportStatistics.reverse()
         } else {
@@ -43,6 +42,11 @@ export class ReportAdRevenueComponent {
         }
     }
 
-    displayedColumns: string[] = ['timeRange', 'revenue', 'uniqueVisitors', 'uniquePageViews']
+    displayedColumns: string[] = [
+        'timeRange',
+        'revenue',
+        'uniqueVisitors',
+        'uniquePageViews',
+    ]
     dataSource: IReportStatistic[] = []
 }

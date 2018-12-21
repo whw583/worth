@@ -5,8 +5,7 @@ import { UrlService } from './url/url.service'
 import { ConfigService } from './config/config.service'
 import { TokenInterceptorService } from './interceptor/token-interceptor.service'
 import { ReportProviderService } from './report/report-provider.service'
-// just import for setting locale not a service
-import './my-moment/moment-locale'
+
 
 @NgModule({
     declarations: [],

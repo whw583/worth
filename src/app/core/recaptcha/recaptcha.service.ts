@@ -1,12 +1,13 @@
-import { Injectable } from '@angular/core'
-import {  interval } from 'rxjs'
+import { Inject, Injectable } from '@angular/core'
+import { interval } from 'rxjs'
 import { ConfigService } from '../config/config.service'
+import { DOCUMENT } from '@angular/common'
 
 @Injectable({
     providedIn: 'root',
 })
 export class RecaptchaService {
-    private readonly grecaptcha = window['grecaptcha']
+    private readonly grecaptcha = this.document['grecaptcha']
 
     private readonly tokenLastTime = 1000 * 60
 
@@ -15,7 +16,10 @@ export class RecaptchaService {
     private activeTimestamp = Date.now()
     private isUpdating = false
 
-    constructor(private config: ConfigService) {
+    constructor(
+        private config: ConfigService,
+        @Inject(DOCUMENT) private document: Document
+    ) {
         this.warmTokenTimestamp()
         this.runTokenUpdateScheduler()
     }

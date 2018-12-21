@@ -1,15 +1,19 @@
-import { Pipe, PipeTransform } from '@angular/core'
+import { Inject, Pipe, PipeTransform } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { ICountry } from './interface'
 import { Observable, ReplaySubject } from 'rxjs'
 import { map } from 'rxjs/operators'
+import { DOCUMENT } from '@angular/common'
 @Pipe({
     name: 'codeToCountry',
 })
 export class CodeToCountryPipe implements PipeTransform {
     replaySubject = new ReplaySubject(1)
 
-    constructor(private http: HttpClient) {
+    constructor(
+        private http: HttpClient,
+        @Inject(DOCUMENT) private document: Document
+    ) {
         this.requestCountriesJson()
     }
 
@@ -20,7 +24,7 @@ export class CodeToCountryPipe implements PipeTransform {
                 const obj: any = {}
 
                 let subdomain = ''
-                const host = window.location.hostname
+                const host = this.document.location.hostname
                 const prefix = host.split('.')[0]
                 if (prefix.length === 2) {
                     subdomain = prefix

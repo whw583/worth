@@ -4,9 +4,10 @@ import {
     QueryList,
     ViewChildren,
     HostListener,
+    Inject,
 } from '@angular/core'
+import { DOCUMENT } from '@angular/common'
 import { MatMenuTrigger } from '@angular/material'
-import psl from 'psl'
 
 @Component({
     selector: 'app-toolbar',
@@ -21,15 +22,17 @@ export class ToolbarComponent implements OnInit {
 
     @ViewChildren(MatMenuTrigger)
     triggers: QueryList<MatMenuTrigger>
-    constructor() {}
+
+    constructor(@Inject(DOCUMENT) private document: Document) {}
+
     ngOnInit() {
         this.setUrlWithoutSubdomain()
     }
 
     setUrlWithoutSubdomain() {
-        let url = window.location.href.replace(/^https?:\/\//, '')
-        this.protocolPrefix = window.location.protocol + '//'
-        console.log(window.location)
+        let url = this.document.location.href.replace(/^https?:\/\//, '')
+        this.protocolPrefix = this.document.location.protocol + '//'
+
         const urlSplitArr = url.split('.')
 
         if (urlSplitArr[0].length === 2) {
