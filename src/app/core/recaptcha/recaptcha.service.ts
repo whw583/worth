@@ -26,7 +26,7 @@ export class RecaptchaService {
 
     private warmTokenTimestamp() {
         setInterval(() => {
-            if (!document.hidden) {
+            if (!this.document.hidden) {
                 this.activeTimestamp = Date.now()
             }
         }, 1000)
