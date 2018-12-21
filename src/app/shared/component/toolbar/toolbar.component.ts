@@ -16,7 +16,6 @@ import { MatMenuTrigger } from '@angular/material'
 })
 export class ToolbarComponent implements OnInit {
     show = false
-    title = 'Home'
     url: string
     protocolPrefix: string
 

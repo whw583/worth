@@ -1,26 +1,42 @@
 <div class="search-box">
-
-
-    <h1>CALCULATE WEBSITE WORTH</h1>
-    <p>SiteWorthTraffic is a free service designed to estimate value, daily pageviews, daily visitors and daily revenue
-        of a website.</p>
+    <h1>Website Worth Calculator</h1>
+    <p>
+        How much is my website? Web-worth.net is free to calculate website
+        worth.You can also check daily revenue from AD, daily pageview,alexa
+        rank and more data here.
+    </p>
 
     <div class="input-block">
-        <div class='cell'><input type='search' (input)="onValueChange($event)" [(ngModel)]="value"
-                                 placeholder='any valid url or domain'></div>
+        <div class="cell">
+            <input
+                type="search"
+                (input)="onValueChange($event)"
+                [(ngModel)]="value"
+                placeholder="any valid url or domain"
+            />
+        </div>
 
-        <div class='cell'>
-            <div [ngClass]='{button:true,"submit-button":true,clickable:!showProgressBar}' (click)="handleClick()">
+        <div class="cell">
+            <div
+                [ngClass]="{
+                    button: true,
+                    'submit-button': true,
+                    clickable: !showProgressBar
+                }"
+                (click)="handleClick()"
+            >
                 Submit
             </div>
         </div>
     </div>
     <div class="message-block">
         <div *ngIf="showProgressBar" class="processing-block">
-            <mat-progress-bar color="primary" mode="indeterminate"></mat-progress-bar>
+            <mat-progress-bar
+                color="primary"
+                mode="indeterminate"
+            ></mat-progress-bar>
             <div class="processing-text">processing...</div>
         </div>
-
 
         <div *ngIf="showInvalidUrl" class="error-message">
             <p>Please enter valid url or domain.</p>
@@ -35,12 +51,9 @@
         </div>
 
         <div *ngIf="showRequestError" class="error-message">
-            <p>Something went wrong.Try again later. </p>
+            <p>Something went wrong.Try again later.</p>
         </div>
-
-
     </div>
 
-    <app-data-grid *ngIf="reportData" [reportData]="reportData" ></app-data-grid>
-
+    <app-data-grid *ngIf="reportData" [reportData]="reportData"></app-data-grid>
 </div>

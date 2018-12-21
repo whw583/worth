@@ -1,9 +1,19 @@
 <div class=" explain-p">
 
-  <div class="explain-text">We estimate the website value of <span>{{reportData?.dataUrl}}</span> is currently at <span>$ {{reportData?.report.websiteWorth |localNumber}}</span> USD and reaches roughly <span>{{reportData?.report.reportStatistics[4].uniqueVisitors |localNumber}}</span> unique users
-    each day that generate <span>{{reportData?.report.reportStatistics[4].uniquePageViews |localNumber}}</span> daily pageviews with a daily revenue (from advertisements, i.e Google AdSense) of <span>$ {{reportData?.report.reportStatistics[4].revenue |localNumber}}</span>
-    USD approximately. According to Alexa (the Web Information Company) the Global Traffic Rank is <span>{{reportData?.rank |localNumber}}</span> . </div>
+  <div class="explain-text" >
+    <span>{{reportData?.dataUrl}}</span>
+    has estimated worth of
+    <span>$ {{reportData?.report.websiteWorth |localNumber}}</span>
+    with daily ad income about
+    <span>$ {{reportData?.report.reportStatistics[4].revenue |localNumber}}</span>
+    and reaches around <span>{{reportData?.report.reportStatistics[4].uniqueVisitors |localNumber}}</span> unique users
+    each day that generate <span>{{reportData?.report.reportStatistics[4].uniquePageViews |localNumber}}</span> daily pageviews.
+    Its global traffic rank is <span>{{reportData?.rank |localNumber}}</span> .
+
+  </div>
 
   <app-report-updater [reportData]="reportData" ></app-report-updater>
 
 </div>
+
+
