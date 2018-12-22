@@ -1,12 +1,12 @@
 <div class="table-block">
 
-  <h3 class="top-explain">Recently Query</h3>
+  <h3 class="top-explain">{{'topList.title'|translate}}</h3>
     <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
 
         <!-- Name Column -->
         <ng-container matColumnDef="dataUrl">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>dataUrl</th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'topList.websites'|translate}}</th>
             <td mat-cell *matCellDef="let element">
                 <span
                     class="data-url-span"
@@ -19,7 +19,7 @@
 
       <!-- Position Column -->
       <ng-container matColumnDef="rank">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>rank.</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'topList.rank'|translate}}</th>
         <td mat-cell *matCellDef="let element">
           <div class="rank-block"> {{ element.rank | localNumber }} </div>
         </td>
@@ -28,7 +28,7 @@
         <!-- Weight Column -->
         <ng-container matColumnDef="lastModified">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>
-                lastModified
+              {{'topList.time'|translate}}
             </th>
             <td mat-cell *matCellDef="let element">
                 {{
@@ -42,7 +42,7 @@
         <!-- Symbol Column -->
         <ng-container matColumnDef="websiteWorth">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>
-                websiteWorth
+              {{'topList.worth'|translate}}
             </th>
             <td mat-cell *matCellDef="let element">
                 {{ element.websiteWorth | prettyNumber }}

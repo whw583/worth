@@ -8,11 +8,11 @@
     <span class="fill-remaining-space"></span>
 
     <div class="top-button-block">
-        <button mat-button routerLink="/about">about</button>
-        <button mat-button routerLink="/report/yahoo.com">yahoo.com</button>
+        <!--<button mat-button routerLink="/about">about</button>-->
+        <!--<button mat-button routerLink="/report/yahoo.com">yahoo.com</button>-->
 
         <button mat-button [mat-menu-trigger-for]="menu">
-            Language
+            {{'toolbar.language'|translate}}
             <mat-icon>arrow_drop_down</mat-icon>
         </button>
     </div>
@@ -48,8 +48,8 @@
 <mat-menu #menu="matMenu">
     <span (mouseleave)="closeMyMenu()">
         <a mat-menu-item [href]="protocolPrefix + url">English</a>
-        <a mat-menu-item [href]="protocolPrefix + 'cn.' + url">中国</a>
-        <a mat-menu-item [href]="protocolPrefix + 'tw.' + url">台湾</a>
-        <a mat-menu-item [href]="protocolPrefix + 'hk.' + url">香港</a>
+        <a mat-menu-item [href]="protocolPrefix + 'cn.' + url">简体中文</a>
+        <a mat-menu-item [href]="protocolPrefix + 'tw.' + url">繁體（台灣）</a>
+        <a mat-menu-item [href]="protocolPrefix + 'hk.' + url">繁體（香港）</a>
     </span>
 </mat-menu>

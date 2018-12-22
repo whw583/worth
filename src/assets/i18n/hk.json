@@ -1,0 +1,68 @@
+{
+    "search": {
+        "title": "網站價值估算",
+        "explain": "我的網站值多少錢？Web-Worth.net 是一個免費的網站估值服務。此外，你還可以在這裡查看該網站每日廣告收入，每日PV， Alexa全球排名等數據。",
+        "placeholder": "任何合法的url或者域名",
+        "button": "提交",
+        "processing": "處理中...",
+        "invalidUrl": "請輸入合法的url或者域名",
+        "unAuth": "您的行為有點像機器人。",
+        "notFound": "沒找到數據",
+        "error": "出錯啦，請稍後再試"
+    },
+    "topList": {
+        "title": "最新評估的域名",
+        "rank": "排名",
+        "worth": "總值",
+        "websites": "域名",
+        "time": "時間"
+    },
+    "dataGrid": {
+        "total": "總值",
+        "revenue": "每日廣告收入",
+        "pv": "每日PV",
+        "rank": "Alexa全球排名",
+        "Report": "數據："
+    },
+    "updater": {
+        "updated": "數據更新於",
+        "now": "立刻更新"
+    },
+    "unit": "* K：千， M：百萬， B：十億",
+    "toolbar": {
+        "language": "語言"
+    },
+    "revenue": {
+        "title": "預估收入（廣告）",
+        "time": "時間（天）",
+        "revenue": "收入",
+        "visitors": "獨立訪客",
+        "pageViews": "PV"
+    },
+    "alexaRank": {
+        "title": "最近（90天）Alexa全球排名"
+    },
+    "contributingSubdomains": {
+        "title": "子域名PV貢獻率 %"
+    },
+    "rankByCountry": {
+        "title": "按國家（地區）排行",
+        "country": "國家（地區）",
+        "pageViews": "PV %",
+        "users": "用戶 %"
+    },
+    "footer": {
+        "reserved": "保留所有權利"
+    },
+    "explain": {
+        "according": "根據我們的數據分析，",
+        "estimate": "估值為",
+        "dollar1": "美元，",
+        "dailyRevenue": "每日廣告收入約",
+        "dollar2": "美元。",
+        "eachDay": "每日有",
+        "uv": "個獨立用戶訪問，",
+        "pvPerDay": "每日PV是",
+        "rank": "它的Alexa全球排名是"
+    }
+}

@@ -1,11 +1,11 @@
-<h3>Rank By country</h3>
+<h3>{{'rankByCountry.title'|translate}}</h3>
 
 <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
     <!-- Position Column -->
     <ng-container matColumnDef="code">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>
-            <div class="table-header">country</div>
+            <div class="table-header">{{'rankByCountry.country'|translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
             <div class="td">{{element.code | codeToCountry |async}}</div>
@@ -15,7 +15,7 @@
     <!-- Name Column -->
     <ng-container matColumnDef="pageViews">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>
-            <div class="table-header">pageViews %</div>
+            <div class="table-header">{{'rankByCountry.pageViews'|translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
             <div class="td">{{element.pageViews}}</div>
@@ -25,7 +25,7 @@
     <!-- Weight Column -->
     <ng-container matColumnDef="users">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>
-            <div class="table-header">pageViews %</div>
+            <div class="table-header">{{'rankByCountry.users'|translate}}</div>
         </th>
         <td mat-cell *matCellDef="let element">
             <div class="td">{{element.users}}</div>

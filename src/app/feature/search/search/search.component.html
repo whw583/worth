@@ -1,10 +1,6 @@
 <div class="search-box">
-    <h1>Website Worth Calculator</h1>
-    <p>
-        How much is my website? Web-worth.net is free to calculate website
-        worth.You can also check daily revenue from AD, daily pageview,alexa
-        rank and more data here.
-    </p>
+    <h1>{{ 'search.title' | translate }}</h1>
+    <p>{{ 'search.explain' | translate }}</p>
 
     <div class="input-block">
         <div class="cell">
@@ -12,7 +8,7 @@
                 type="search"
                 (input)="onValueChange($event)"
                 [(ngModel)]="value"
-                placeholder="any valid url or domain"
+                [placeholder]="'search.placeholder' | translate"
             />
         </div>
 
@@ -25,7 +21,7 @@
                 }"
                 (click)="handleClick()"
             >
-                Submit
+                {{ 'search.button' | translate }}
             </div>
         </div>
     </div>
@@ -35,23 +31,23 @@
                 color="primary"
                 mode="indeterminate"
             ></mat-progress-bar>
-            <div class="processing-text">processing...</div>
+            <div class="processing-text">{{'search.processing'|translate}}</div>
         </div>
 
         <div *ngIf="showInvalidUrl" class="error-message">
-            <p>Please enter valid url or domain.</p>
+            <p>{{'search.invalidUrl'|translate}}</p>
         </div>
 
         <div *ngIf="showRequestErrorUnauth" class="error-message">
-            <p>You action seem like bot.Try again later</p>
+            <p>{{'search.unAuth'|translate}}</p>
         </div>
 
         <div *ngIf="showRequestErrorNotFound" class="error-message">
-            <p>data url not found.</p>
+            <p>{{'search.notFound'|translate}}</p>
         </div>
 
         <div *ngIf="showRequestError" class="error-message">
-            <p>Something went wrong.Try again later.</p>
+            <p>{{'search.error'|translate}}</p>
         </div>
     </div>
 

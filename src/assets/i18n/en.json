@@ -1,6 +1,57 @@
 {
-    "test": {
-        "hello": "hello world",
-        "helloaa": "hello world aa"
-    }
+    "search": {
+        "title": "Website Worth Calculator",
+        "explain": "How much is my website? Web-Worth.net is free to calculate website worth.You can also check daily revenue from AD, daily pageview,alexa rank and more data here.",
+        "placeholder": "any valid url or domain",
+        "button": "Submit",
+        "processing": "processing...",
+        "invalidUrl": "Please enter valid url or domain.",
+        "unAuth": "You action seem like bot.Try again later.",
+        "notFound": "Data url not found.",
+        "error": "Something went wrong.Try again later."
+    },
+    "topList": {
+        "title": "Last Estimated Domains",
+        "rank": "Rank",
+        "worth": "Total Worth",
+        "websites": "Domains",
+        "time": "Time"
+    },
+    "dataGrid": {
+        "total": "Total Worth",
+        "revenue": "Daily Revenue from AD",
+        "pv": "Daily Page Views",
+        "rank": "Alex Rank",
+        "Report": "Report:"
+    },
+    "updater": {
+        "updated": "Report updated",
+        "now": "update now"
+    },
+    "unit": "* K - Thousand, M - Million, B - Billion",
+    "toolbar": {
+        "language": "language"
+    },
+    "revenue": {
+        "title": "Revenue Estimation（AD）",
+        "time": "Time day(s)",
+        "revenue": "Revenue",
+        "visitors": "Visitors",
+        "pageViews": "PageViews"
+    },
+    "alexaRank": {
+        "title": "Recent Alexa Global Rank"
+    },
+    "contributingSubdomains": {
+        "title": "Contributing Subdomains Pageviews Percentage %"
+    },
+    "rankByCountry": {
+        "title": "Rank by Country(Region)",
+        "country": "Country(Region)",
+        "pageViews": "PageViews %",
+        "users": "Users %"
+    },
+  "footer": {
+    "reserved": "All Rights Reserved"
+  }
 }

@@ -1,7 +1,68 @@
 {
-    "test": {
-        "hello": "你好，国际化！！！",
-        "helloaa": "哎呀 hello"
-
+    "search": {
+        "title": "网站价值估算",
+        "explain": "我的网站值多少钱？Web-Worth.net 是一个免费的网站估值服务。此外，你还可以在这里查看该网站每日广告收入，每日PV， Alexa全球排名等数据。",
+        "placeholder": "任何合法的url或者域名",
+        "button": "提交",
+        "processing": "处理中...",
+        "invalidUrl": "请输入合法的url或者域名",
+        "unAuth": "您的行为有点像机器人。",
+        "notFound": "没找到数据",
+        "error": "出错啦，请稍后再试"
+    },
+    "topList": {
+        "title": "最新评估的域名",
+        "rank": "排名",
+        "worth": "总值",
+        "websites": "域名",
+        "time": "时间"
+    },
+    "dataGrid": {
+        "total": "总值",
+        "revenue": "每日广告收入",
+        "pv": "每日PV",
+        "rank": "Alexa全球排名",
+        "Report": "数据："
+    },
+    "updater": {
+        "updated": "数据更新于",
+        "now": "立刻更新"
+    },
+    "unit": "* K：千，  M：百万，  B：十亿",
+    "toolbar": {
+        "language": "语言"
+    },
+    "revenue": {
+        "title": "预估收入（广告）",
+        "time": "时间（天）",
+        "revenue": "收入",
+        "visitors": "独立访客",
+        "pageViews": "PV"
+    },
+    "alexaRank": {
+        "title": "最近（90天）Alexa全球排名"
+    },
+    "contributingSubdomains": {
+        "title": "子域名PV贡献率 %"
+    },
+    "rankByCountry": {
+        "title": "按国家（地区）排行",
+        "country": "国家（地区）",
+        "pageViews": "PV %",
+        "users": "用户 %"
+    },
+    "footer": {
+        "reserved": "保留所有权利"
+    },
+    "explain": {
+        "according": "根据我们的数据分析，",
+        "estimate": "估值为",
+        "dollar1": "美元，",
+        "dailyRevenue": "每日广告收入约",
+        "dollar2": "美元。",
+        "eachDay": "每日有",
+        "uv": "个独立用户访问，",
+        "pvPerDay": "每日PV是",
+        "rank": "它的Alexa全球排名是"
     }
 }

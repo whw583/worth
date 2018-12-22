@@ -36,6 +36,7 @@ export class ReportRankByCountryComponent implements OnInit, OnChanges {
 
     ngOnChanges(changes: SimpleChanges) {
         const currentValue: IReportData = changes.reportData.currentValue
+
         if (currentValue) {
             const data = this.preProcessRankByCountryData(currentValue)
             this.dataSource = new MatTableDataSource<IMapRankByCountryElement>(

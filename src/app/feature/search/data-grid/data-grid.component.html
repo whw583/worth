@@ -4,22 +4,24 @@
     <div class="flex-block">
 
         <mat-card class="flex-item">
-            <mat-card-title>Total Worth $</mat-card-title>
+            <mat-card-title> {{'dataGrid.total'|translate}} $</mat-card-title>
             <mat-card-content>{{reportData?.report.websiteWorth|localNumber}}</mat-card-content>
         </mat-card>
 
         <mat-card class="flex-item">
-            <mat-card-title>Daily Revenue from AD $</mat-card-title>
+            <mat-card-title>{{'dataGrid.revenue'|translate}}  $</mat-card-title>
             <mat-card-content>{{reportData?.report.reportStatistics[4].revenue | localNumber}}</mat-card-content>
         </mat-card>
 
         <mat-card class="flex-item">
-            <mat-card-title>Daily Page Views</mat-card-title>
+            <mat-card-title>{{'dataGrid.pv'|translate}}</mat-card-title>
             <mat-card-content>{{reportData?.report.reportStatistics[4].uniquePageViews | localNumber}}</mat-card-content>
         </mat-card>
 
         <mat-card class="flex-item">
-            <mat-card-title>Alex Rank</mat-card-title>
+            <mat-card-title>
+              {{'dataGrid.rank'|translate}}
+            </mat-card-title>
             <mat-card-content>{{reportData?.rank | localNumber}}</mat-card-content>
         </mat-card>
 
@@ -32,7 +34,7 @@
 
     </div>
 
-    <p class="data-grid-header">Report: {{reportData?.dataUrl}}  </p>
+    <p class="data-grid-header">{{'dataGrid.Report'|translate}} {{reportData?.dataUrl}}  </p>
 
 
 </div>
