@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { RouterModule } from '@angular/router'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UnitExplainComponent } from './component/unit-explain/unit-explain.component'
+import { TranslateModule } from '@ngx-translate/core'
 
 @NgModule({
     declarations: [
@@ -45,6 +46,7 @@ import { UnitExplainComponent } from './component/unit-explain/unit-explain.comp
         BrowserAnimationsModule,
         CommonModule,
         RouterModule,
+        TranslateModule
     ],
     imports: [
         CommonModule,
@@ -53,6 +55,7 @@ import { UnitExplainComponent } from './component/unit-explain/unit-explain.comp
         ReactiveFormsModule,
         BrowserAnimationsModule,
         MyMomentModule,
+        TranslateModule
     ],
 })
 export class SharedModule {}

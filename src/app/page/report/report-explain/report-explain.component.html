@@ -1,6 +1,7 @@
 <div class=" explain-p">
 
-  <div class="explain-text" >
+  <div class="explain-text" *ngIf="!lang">
+    According to our data analysis,
     <span>{{reportData?.dataUrl}}</span>
     has estimated worth of
     <span>$ {{reportData?.report.websiteWorth |localNumber}}</span>
@@ -10,6 +11,16 @@
     each day that generate <span>{{reportData?.report.reportStatistics[4].uniquePageViews |localNumber}}</span> daily pageviews.
     Its global traffic rank is <span>{{reportData?.rank |localNumber}}</span> .
 
+  </div>
+
+  <div class=" explain-text cn"  *ngIf="lang==='cn' || lang==='hk' || lang==='tw'  ">
+    根据我们的数据分析，
+    <span>{{reportData?.dataUrl}}</span>
+    估值为    <span>$ {{reportData?.report.websiteWorth |localNumber}}</span> 美元，
+    每日广告收入约  <span>$ {{reportData?.report.reportStatistics[4].revenue |localNumber}}</span>  美元。
+    每日有 <span>{{reportData?.report.reportStatistics[4].uniqueVisitors |localNumber}}</span>
+    个独立用户访问， 每日PV是 <span>{{reportData?.report.reportStatistics[4].uniquePageViews |localNumber}}</span> 。
+    它的Alexa全球排名是 <span>{{reportData?.rank |localNumber}}</span> 。
   </div>
 
   <app-report-updater [reportData]="reportData" ></app-report-updater>

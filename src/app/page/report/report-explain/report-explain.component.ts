@@ -1,17 +1,27 @@
-import { Component, Input, OnInit } from '@angular/core'
+import { Component, Input, OnInit, Inject } from '@angular/core'
 import { IReportData } from '../../../core/report/report-data.interface'
+import { DOCUMENT } from '@angular/common'
 
 @Component({
-  selector: 'app-report-explain',
-  templateUrl: './report-explain.component.html',
-  styleUrls: ['./report-explain.component.scss']
+    selector: 'app-report-explain',
+    templateUrl: './report-explain.component.html',
+    styleUrls: ['./report-explain.component.scss'],
 })
 export class ReportExplainComponent implements OnInit {
     @Input()
     reportData: IReportData
-  constructor() { }
+    lang: string
+    constructor(@Inject(DOCUMENT) private document: Document) {
+        this.setLang()
+    }
 
-  ngOnInit() {
-  }
 
+    setLang() {
+        const hostNamePrefix = this.document.location.hostname.split('.')[0]
+        if (hostNamePrefix.length === 2) {
+            this.lang = hostNamePrefix
+        }
+    }
+
+    ngOnInit() {}
 }

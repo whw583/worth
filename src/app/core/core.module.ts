@@ -5,11 +5,12 @@ import { UrlService } from './url/url.service'
 import { ConfigService } from './config/config.service'
 import { TokenInterceptorService } from './interceptor/token-interceptor.service'
 import { ReportProviderService } from './report/report-provider.service'
-
+// just import
+import { TranslateModuleForRoot } from './ngx-translate'
 
 @NgModule({
     declarations: [],
-    imports: [HttpClientModule],
+    imports: [HttpClientModule, TranslateModuleForRoot],
     providers: [
         RecaptchaService,
         ConfigService,
