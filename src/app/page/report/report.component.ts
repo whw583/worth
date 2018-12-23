@@ -3,8 +3,10 @@ import { ActivatedRoute, UrlSegment } from '@angular/router'
 import { ReportProviderService } from '../../core/report/report-provider.service'
 import { UrlService } from '../../core/url/url.service'
 import { Subject } from 'rxjs'
-import { takeUntil } from 'rxjs/operators'
+import { take, takeUntil } from 'rxjs/operators'
 import { IReportData } from '../../core/report/report-data.interface'
+import { TranslateService } from '@ngx-translate/core'
+import { Meta, Title } from '@angular/platform-browser'
 
 @Component({
     selector: 'app-report',
@@ -18,8 +20,29 @@ export class ReportComponent implements OnInit, OnDestroy {
     constructor(
         private activatedRoute: ActivatedRoute,
         private report: ReportProviderService,
-        private url: UrlService
-    ) {}
+        private url: UrlService,
+        private translate: TranslateService,
+        private title: Title,
+        private meta: Meta
+    ) {
+        this.setHtmlHead()
+    }
+
+    setHtmlHead() {
+        this.translate
+            .get(['search.title', 'search.explain'])
+            .pipe(take(1))
+            .subscribe(val => {
+                const searchTitle = val['search.title']
+                const searchExplain = val['search.explain']
+
+                this.title.setTitle(searchTitle)
+                this.meta.addTag({
+                    name: 'description',
+                    content: searchExplain,
+                })
+            })
+    }
 
     ngOnInit() {
         this.handleUrlChange()
