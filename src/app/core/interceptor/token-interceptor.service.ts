@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core'
 import {
+    HTTP_INTERCEPTORS,
     HttpEvent,
     HttpHandler,
     HttpInterceptor,
@@ -20,6 +21,7 @@ export class TokenInterceptorService implements HttpInterceptor {
         next: HttpHandler
     ): Observable<HttpEvent<any>> {
         const isProtected = req.url.startsWith('/api/protected/')
+        console.log(req.url)
         if (!isProtected) {
             return next.handle(req)
         }
@@ -35,4 +37,10 @@ export class TokenInterceptorService implements HttpInterceptor {
             })
         )
     }
+}
+
+export const TokenInterceptor = {
+  provide: HTTP_INTERCEPTORS,
+  useClass: TokenInterceptorService,
+  multi: true,
 }

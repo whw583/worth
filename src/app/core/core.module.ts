@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core'
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http'
 import { RecaptchaService } from './recaptcha/recaptcha.service'
 import { UrlService } from './url/url.service'
 import { ConfigService } from './config/config.service'
-import { TokenInterceptorService } from './interceptor/token-interceptor.service'
+import { TokenInterceptor } from './interceptor/token-interceptor.service'
+import { ServerAbsoluteUrlInterceptor } from './interceptor/server-absolute-url.service'
 import { ReportProviderService } from './report/report-provider.service'
 // just import
 import { TranslateModuleForRoot } from './ngx-translate'
@@ -14,11 +15,8 @@ import { TranslateModuleForRoot } from './ngx-translate'
     providers: [
         RecaptchaService,
         ConfigService,
-        {
-            provide: HTTP_INTERCEPTORS,
-            useClass: TokenInterceptorService,
-            multi: true,
-        },
+        TokenInterceptor,
+        ServerAbsoluteUrlInterceptor,
         ReportProviderService,
         UrlService,
     ],

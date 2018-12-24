@@ -20,8 +20,8 @@ export class RecaptchaService {
         private config: ConfigService,
         @Inject(DOCUMENT) private document: Document
     ) {
-        this.warmTokenTimestamp()
-        this.runTokenUpdateScheduler()
+        // this.warmTokenTimestamp()
+       // this.runTokenUpdateScheduler()
     }
 
     private warmTokenTimestamp() {

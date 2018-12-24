@@ -12,7 +12,7 @@ export class AppComponent {
         private translate: TranslateService,
         @Inject(DOCUMENT) private document: Document
     ) {
-        this.initTranslateService()
+          this.initTranslateService()
     }
 
     initTranslateService() {

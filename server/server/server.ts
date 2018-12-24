@@ -4,7 +4,8 @@ import { autoLoadRouter } from './auto-load-router'
 import { connectWithRetry } from './connect-mongoose'
 const bodyParser = require('koa-bodyparser')
 
-
+const serve = require('koa-static')
+app.use(serve('./dist/worth'))
 
 // connect to mongodb use mongoose
 connectWithRetry()
