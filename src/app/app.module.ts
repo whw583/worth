@@ -13,7 +13,7 @@ import { SharedModule } from './shared/shared.module'
     imports: [
         CoreModule,
         SharedModule,
-        BrowserModule,
+        BrowserModule.withServerTransition({ appId: 'serverApp' }),
         AppRoutingModule,
     ],
     providers: [],
