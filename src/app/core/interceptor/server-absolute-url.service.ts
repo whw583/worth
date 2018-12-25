@@ -24,7 +24,6 @@ export class ServerAbsoluteUrlService implements HttpInterceptor {
         if (url.startsWith('.')) {
             url = url.substring(1)
         }
-        console.log(url)
         const isRelativePath = url.startsWith('/')
 
         const isServer = isPlatformServer(this.platformId)

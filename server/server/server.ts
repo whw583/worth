@@ -1,14 +1,14 @@
 import * as Koa from 'koa'
 const app = new Koa()
-import { autoLoadRouter } from './auto-load-router'
 import { connectWithRetry } from './connect-mongoose'
 const bodyParser = require('koa-bodyparser')
-
-const serve = require('koa-static')
-app.use(serve('./dist/worth'))
+import { router as apiRouter } from '../router/api/router'
+import { router as staticRouter } from '../router/static/router'
 
 // connect to mongodb use mongoose
 connectWithRetry()
+
+
 
 // body parser
 app.use(bodyParser())
@@ -29,8 +29,11 @@ app.on('error', (err, ctx) => {
     console.log(err)
 })
 
-// auto load router
-autoLoadRouter(app)
+// router here
+app.use(apiRouter.routes()).use(apiRouter.allowedMethods())
+
+// static router should be last since including /./  and /*
+app.use(staticRouter.routes()).use(staticRouter.allowedMethods())
 
 console.log('server listen on port 3000...')
 app.listen(3000)

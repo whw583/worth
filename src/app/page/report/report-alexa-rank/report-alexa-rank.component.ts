@@ -6,12 +6,15 @@ import {
     ElementRef,
     ViewChild,
     OnDestroy,
+    Inject,
+    PLATFORM_ID,
 } from '@angular/core'
 import {
     IReportData,
     IUsageStatistic,
 } from '../../../core/report/report-data.interface'
-import { Chart, ChartTooltipOptions, ChartYAxe } from 'chart.js'
+import { Chart } from 'chart.js'
+import { isPlatformBrowser } from '@angular/common'
 import { ReplaySubject } from 'rxjs'
 import { take } from 'rxjs/operators'
 
@@ -37,11 +40,16 @@ export class ReportAlexaRankComponent
         }
     }
 
-    constructor() {}
+    constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
     ngOnInit() {}
 
     createChart(usageStatistics: IUsageStatistic[]) {
+        // only run in browser for angular universal ssr
+        if (!isPlatformBrowser(this.platformId)) {
+            return
+        }
+
         if (this.chart) {
             this.chart.destroy()
         }
@@ -65,7 +73,7 @@ export class ReportAlexaRankComponent
             },
             options: {
                 legend: {
-                    display: false
+                    display: false,
                 },
                 scales: {
                     yAxes: [

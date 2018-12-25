@@ -3,7 +3,7 @@
     "version": "0.0.0",
     "scripts": {
         "ng": "ng",
-        "build:ssr": "ng build --prod && ng run worth:server",
+        "build:ssr": "ng run worth:server  && ng build --prod ",
         "start": "ng serve  --disable-host-check -o  --proxy-config proxy.conf.json",
         "build": "ng build",
         "build:prod": "ng build --prod --aot --vendor-chunk --common-chunk --delete-output-path --buildOptimizer",
@@ -27,6 +27,7 @@
         "@angular/platform-browser-dynamic": "~7.1.0",
         "@angular/platform-server": "^7.1.4",
         "@angular/router": "~7.1.0",
+        "@nguniversal/common": "^7.0.2",
         "@nguniversal/module-map-ngfactory-loader": "^7.0.2",
         "@ngx-translate/core": "^11.0.0",
         "@ngx-translate/http-loader": "^4.0.0",

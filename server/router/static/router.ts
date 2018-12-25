@@ -1,18 +1,19 @@
 import * as Router from 'koa-router'
 const router = new Router()
 import { getHtml } from '../../service/ssr/service'
-import { join } from 'path'
 const serve = require('koa-static')
-const DIST_FOLDER = join(process.cwd(), 'dist')
 
+// static file
+router.get('/*.*', serve('./dist/worth', { index: null }))
 
+router.get('/*', async ctx => {
+    const url = `${ctx.protocol}://${ctx.hostname}${ctx.url}`
+    console.log(url)
 
-router.get('/test', async ctx => {
-    // ctx.body = 'test'
+    console.time('time-used')
 
-    console.log('test run ...')
-
-    ctx.body = await getHtml('http://localhost:3000')
+    ctx.body = await getHtml(url)
+    console.timeEnd('time-used')
 })
 
 export { router }

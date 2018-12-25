@@ -1,7 +1,7 @@
-import { Inject, Injectable } from '@angular/core'
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core'
 import { interval } from 'rxjs'
 import { ConfigService } from '../config/config.service'
-import { DOCUMENT } from '@angular/common'
+import { DOCUMENT, isPlatformBrowser } from '@angular/common'
 
 @Injectable({
     providedIn: 'root',
@@ -18,10 +18,18 @@ export class RecaptchaService {
 
     constructor(
         private config: ConfigService,
-        @Inject(DOCUMENT) private document: Document
+        @Inject(DOCUMENT) private document: Document,
+        @Inject(PLATFORM_ID) private platformId: Object
     ) {
-        // this.warmTokenTimestamp()
-       // this.runTokenUpdateScheduler()
+        this.startup()
+    }
+
+    startup() {
+        if (!isPlatformBrowser(this.platformId)) {
+            return
+        }
+        this.warmTokenTimestamp()
+        this.runTokenUpdateScheduler()
     }
 
     private warmTokenTimestamp() {

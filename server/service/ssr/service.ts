@@ -7,12 +7,11 @@ import { enableProdMode } from '@angular/core'
 
 import { join } from 'path'
 import { readFileSync } from 'fs'
-import { catchError } from 'rxjs/operators'
 
 const DIST_FOLDER = join(process.cwd(), 'dist')
 
 // Faster server renders w/ Prod mode (dev mode never needed)
-// enableProdMode()
+enableProdMode()
 
 // Our index.html we'll use as our template
 const template = readFileSync(

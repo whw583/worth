@@ -5,6 +5,8 @@ import {
     OnInit,
     ViewChild,
     AfterViewInit,
+    Inject,
+    PLATFORM_ID,
 } from '@angular/core'
 import {
     IReportData,
@@ -14,6 +16,7 @@ import { Chart } from 'chart.js'
 import { ReplaySubject } from 'rxjs'
 import { take } from 'rxjs/operators'
 import { IChartData } from './chart-data-interface'
+import { isPlatformBrowser } from '@angular/common'
 @Component({
     selector: 'app-report-contributing-subdomains',
     templateUrl: './report-contributing-subdomains.component.html',
@@ -36,7 +39,7 @@ export class ReportContributingSubdomainsComponent
         })
     }
 
-    constructor() {}
+    constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
     ngOnInit() {}
 
@@ -87,6 +90,11 @@ export class ReportContributingSubdomainsComponent
     }
 
     createChart(reportData: IReportData) {
+        // only run in browser ,because angular universal ssr
+        if (!isPlatformBrowser(this.platformId)) {
+            return
+        }
+
         if (this.chart) {
             this.chart.destroy()
         }
