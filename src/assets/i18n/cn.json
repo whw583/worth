@@ -64,5 +64,8 @@
         "uv": "个独立用户访问，",
         "pvPerDay": "每日PV是",
         "rank": "它的Alexa全球排名是"
-    }
+    },
+  "notFound": {
+    "explain": "找不到该网页"
+  }
 }

@@ -2,15 +2,16 @@ const obj = {
     apps: [
         // First application
         {
-            name: "worth",
+            name: 'worth',
 
-            script: "./build-server/server/server.js",
-
+            script: './build-server/server/server.js',
+            instances: 'max',
+            exec_mode: 'cluster',
             env: {
-                NODE_ENV: "production"
-            }
-        }
-    ]
-};
+                NODE_ENV: 'production',
+            },
+        },
+    ],
+}
 
-module.exports = obj;
+module.exports = obj

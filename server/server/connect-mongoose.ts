@@ -16,8 +16,6 @@ let retryCount = 0
 const retryLimit = 3
 
 const connectWithRetry = () => {
-    console.log(`MongoDB connection with retry, connecting...`)
-
     //
     mongoose
         .connect(
@@ -25,18 +23,25 @@ const connectWithRetry = () => {
             options
         )
         .then(() => {
-            console.log('MongoDB is connected')
+            if (process.env.NODE_ENV !== 'production') {
+                console.log('MongoDB is connected')
+            }
         })
         .catch(err => {
             if (retryCount >= retryLimit) {
-                console.log('retry limit exceed, try again later...')
+                if (process.env.NODE_ENV !== 'production') {
+                    console.log('retry limit exceed, try again later...')
+                }
+
                 process.exit(1)
             }
             retryCount++
 
-            console.log(
-                'MongoDB connection unsuccessful, retry after 5 seconds.'
-            )
+            if (process.env.NODE_ENV !== 'production') {
+                console.log(
+                    'MongoDB connection unsuccessful, retry after 5 seconds.'
+                )
+            }
 
             setTimeout(connectWithRetry, 5000)
         })

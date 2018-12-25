@@ -8,8 +8,6 @@ import { router as staticRouter } from '../router/static/router'
 // connect to mongodb use mongoose
 connectWithRetry()
 
-
-
 // body parser
 app.use(bodyParser())
 
@@ -35,5 +33,8 @@ app.use(apiRouter.routes()).use(apiRouter.allowedMethods())
 // static router should be last since including /./  and /*
 app.use(staticRouter.routes()).use(staticRouter.allowedMethods())
 
-console.log('server listen on port 3000...')
 app.listen(3000)
+
+if (process.env.NODE_ENV !== 'production') {
+    console.log('server listen on port 3000...')
+}

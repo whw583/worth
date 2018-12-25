@@ -8,12 +8,6 @@ import { handleApiError } from '../../middleware/handle-api-error'
 
 router.prefix('/api')
 
-router.use(async (ctx, next) => {
-    console.log('in test api middleware')
-    console.log(ctx.request.url)
-    await next()
-})
-
 router.use(handleApiError)
 router.use('/*/:dataUrl', validDataUrl)
 router.use('/protected/', verifyRecaptcha)

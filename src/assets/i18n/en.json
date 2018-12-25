@@ -53,5 +53,9 @@
     },
   "footer": {
     "reserved": "All Rights Reserved"
+  },
+  "notFound": {
+    "explain": "page not found"
   }
+
 }

@@ -8,12 +8,8 @@ router.get('/*.*', serve('./dist/worth', { index: null }))
 
 router.get('/*', async ctx => {
     const url = `${ctx.protocol}://${ctx.hostname}${ctx.url}`
-    console.log(url)
-
-    console.time('time-used')
 
     ctx.body = await getHtml(url)
-    console.timeEnd('time-used')
 })
 
 export { router }
