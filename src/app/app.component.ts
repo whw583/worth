@@ -1,7 +1,6 @@
 import { Component, Inject } from '@angular/core'
 import { TranslateService } from '@ngx-translate/core'
 import { DOCUMENT } from '@angular/common'
-import { TransferState } from '@angular/platform-browser'
 
 @Component({
     selector: 'app-root',
@@ -11,11 +10,8 @@ import { TransferState } from '@angular/platform-browser'
 export class AppComponent {
     constructor(
         private translate: TranslateService,
-        @Inject(DOCUMENT) private document: Document,
-        private transferState: TransferState
+        @Inject(DOCUMENT) private document: Document
     ) {
-        console.log(this.transferState)
-
         this.initTranslateService()
     }
 
