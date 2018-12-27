@@ -1,7 +1,12 @@
 import { parseString, Builder } from 'xml2js'
-
+import { writeFile } from 'fs'
+import { promisify } from 'util'
 export async function preprocessXML(xml: string): Promise<string> {
-    const obj = await new Promise((resolve, reject) => {
+    // test
+    promisify(writeFile)('./test.xml', xml)
+  console.log(xml)
+
+  const obj = await new Promise((resolve, reject) => {
         parseString(
             xml,
             {

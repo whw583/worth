@@ -1,11 +1,10 @@
 <div class="block">
     {{'updater.updated'|translate}}
-    {{ reportData?.now - reportData?.lastModified | clientTimestamp | amTimeAgo }} |
-    <button *ngIf="isUpdating" class="spinner-button" mat-flat-button>
-        <mat-spinner diameter="25"></mat-spinner>
-    </button>
-
-    <button *ngIf="!isUpdating" mat-flat-button (click)="handClick()">
+    {{ reportData?.now - reportData?.lastModified | clientTimestamp | amTimeAgo }}
+  <button *ngIf="!isUpdating" mat-flat-button (click)="handClick()">
       {{'updater.now'|translate}}
-    </button>
+  </button>
+  <button *ngIf="isUpdating" class="spinner-button" mat-flat-button>
+    <mat-spinner diameter="25"></mat-spinner>
+  </button>
 </div>

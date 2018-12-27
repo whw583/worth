@@ -1,56 +1,58 @@
-<div class="table-block">
+<div class="table-block" *ngIf="dataSource[0]?.uniquePageViews > 0">
 
-    <h3 class="table-head">{{'revenue.title'|translate}}</h3>
+    <h3 class="table-head">{{ 'revenue.title' | translate }}</h3>
 
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
         <!--- Note that these columns can be defined in any order.
               The actual rendered columns are set as a property on the row definition" -->
 
         <!-- Position Column -->
         <ng-container matColumnDef="timeRange">
             <th mat-header-cell *matHeaderCellDef>
-                <div class="th">{{'revenue.time'|translate}}</div>
+                <div class="th">{{ 'revenue.time' | translate }}</div>
             </th>
             <td mat-cell *matCellDef="let element">
-                <div class="td">{{element.timeRange |localNumber}}</div>
+                <div class="td">{{ element.timeRange | localNumber }}</div>
             </td>
         </ng-container>
 
         <!-- Name Column -->
         <ng-container matColumnDef="revenue">
             <th mat-header-cell *matHeaderCellDef>
-                <div class="th">{{'revenue.revenue'|translate}}</div>
+                <div class="th">{{ 'revenue.revenue' | translate }}</div>
             </th>
             <td mat-cell *matCellDef="let element">
-                <div class="td">{{element.revenue |prettyNumber}}</div>
+                <div class="td">{{ element.revenue | prettyNumber }}</div>
             </td>
         </ng-container>
 
         <!-- Weight Column -->
         <ng-container matColumnDef="uniqueVisitors">
             <th mat-header-cell *matHeaderCellDef>
-                <div class="th"> {{'revenue.visitors'|translate}}</div>
+                <div class="th">{{ 'revenue.visitors' | translate }}</div>
             </th>
             <td mat-cell *matCellDef="let element">
-                <div class="td">{{element.uniqueVisitors|prettyNumber}}</div>
+                <div class="td">
+                    {{ element.uniqueVisitors | prettyNumber }}
+                </div>
             </td>
         </ng-container>
 
         <!-- Symbol Column -->
         <ng-container matColumnDef="uniquePageViews">
             <th mat-header-cell *matHeaderCellDef>
-                <div class="th"> {{'revenue.pageViews'|translate}}</div>
+                <div class="th">{{ 'revenue.pageViews' | translate }}</div>
             </th>
             <td mat-cell *matCellDef="let element">
-                <div class="td">{{element.uniquePageViews |prettyNumber}}</div>
+                <div class="td">
+                    {{ element.uniquePageViews | prettyNumber }}
+                </div>
             </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
 
-  <app-unit-explain></app-unit-explain>
-
+    <app-unit-explain></app-unit-explain>
 </div>

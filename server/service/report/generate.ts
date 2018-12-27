@@ -28,15 +28,15 @@ export function getReportStatistics(usageStatistics: Array<any>): Array<any> {
         )
 
         // generate
-        const uniquePageViews = Math.round(
-            pageViewsPerMillionValue *
-                totalPageViewsPerMillionPerDay *
-                timeRange
-        )
+        const uniquePageViews =
+            Math.round(
+                pageViewsPerMillionValue *
+                    totalPageViewsPerMillionPerDay *
+                    timeRange
+            ) || 0
 
-        const uniqueVisitors = Math.round(
-            uniquePageViews / pageViewsPerUserValue
-        )
+        const uniqueVisitors =
+            Math.round(uniquePageViews / pageViewsPerUserValue) || 0
 
         const revenue = Math.round(uniquePageViews * revenuePerPageView)
 
@@ -76,11 +76,12 @@ export function generate(urlInfo: object): object {
     const websiteAgeDaysWorth = Math.round(websiteAgeDays * 0.5)
 
     // 10 is the minimum worth for each site + 6 year revenue + link count worth + age worth
+    const BASE_WORTH = 10
+    const PAGE_VIEW_WORTH = reportStatistics[0].revenue * 6
     const websiteWorth =
-        reportStatistics[0].revenue * 6 +
-        10 +
-        linksInCountWorth +
-        websiteAgeDaysWorth
+        PAGE_VIEW_WORTH + linksInCountWorth + websiteAgeDaysWorth + BASE_WORTH
+
+    //
 
     const report = { websiteWorth, reportStatistics }
 

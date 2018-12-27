@@ -17,7 +17,7 @@ import { parseTopSitesListCountriesToJson } from './parse/top-sites-list-countri
         Start = 1
     }
 
-    const path = `/api?Action=TopSites&Count=100&CountryCode=${CountryCode}&ResponseGroup=Country&Start=${Start}`
+    const path = `/api?Action=TopSites&Count=10&CountryCode=${CountryCode}&ResponseGroup=Country&Start=${Start}`
 
     // request
     const processedXml = await requestXml(service, servicePrefix, path)

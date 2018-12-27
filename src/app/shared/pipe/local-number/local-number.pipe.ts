@@ -11,6 +11,10 @@ export class LocalNumberPipe implements PipeTransform {
         const parsedValue = parseFloat(value)
 
         if (!parsedValue) {
+            return '-'
+        }
+
+        if (!parsedValue) {
             return value
         }
 
