@@ -8,7 +8,9 @@ import {
     OnDestroy,
     Inject,
     PLATFORM_ID,
+    HostListener,
 } from '@angular/core'
+import { DOCUMENT } from '@angular/common'
 import {
     IReportData,
     IUsageStatistic,
@@ -30,21 +32,31 @@ export class ReportAlexaRankComponent
     myChartRef: ElementRef<HTMLCanvasElement>
 
     chart: Chart
+    usageStatistics: IUsageStatistic[]
 
     @Input()
     set reportData(reportData: IReportData) {
         if (reportData) {
             this.viewChildSubject.pipe(take(1)).subscribe(value => {
-                this.createChart(reportData.usageStatistics)
+                this.usageStatistics = reportData.usageStatistics
+                this.createChart()
             })
         }
     }
 
-    constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+    @HostListener('window:resize', ['$event'])
+    onResize(event) {
+        this.createChart()
+    }
+
+    constructor(
+        @Inject(PLATFORM_ID) private platformId: Object,
+        @Inject(DOCUMENT) private document: Document
+    ) {}
 
     ngOnInit() {}
 
-    createChart(usageStatistics: IUsageStatistic[]) {
+    createChart() {
         // only run in browser for angular universal ssr
         if (!isPlatformBrowser(this.platformId)) {
             return
@@ -54,7 +66,11 @@ export class ReportAlexaRankComponent
             this.chart.destroy()
         }
 
-        const data = usageStatistics.map(value => Number(value.rank.value))
+        if (!this.usageStatistics) {
+            return
+        }
+
+        const data = this.usageStatistics.map(value => Number(value.rank.value))
 
         const ctx = this.myChartRef.nativeElement.getContext('2d')
         this.chart = new Chart(ctx, {

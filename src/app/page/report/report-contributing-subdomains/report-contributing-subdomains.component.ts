@@ -7,6 +7,7 @@ import {
     AfterViewInit,
     Inject,
     PLATFORM_ID,
+    HostListener,
 } from '@angular/core'
 import {
     IReportData,
@@ -28,20 +29,28 @@ export class ReportContributingSubdomainsComponent
     myChartRef: ElementRef<HTMLCanvasElement>
     viewChildSubject = new ReplaySubject(1)
     chart: Chart
+    report: IReportData
 
     @Input()
     set reportData(reportData: IReportData) {
+        this.report = reportData
         if (!reportData) {
             return
         }
+
         this.viewChildSubject.pipe(take(1)).subscribe(() => {
-            this.createChart(reportData)
+            this.createChart()
         })
     }
 
     constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
     ngOnInit() {}
+
+    @HostListener('window:resize', ['$event'])
+    onResize(event) {
+        this.createChart()
+    }
 
     getChartData(reportData: IReportData): IChartData[] {
         const { contributingSubdomains, dataUrl } = reportData
@@ -89,7 +98,7 @@ export class ReportContributingSubdomainsComponent
         return chartDataArr
     }
 
-    createChart(reportData: IReportData) {
+    createChart() {
         // only run in browser ,because angular universal ssr
         if (!isPlatformBrowser(this.platformId)) {
             return
@@ -97,6 +106,11 @@ export class ReportContributingSubdomainsComponent
 
         if (this.chart) {
             this.chart.destroy()
+        }
+
+        const reportData: IReportData = this.report
+        if (!reportData) {
+            return
         }
 
         const chartDataArr = this.getChartData(reportData)
