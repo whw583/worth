@@ -7,6 +7,24 @@ export async function getOne(dataUrl: string): Promise<object | null> {
     }
 
     // nothing to do with create report
-    const { contributingSubdomains, rankByCountry } = res as any
-    return { ...generate(res), contributingSubdomains, rankByCountry }
+    const {
+        contributingSubdomains,
+        rankByCountry,
+        siteData,
+        rank,
+        lastModified,
+        usageStatistics,
+    } = res as any
+    const report = generate(res)
+    return {
+        contributingSubdomains,
+        rankByCountry,
+        dataUrl,
+        report,
+        now: Date.now(),
+        siteData,
+        rank,
+        lastModified,
+        usageStatistics,
+    }
 }

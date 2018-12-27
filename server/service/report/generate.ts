@@ -19,26 +19,33 @@ export function getReportStatistics(usageStatistics: Array<any>): Array<any> {
             : usageStatistics[0]
 
         //
-        const pageViewsPerMillionValue = Number(
-            usageStatistic.pageViews.perMillion.value.split(',').join('')
-        )
 
-        const pageViewsPerUserValue = Number(
-            usageStatistic.pageViews.perUser.value.split(',').join('')
-        )
+        const perMillion = usageStatistic.pageViews.perMillion.value
+        const perUser = usageStatistic.pageViews.perUser.value
+
+        const pageViewsPerMillionValue = Number(perMillion.split(',').join(''))
+
+        const pageViewsPerUserValue = Number(perUser.split(',').join(''))
+
+        // log
 
         // generate
-        const uniquePageViews =
-            Math.round(
-                pageViewsPerMillionValue *
-                    totalPageViewsPerMillionPerDay *
-                    timeRange
-            ) || 0
+        let uniquePageViews = Math.round(
+            pageViewsPerMillionValue *
+                totalPageViewsPerMillionPerDay *
+                timeRange
+        )
 
-        const uniqueVisitors =
-            Math.round(uniquePageViews / pageViewsPerUserValue) || 0
+        let uniqueVisitors = Math.round(uniquePageViews / pageViewsPerUserValue)
 
-        const revenue = Math.round(uniquePageViews * revenuePerPageView)
+        let revenue = Math.round(uniquePageViews * revenuePerPageView)
+
+        // if perMillion or perUser data not exit
+        if (perMillion === '' || perUser === '%') {
+            uniquePageViews = -1
+            uniqueVisitors = -1
+            revenue = -1
+        }
 
         const obj = { uniquePageViews, uniqueVisitors, revenue, timeRange }
 
@@ -48,23 +55,15 @@ export function getReportStatistics(usageStatistics: Array<any>): Array<any> {
     return reportStatistics
 }
 
-//
-export function generate(urlInfo: object): object {
-    // was used to generate report
-    const {
-        dataUrl,
-        usageStatistics,
-        linksInCount,
-        siteData,
-        rank,
-        lastModified,
-    } = urlInfo as any
-
-    //
-    const reportStatistics = getReportStatistics(usageStatistics)
-
+export function getTotalWorth(
+    linksInCount: any,
+    siteData: any,
+    reportStatistics: any[]
+): number {
+    // links worth
     const linksInCountWorth = linksInCount ? linksInCount * 100 : 0
 
+    // time worth
     const onlineSinceTimestamp =
         siteData.onlineSince.length > 0
             ? new Date(siteData.onlineSince).getTime()
@@ -75,25 +74,32 @@ export function generate(urlInfo: object): object {
 
     const websiteAgeDaysWorth = Math.round(websiteAgeDays * 0.5)
 
-    // 10 is the minimum worth for each site + 6 year revenue + link count worth + age worth
+    // page views 6 year worth
+    const OneYearRevenue = reportStatistics[0].revenue
+    const PAGE_VIEW_WORTH = OneYearRevenue > 0 ? OneYearRevenue * 6 : 0
+
+    // 10 is the minimum worth
     const BASE_WORTH = 10
-    const PAGE_VIEW_WORTH = reportStatistics[0].revenue * 6
+
+    // for each site + 6 year revenue + link count worth + age worth
     const websiteWorth =
         PAGE_VIEW_WORTH + linksInCountWorth + websiteAgeDaysWorth + BASE_WORTH
 
+    return websiteWorth
+}
+
+//
+export function generate(urlInfo: object): object {
+    // was used to generate report
+    const { usageStatistics, linksInCount, siteData } = urlInfo as any
+
     //
+    const reportStatistics = getReportStatistics(usageStatistics)
+
+    //
+    const websiteWorth = getTotalWorth(linksInCount, siteData, reportStatistics)
 
     const report = { websiteWorth, reportStatistics }
 
-    const now = Date.now()
-
-    return {
-        dataUrl,
-        siteData,
-        rank,
-        lastModified,
-        now,
-        report,
-        usageStatistics,
-    }
+    return report
 }
