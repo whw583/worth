@@ -5,27 +5,38 @@ import {
     ViewChildren,
     HostListener,
     Inject,
+    OnDestroy,
 } from '@angular/core'
 import { DOCUMENT } from '@angular/common'
 import { MatMenuTrigger } from '@angular/material'
-
+import { ActivatedRoute } from '@angular/router'
+import { Subject } from 'rxjs'
+import { takeUntil } from 'rxjs/operators'
 @Component({
     selector: 'app-toolbar',
     templateUrl: './toolbar.component.html',
     styleUrls: ['./toolbar.component.scss'],
 })
-export class ToolbarComponent implements OnInit {
+export class ToolbarComponent implements OnInit, OnDestroy {
     show = false
     url: string
     protocolPrefix: string
+    unSubscribe = new Subject()
 
     @ViewChildren(MatMenuTrigger)
     triggers: QueryList<MatMenuTrigger>
 
-    constructor(@Inject(DOCUMENT) private document: Document) {}
+    constructor(
+        @Inject(DOCUMENT) private document: Document,
+        private activatedRoute: ActivatedRoute
+    ) {}
 
     ngOnInit() {
-        this.setUrlWithoutSubdomain()
+        this.activatedRoute.url
+            .pipe(takeUntil(this.unSubscribe))
+            .subscribe(() => {
+                this.setUrlWithoutSubdomain()
+            })
     }
 
     setUrlWithoutSubdomain() {
@@ -53,5 +64,11 @@ export class ToolbarComponent implements OnInit {
 
     closeMyMenu() {
         this.triggers.forEach(trigger => trigger.closeMenu())
+    }
+
+    ngOnDestroy(): void {
+        // close
+        this.unSubscribe.next()
+        this.unSubscribe.complete()
     }
 }
