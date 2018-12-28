@@ -13,7 +13,7 @@ export class ReportAdRevenueComponent {
     @Input()
     set reportData(value: IReportData) {
         if (value) {
-            this.dataSource = value.report.reportStatistics.reverse()
+            this.dataSource = value.report.reportStatistics.slice().reverse()
         } else {
             this.dataSource = []
         }

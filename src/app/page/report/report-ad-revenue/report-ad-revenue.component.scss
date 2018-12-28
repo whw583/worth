@@ -1,24 +1,27 @@
-.table-block{
-  max-width: 900px;
-  margin: auto;
+.table-block {
+    max-width: 900px;
+    padding: 0 3vw;
+    margin: auto;
 }
 
 table {
-  width: 96%;
-  margin: auto;
-
-
+    width: 96%;
+    margin: auto;
 }
 
-.table-head{
-  text-align: center;
-  color: lightgreen;
+.table-head {
+    text-align: center;
+    color: lightgreen;
 }
 
-.th{
-  font-weight: bold;
+.th {
+    font-weight: bold;
 }
-.td{
-  font-size: 16px;
+.td {
+    font-size: 16px;
 }
 
+.th,
+.td {
+    opacity: 0.7;
+}

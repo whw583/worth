@@ -1,5 +1,6 @@
 .table-block {
     max-width: 900px;
+    padding: 0 3vw;
     margin: auto;
 }
 table {
@@ -26,3 +27,8 @@ th.mat-sort-header-sorted {
   color:lightgreen;
   text-align: center;
 }
+
+td,th{
+  opacity: 0.8;
+}
+

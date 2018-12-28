@@ -6,9 +6,9 @@
     has estimated worth of
     <span>$ {{reportData?.report.websiteWorth |localNumber}} USD</span>
     with daily ad income about
-    <span>$ {{reportData?.report.reportStatistics[0].revenue |localNumber}} USD</span>
-    and reaches around <span>{{reportData?.report.reportStatistics[0].uniqueVisitors |localNumber}}</span> unique users
-    each day that generate <span>{{reportData?.report.reportStatistics[0].uniquePageViews |localNumber}}</span> daily pageviews.
+    <span>$ {{reportData?.report.reportStatistics[4].revenue |localNumber}} USD</span>
+    and reaches around <span>{{reportData?.report.reportStatistics[4].uniqueVisitors |localNumber}}</span> unique users
+    each day that generate <span>{{reportData?.report.reportStatistics[4].uniquePageViews |localNumber}}</span> daily pageviews.
     Its global traffic rank is <span>{{reportData?.rank |localNumber}}</span> .
 
   </div>
@@ -20,11 +20,11 @@
     <span>$ {{reportData?.report.websiteWorth |localNumber}}</span>
     {{'explain.dollar1'|translate}}
     {{'explain.dailyRevenue'|translate}}
-    <span>$ {{reportData?.report.reportStatistics[0].revenue |localNumber}}</span>
+    <span>$ {{reportData?.report.reportStatistics[4].revenue |localNumber}}</span>
     {{'explain.dollar2'|translate}} {{'explain.eachDay'|translate}}
-    <span>{{reportData?.report.reportStatistics[0].uniqueVisitors |localNumber}}</span>
+    <span>{{reportData?.report.reportStatistics[4].uniqueVisitors |localNumber}}</span>
     {{'explain.uv'|translate}} {{'explain.pvPerDay'|translate}}
-    <span>{{reportData?.report.reportStatistics[0].uniquePageViews |localNumber}}</span> 。
+    <span>{{reportData?.report.reportStatistics[4].uniquePageViews |localNumber}}</span> 。
     {{'explain.rank'|translate}} <span>{{reportData?.rank |localNumber}}</span> 。
   </div>
 

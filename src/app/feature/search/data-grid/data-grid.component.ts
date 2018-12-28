@@ -1,4 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core'
+import {
+    Component,
+    OnInit,
+    Input,
+    OnChanges,
+    SimpleChanges,
+} from '@angular/core'
 import { IReportData } from '../../../core/report/report-data.interface'
 @Component({
     selector: 'app-data-grid',
