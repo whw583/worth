@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core'
 import { TranslateService } from '@ngx-translate/core'
 import { DOCUMENT } from '@angular/common'
+import { GaService } from './core/ga/ga.service'
 import * as moment from 'moment'
 import 'moment/min/locales'
 
@@ -12,6 +13,7 @@ import 'moment/min/locales'
 export class AppComponent {
     constructor(
         private translate: TranslateService,
+        private ga: GaService,
         @Inject(DOCUMENT) private document: Document
     ) {
         this.initTranslateService()

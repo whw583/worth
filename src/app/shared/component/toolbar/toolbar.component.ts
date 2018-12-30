@@ -7,11 +7,12 @@ import {
     Inject,
     OnDestroy,
 } from '@angular/core'
+
 import { DOCUMENT } from '@angular/common'
 import { MatMenuTrigger } from '@angular/material'
-import { ActivatedRoute } from '@angular/router'
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router'
 import { Subject } from 'rxjs'
-import { takeUntil } from 'rxjs/operators'
+import { takeUntil, filter } from 'rxjs/operators'
 @Component({
     selector: 'app-toolbar',
     templateUrl: './toolbar.component.html',
@@ -28,13 +29,17 @@ export class ToolbarComponent implements OnInit, OnDestroy {
 
     constructor(
         @Inject(DOCUMENT) private document: Document,
-        private activatedRoute: ActivatedRoute
+        private activatedRoute: ActivatedRoute,
+        private router: Router
     ) {}
 
     ngOnInit() {
-        this.activatedRoute.url
-            .pipe(takeUntil(this.unSubscribe))
-            .subscribe(() => {
+        this.router.events
+            .pipe(
+                filter(event => event instanceof NavigationEnd),
+                takeUntil(this.unSubscribe)
+            )
+            .subscribe((event: NavigationEnd) => {
                 this.setUrlWithoutSubdomain()
             })
     }

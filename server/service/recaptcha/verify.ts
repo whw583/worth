@@ -11,8 +11,6 @@ export async function verify(token: string, action: string): Promise<boolean> {
         },
     })
 
-    console.log(data)
-
     const success: boolean = (data as any).success
     const isActionEqual = (data as any).action === action
     const score: number = (data as any).score

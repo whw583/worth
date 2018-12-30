@@ -9,6 +9,9 @@ import { ReportProviderService } from './report/report-provider.service'
 // just import
 import { TranslateModuleForRoot } from './ngx-translate'
 
+// ga
+import { GaService } from './ga/ga.service'
+
 @NgModule({
     declarations: [],
     imports: [HttpClientModule, TranslateModuleForRoot],
@@ -19,6 +22,8 @@ import { TranslateModuleForRoot } from './ngx-translate'
         ServerAbsoluteUrlInterceptor,
         ReportProviderService,
         UrlService,
+
+        GaService,
     ],
 })
 export class CoreModule {}
