@@ -8,12 +8,13 @@
         <ng-container matColumnDef="dataUrl">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'topList.websites'|translate}}</th>
             <td mat-cell *matCellDef="let element">
-                <span
+                <a
                     class="data-url-span"
+                    [href]="'/report/' + element.dataUrl"
                     [routerLink]="'/report/' + element.dataUrl"
                 >
                     {{ element.dataUrl }}
-                </span>
+                </a>
             </td>
         </ng-container>
 
