@@ -11,7 +11,7 @@ ReportRouter.use(handleApiError)
 
 ReportRouter.prefix('/api/report')
 
- ReportRouter.use('/*/:dataUrl', validDataUrl)
+ ReportRouter.use('*/:dataUrl', validDataUrl)
  ReportRouter.use('/protected/', verifyRecaptcha)
 
 ReportRouter.get('/:dataUrl', controller.getOneReport)
