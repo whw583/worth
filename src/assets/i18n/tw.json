@@ -13,7 +13,7 @@
     "topList": {
         "title": "最新評估的域名",
         "rank": "排名",
-        "worth": "總值",
+        "worth": "總值（美元）",
         "websites": "域名",
         "time": "時間"
     },

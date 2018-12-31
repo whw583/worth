@@ -13,7 +13,7 @@
     "topList": {
         "title": "Last Estimated Domains",
         "rank": "Rank",
-        "worth": "Total Worth",
+        "worth": "Total Worth(USD)",
         "websites": "Domains",
         "time": "Time"
     },
