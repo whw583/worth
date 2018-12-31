@@ -23,10 +23,10 @@ export class ReportProviderService {
     }
 
     createReport(dataUrl: string) {
-        return this.http.post(`/api/protected/report/${dataUrl}`, {})
+        return this.http.post(`/api/report/protected/${dataUrl}`, {})
     }
 
     updateReport(dataUrl: string) {
-        return this.http.put(`/api/protected/report/${dataUrl}`, {})
+        return this.http.put(`/api/report/protected/${dataUrl}`, {})
     }
 }

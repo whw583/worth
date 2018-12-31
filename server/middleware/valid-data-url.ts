@@ -7,9 +7,10 @@ export async function validDataUrl(ctx: Context, next: Function) {
     const isValidDomain = psl.isValid(dataUrl)
 
     const domain = parsedDataUrl.domain
-    console.log('valid data url ---------')
+  console.log(dataUrl)
+  console.log(domain)
 
-    if (!domain || !isValidDomain || domain !== dataUrl) {
+  if (!domain || !isValidDomain || domain !== dataUrl) {
         ctx.status = 404
         ctx.body = {
             success: false,

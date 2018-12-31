@@ -20,7 +20,7 @@ export class TokenInterceptorService implements HttpInterceptor {
         req: HttpRequest<any>,
         next: HttpHandler
     ): Observable<HttpEvent<any>> {
-        const isProtected = req.url.startsWith('/api/protected/')
+        const isProtected = req.url.startsWith('/api/report/protected/')
 
         if (!isProtected) {
             return next.handle(req)

@@ -1,6 +1,5 @@
 import { Context } from 'koa'
-import { report } from '../service/report/service'
-import { getTopSitesList } from '../service/top-site-list/service'
+import { report } from '../../../service/report/service'
 
 async function getOneReport(ctx: Context) {
     const { dataUrl } = ctx.params
@@ -28,16 +27,11 @@ async function updateOrCreateOneReport(ctx: Context) {
     ctx.body = { ...res, dataUrl: dataUrl, success: true }
 }
 
-async function getTopSites(ctx: Context) {
-    ctx.body = await getTopSitesList()
-}
-
 //
 const controller = {
     getOneReport,
     createReportIfNotExist,
     updateOrCreateOneReport,
-    getTopSites,
 }
 
 export { controller }

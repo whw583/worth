@@ -2,8 +2,9 @@ import * as Koa from 'koa'
 const app = new Koa()
 import { connectWithRetry } from './connect-mongoose'
 const bodyParser = require('koa-bodyparser')
-import { router as apiRouter } from '../router/api/router'
-import { router as staticRouter } from '../router/static/router'
+import { ReportRouter } from '../controller/api/report/report.router'
+import { TopSiteRouter } from '../controller/api/top-site/top-site.router'
+import { StaticRouter } from '../controller/static/static.router'
 
 // connect to mongodb use mongoose
 connectWithRetry()
@@ -28,10 +29,11 @@ app.on('error', (err, ctx) => {
 })
 
 // router here
-app.use(apiRouter.routes()).use(apiRouter.allowedMethods())
+// app.use(TopSiteRouter.routes()).use(TopSiteRouter.allowedMethods())
+ app.use(ReportRouter.routes()).use(ReportRouter.allowedMethods())
 
 // static router should be last since including /./  and /*
-app.use(staticRouter.routes()).use(staticRouter.allowedMethods())
+app.use(StaticRouter.routes()).use(StaticRouter.allowedMethods())
 
 app.listen(3000)
 
