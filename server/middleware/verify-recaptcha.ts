@@ -5,8 +5,6 @@ export async function verifyRecaptcha(ctx: Context, next: Function) {
     const token = ctx.request.header['recaptcha-token']
     const action = ctx.request.header['recaptcha-action']
 
-    console.log('verify recaptcha------------')
-
     const isVerify = await recaptcha.verify(token, action)
 
     if (!isVerify) {

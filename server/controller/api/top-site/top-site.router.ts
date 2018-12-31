@@ -2,8 +2,8 @@ import * as Router from 'koa-router'
 import { getTopSites } from './top-site.controller'
 const TopSiteRouter = new Router()
 
-TopSiteRouter.prefix('/api')
+TopSiteRouter.prefix('/top-sites-list')
 
-TopSiteRouter.get('/top-sites-list', getTopSites)
+TopSiteRouter.get('/', getTopSites)
 
 export { TopSiteRouter }

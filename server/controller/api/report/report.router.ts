@@ -9,7 +9,7 @@ import { handleApiError } from '../../../middleware/handle-api-error'
 
 ReportRouter.use(handleApiError)
 
-ReportRouter.prefix('/api/report')
+ReportRouter.prefix('/report')
 
  ReportRouter.use('*/:dataUrl', validDataUrl)
  ReportRouter.use('/protected/', verifyRecaptcha)
