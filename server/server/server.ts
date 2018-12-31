@@ -29,7 +29,7 @@ app.on('error', (err, ctx) => {
 })
 
 // router here
-// app.use(TopSiteRouter.routes()).use(TopSiteRouter.allowedMethods())
+ app.use(TopSiteRouter.routes()).use(TopSiteRouter.allowedMethods())
  app.use(ReportRouter.routes()).use(ReportRouter.allowedMethods())
 
 // static router should be last since including /./  and /*
