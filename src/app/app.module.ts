@@ -26,7 +26,8 @@ import { environment } from '../environments/environment'
         CoreModule,
         SharedModule,
         AppRoutingModule,
-        ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+      // do not work,register in main.ts instead.
+      //  ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     ],
     providers: [],
     bootstrap: [AppComponent],
