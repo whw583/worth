@@ -10,7 +10,9 @@ import { AppComponent } from './app.component'
 import { CoreModule } from './core/core.module'
 
 import { SharedModule } from './shared/shared.module'
-import { TransferHttpCacheModule } from '@nguniversal/common'
+import { TransferHttpCacheModule } from '@nguniversal/common';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment'
 
 @NgModule({
     declarations: [AppComponent],
@@ -24,6 +26,7 @@ import { TransferHttpCacheModule } from '@nguniversal/common'
         CoreModule,
         SharedModule,
         AppRoutingModule,
+        ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     ],
     providers: [],
     bootstrap: [AppComponent],
