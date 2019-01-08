@@ -15,7 +15,7 @@ export async function verify(token: string, action: string): Promise<boolean> {
     const isActionEqual = (data as any).action === action
     const score: number = (data as any).score
 
-    if (status === 200 && success && isActionEqual && score >= 0.5) {
+    if (status === 200 && success && isActionEqual && score >= 0.3) {
         return true
     }
 
