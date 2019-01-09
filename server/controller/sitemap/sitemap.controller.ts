@@ -14,6 +14,36 @@ export async function getSitemap(ctx: Context) {
                     { lang: 'hk', url: 'https://hk.web-worth.net/' },
                 ],
             },
+          {
+            url: 'https://cn.web-worth.net/',
+            changefreq: 'daily',
+            priority: 0.3,
+            links: [
+              { lang: 'en', url: 'https://web-worth.net/' },
+              { lang: 'tw', url: 'https://tw.web-worth.net/' },
+              { lang: 'hk', url: 'https://hk.web-worth.net/' },
+            ],
+          },
+          {
+            url: 'https://tw.web-worth.net/',
+            changefreq: 'daily',
+            priority: 0.3,
+            links: [
+              { lang: 'cn', url: 'https://cn.web-worth.net/' },
+              { lang: 'en', url: 'https://web-worth.net/' },
+              { lang: 'hk', url: 'https://hk.web-worth.net/' },
+            ],
+          },
+          {
+            url: 'https://hk.web-worth.net/',
+            changefreq: 'daily',
+            priority: 0.3,
+            links: [
+              { lang: 'cn', url: 'https://cn.web-worth.net/' },
+              { lang: 'tw', url: 'https://tw.web-worth.net/' },
+              { lang: 'en', url: 'https://web-worth.net/' },
+            ],
+          },
         ],
     })
 
