@@ -54,17 +54,8 @@
     "footer": {
         "reserved": "保留所有权利"
     },
-    "explain": {
-        "according": "根据我们的数据分析，",
-        "estimate": "估值为",
-        "dollar1": "美元，",
-        "dailyRevenue": "每日广告收入约",
-        "dollar2": "美元。",
-        "eachDay": "每日有",
-        "uv": "个独立用户访问，",
-        "pvPerDay": "每日PV是",
-        "rank": "它的Alexa全球排名是"
-    },
+  "explain": "根据我们的数据分析，#dataUrl# 估值为 $ #totalWorth# 美元， 每日广告收入约 $ #dailyIncome# 美元。 每日有 #UV# 个独立用户访问， 每日PV是 #PV# 。 它的Alexa全球排名是 #rank# 。",
+
   "notFound": {
     "explain": "找不到该网页"
   }

@@ -1,35 +1,5 @@
 <div class=" explain-p" *ngIf="reportData">
+    <div class="report-explain-component-text" [innerHTML]="explainHtml "></div>
 
-  <div class="explain-text" *ngIf="!lang">
-    According to our data analysis,
-    <span>{{reportData?.dataUrl}}</span>
-    has estimated worth of
-    <span>$ {{reportData?.report.websiteWorth |localNumber}} USD</span>
-    with daily ad income about
-    <span>$ {{reportData?.report.reportStatistics[4].revenue |localNumber}} USD</span>
-    and reaches around <span>{{reportData?.report.reportStatistics[4].uniqueVisitors |localNumber}}</span> unique users
-    each day that generate <span>{{reportData?.report.reportStatistics[4].uniquePageViews |localNumber}}</span> daily pageviews.
-    Its global traffic rank is <span>{{reportData?.rank |localNumber}}</span> .
-
-  </div>
-
-  <div class=" explain-text cn"  *ngIf="lang==='cn' || lang==='hk' || lang==='tw'  ">
-    {{'explain.according'|translate}}
-    <span>{{reportData?.dataUrl}}</span>
-    {{'explain.estimate'|translate}}
-    <span>$ {{reportData?.report.websiteWorth |localNumber}}</span>
-    {{'explain.dollar1'|translate}}
-    {{'explain.dailyRevenue'|translate}}
-    <span>$ {{reportData?.report.reportStatistics[4].revenue |localNumber}}</span>
-    {{'explain.dollar2'|translate}} {{'explain.eachDay'|translate}}
-    <span>{{reportData?.report.reportStatistics[4].uniqueVisitors |localNumber}}</span>
-    {{'explain.uv'|translate}} {{'explain.pvPerDay'|translate}}
-    <span>{{reportData?.report.reportStatistics[4].uniquePageViews |localNumber}}</span> 。
-    {{'explain.rank'|translate}} <span>{{reportData?.rank |localNumber}}</span> 。
-  </div>
-
-  <app-report-updater [reportData]="reportData" ></app-report-updater>
-
+    <app-report-updater [reportData]="reportData"></app-report-updater>
 </div>
-
-

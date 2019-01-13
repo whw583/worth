@@ -18,10 +18,10 @@ export interface IReportData {
 }
 
 export interface IReportStatistic {
-    uniquePageViews: Number
-    uniqueVisitors: Number
-    revenue: Number
-    timeRange: Number
+    uniquePageViews: number
+    uniqueVisitors: number
+    revenue: number
+    timeRange: number
 }
 
 export interface IUsageStatistic {

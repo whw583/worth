@@ -10,9 +10,10 @@ import { ClientTimestampPipe } from './pipe/client-timestamp/client-timestamp.pi
 import { LocalNumberPipe } from './pipe/local-number/local-number.pipe'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { RouterModule } from '@angular/router'
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { UnitExplainComponent } from './component/unit-explain/unit-explain.component'
 import { TranslateModule } from '@ngx-translate/core'
+
 
 @NgModule({
     declarations: [
@@ -30,7 +31,7 @@ import { TranslateModule } from '@ngx-translate/core'
         // component
         FooterComponent,
         ToolbarComponent,
-      UnitExplainComponent,
+        UnitExplainComponent,
 
         // module
         MaterialModule,
@@ -46,7 +47,7 @@ import { TranslateModule } from '@ngx-translate/core'
         BrowserAnimationsModule,
         CommonModule,
         RouterModule,
-        TranslateModule
+        TranslateModule,
     ],
     imports: [
         CommonModule,
@@ -55,7 +56,7 @@ import { TranslateModule } from '@ngx-translate/core'
         ReactiveFormsModule,
         BrowserAnimationsModule,
         MyMomentModule,
-        TranslateModule
+        TranslateModule,
     ],
 })
 export class SharedModule {}
