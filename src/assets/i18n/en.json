@@ -6,7 +6,7 @@
         "button": "Submit",
         "processing": "processing...",
         "invalidUrl": "Please enter valid url or domain.",
-        "unAuth": "You action seem like bot.Try again later.",
+        "unAuth": "You action seems like bot.Try again later.",
         "notFound": "Data url not found.",
         "error": "Something went wrong.Try again later."
     },
