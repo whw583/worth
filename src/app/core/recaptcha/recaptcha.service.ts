@@ -52,6 +52,7 @@ export class RecaptchaService {
                     this.isUpdating = true
 
                     this.token = await this.requestToken()
+
                     // the token can be used again
                     this.createTimestamp = Date.now()
                     this.isUpdating = false

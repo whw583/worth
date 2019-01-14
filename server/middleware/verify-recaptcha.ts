@@ -5,11 +5,16 @@ export async function verifyRecaptcha(ctx: Context, next: Function) {
     const token = ctx.request.header['recaptcha-token']
     const action = ctx.request.header['recaptcha-action']
 
-    const isVerify = await recaptcha.verify(token, action)
+    const { success, data, status } = await recaptcha.verify(token, action)
 
-    if (!isVerify) {
+    if (!success) {
         ctx.status = 401
-        ctx.body = { success: false, msg: 'recaptcha token not valid' }
+        ctx.body = {
+            success: false,
+            data,
+            status,
+            msg: 'recaptcha token not valid',
+        }
         return
     }
 

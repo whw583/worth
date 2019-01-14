@@ -1,7 +1,16 @@
 import { recaptchaSecrectKey, recaptchaUrl } from '../../config/config'
 import axios from 'axios'
 
-export async function verify(token: string, action: string): Promise<boolean> {
+interface IVerifyResponse {
+    success: boolean
+    data: object
+    status: number
+}
+
+export async function verify(
+    token: string,
+    action: string
+): Promise<IVerifyResponse> {
     const { data, status } = await axios({
         method: 'post',
         url: recaptchaUrl,
@@ -16,8 +25,8 @@ export async function verify(token: string, action: string): Promise<boolean> {
     const score: number = (data as any).score
 
     if (status === 200 && success && isActionEqual && score >= 0.3) {
-        return true
+        return { success: true, data, status }
     }
 
-    return false
+    return { success: true, data, status }
 }
