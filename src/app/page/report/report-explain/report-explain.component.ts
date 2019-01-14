@@ -65,7 +65,7 @@ export class ReportExplainComponent implements OnInit, OnChanges {
                 )
 
                 // set description
-                this.meta.addTag({
+                this.meta.updateTag({
                     name: 'description',
                     content: this.processRawExplainStringToDescription(
                         reportData,

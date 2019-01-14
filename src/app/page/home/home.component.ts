@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
                 const searchExplain = val['search.explain']
 
                 this.title.setTitle(searchTitle)
-                this.meta.addTag({
+                this.meta.updateTag({
                     name: 'description',
                     content: searchExplain,
                 })
