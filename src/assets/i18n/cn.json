@@ -56,6 +56,10 @@
     },
   "explain": "根据我们的数据分析，#dataUrl# 估值为 $ #totalWorth# 美元， 每日广告收入约 $ #dailyIncome# 美元。 每日有 #UV# 个独立用户访问， 每日PV是 #PV# 。 它的Alexa全球排名是 #rank# 。",
 
+  "reportPage": {
+    "title": "#dataUrl# 值多少钱？"
+  },
+
   "notFound": {
     "explain": "找不到该网页"
   }

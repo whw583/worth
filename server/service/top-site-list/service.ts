@@ -16,7 +16,7 @@ export async function getTopSitesList(): Promise<object[]> {
         }
     )
         .sort({ lastModified: -1 })
-        .limit(20)
+        .limit(100)
 
     // return urlInfos
     return urlInfos.map((urlInfo: any) => {

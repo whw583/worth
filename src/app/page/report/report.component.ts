@@ -25,7 +25,8 @@ export class ReportComponent implements OnInit, OnDestroy {
         private title: Title,
         private meta: Meta
     ) {
-        this.setHtmlHead()
+        // set head in explain component instead
+        //  this.setHtmlHead()
     }
 
     setHtmlHead() {

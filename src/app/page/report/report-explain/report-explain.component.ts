@@ -1,10 +1,10 @@
 import {
-  Component,
-  Input,
-  OnInit,
-  Inject,
-  SimpleChanges,
-  OnChanges, ViewEncapsulation,
+    Component,
+    Input,
+    OnInit,
+    Inject,
+    SimpleChanges,
+    OnChanges,
 } from '@angular/core'
 import { IReportData } from '../../../core/report/report-data.interface'
 import { DOCUMENT } from '@angular/common'
@@ -17,7 +17,6 @@ import { Subject, combineLatest } from 'rxjs'
     selector: 'app-report-explain',
     templateUrl: './report-explain.component.html',
     styleUrls: ['./report-explain.component.scss'],
-
 })
 export class ReportExplainComponent implements OnInit, OnChanges {
     reportSubject = new Subject<IReportData>()
@@ -27,10 +26,12 @@ export class ReportExplainComponent implements OnInit, OnChanges {
     explainHtml = ''
     constructor(
         @Inject(DOCUMENT) private document: Document,
-        private translate: TranslateService
+        private translate: TranslateService,
+        private title: Title,
+        private meta: Meta
     ) {
         this.setLang()
-        this.setExplainHtml()
+        this.setExplainHtmlAndHead()
     }
 
     ngOnChanges(changes: SimpleChanges) {
@@ -41,15 +42,41 @@ export class ReportExplainComponent implements OnInit, OnChanges {
         this.reportSubject.next(currentValue)
     }
 
-    setExplainHtml() {
-        combineLatest(this.reportSubject, this.translate.get('explain'))
+    setExplainHtmlAndHead() {
+        combineLatest(
+            this.reportSubject,
+            this.translate.get(['explain', 'reportPage.title'])
+        )
             .pipe(take(1))
             .subscribe(val => {
-                this.explainHtml = this.processRawExplainString(val[0], val[1])
+                const explainString = val[1]['explain']
+                const titleString = val[1]['reportPage.title']
 
-                console.log(this.explainHtml)
+                const reportData = val[0]
+
+                this.explainHtml = this.processRawExplainString(
+                    reportData,
+                    explainString
+                )
+
+                // set title
+                this.title.setTitle(
+                    this.processRawTitleString(reportData, titleString)
+                )
+
+                // set description
+                this.meta.addTag({
+                    name: 'description',
+                    content: this.processRawExplainStringToDescription(
+                        reportData,
+                        explainString
+                    ),
+                })
             })
-        return
+    }
+
+    processRawTitleString(reportData: IReportData, title: string): string {
+        return title.replace(/#dataUrl#/g, reportData.dataUrl)
     }
 
     processRawExplainString(reportData: IReportData, explain: string): string {
@@ -57,7 +84,9 @@ export class ReportExplainComponent implements OnInit, OnChanges {
             .replace(/#dataUrl#/g, reportData.dataUrl)
             .replace(
                 /#totalWorth#/g,
-                `<span  >${this.transform(reportData.report.websiteWorth)}</span>`
+                `<span  >${this.transform(
+                    reportData.report.websiteWorth
+                )}</span>`
             )
             .replace(
                 /#dailyIncome#/g,
@@ -81,6 +110,37 @@ export class ReportExplainComponent implements OnInit, OnChanges {
                 /#rank#/g,
                 `<span>${this.transform(reportData.rank)}</span>`
             )
+    }
+
+    processRawExplainStringToDescription(
+        reportData: IReportData,
+        explain: string
+    ): string {
+        return explain
+            .replace(/#dataUrl#/g, reportData.dataUrl)
+            .replace(
+                /#totalWorth#/g,
+                `${this.transform(reportData.report.websiteWorth)}`
+            )
+            .replace(
+                /#dailyIncome#/g,
+                `${this.transform(
+                    reportData.report.reportStatistics[4].revenue
+                )}`
+            )
+            .replace(
+                /#UV#/g,
+                `${this.transform(
+                    reportData.report.reportStatistics[4].uniqueVisitors
+                )}`
+            )
+            .replace(
+                /#PV#/g,
+                `${this.transform(
+                    reportData.report.reportStatistics[4].uniquePageViews
+                )}`
+            )
+            .replace(/#rank#/g, `${this.transform(reportData.rank)}`)
     }
 
     transform(value: number | string): string {

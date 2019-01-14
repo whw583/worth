@@ -57,6 +57,9 @@
   "notFound": {
     "explain": "page not found"
   },
-  "explain": "According to our data analysis, #dataUrl# has estimated worth of $ #totalWorth# USD with daily ad income about $ #dailyIncome# USD and reaches around #UV# unique users each day that generate #PV# daily pageviews. Its global traffic rank is #rank# ."
+  "explain": "According to our data analysis, #dataUrl# has estimated worth of $ #totalWorth# USD with daily ad income about $ #dailyIncome# USD and reaches around #UV# unique users each day that generate #PV# daily pageviews. Its global traffic rank is #rank# .",
+  "reportPage": {
+    "title": "How much is #dataUrl# worth?"
+  }
 
 }
