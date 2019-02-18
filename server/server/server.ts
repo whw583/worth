@@ -1,3 +1,4 @@
+require('dotenv').config()
 import * as Koa from 'koa'
 const app = new Koa()
 import { connectWithRetry } from './connect-mongoose'
