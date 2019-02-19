@@ -26,9 +26,9 @@
 
 ## 如何运行？
 
-1. 你需要一对拥有AWS的IAM用户的key和secret（拥有AWIS权限）[AWIS文档](https://amazonaws-china.com/awis/getting-started/)
+1. 你需要一对AWS的IAM用户的key和secret（拥有AWIS权限）[AWIS文档](https://amazonaws-china.com/awis/getting-started/)
 
-1. 参照 .env-example, 在根目录创建 .env文件，替换你自己的key和secret。
+1. 参照 .env-example, 在根目录创建 .env文件，替换你自己的key和secret
 
 1.  安装依赖, 构建项目，运行服务器,成功之后访问 localhost:3000
    ```bash
