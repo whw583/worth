@@ -30,17 +30,10 @@
 
 1. 参照 .env-example, 在根目录创建 .env文件，替换你自己的key和secret。
 
-1.  安装依赖
+1.  安装依赖, 构建项目，运行服务器,成功之后访问 localhost:3000
    ```bash
    $ yarn install
+   $ yarn run build 
+   $ yarn run server
    ```
-   
-1.  构建项目
-    ```bash
-    $ yarn run build
-    ```
 
-1.  启动服务器，成功之后访问 localhost:3000 即可。
-    ```bash
-    $ yarn run server
-    ```
