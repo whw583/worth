@@ -1,27 +1,24 @@
-# Worth
+# Worth （网站价值估算）
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.3.
+[cn.web-worth.net](https://cn.web-worth.net) 是一个免费的网站估值服务。此外，你还可以在这里查看该网站每日广告收入，每日PV， Alexa全球排名等数据。
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- 前端angular，组件库使用angular material,图标制作使用chart.js
 
-## Code scaffolding
+- 后端nodejs /typescript / koa
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- 数据库mongodb/mongoose
 
-## Build
+- 支持PWA(Progress Web App)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+- 支持服务端渲染（使用angular universal）
 
-## Running unit tests
+- 整合google recaptcha v3,防止机器人攻击后端api
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- 整合google analytics,统计访问数据。
 
-## Running end-to-end tests
+- 使用nginx进行反向代理
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+- 支持https,http2.0
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
