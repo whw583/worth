@@ -4,7 +4,7 @@
 
 ## Features
 
-- 前端angular，组件库使用angular material,图标制作使用chart.js
+- 前端angular，组件库使用angular material,图表制作使用chart.js
 
 - 后端nodejs /typescript / koa
 
@@ -14,11 +14,33 @@
 
 - 支持服务端渲染（使用angular universal）
 
+- 支持简体中文，繁体中文，英语
+
 - 整合google recaptcha v3,防止机器人攻击后端api
 
 - 整合google analytics,统计访问数据。
 
 - 使用nginx进行反向代理
 
-- 支持https,http2.0
+- 支持https, http2.0
 
+## 如何运行？
+
+1. 你需要一对拥有AWS的IAM用户的key和secret（拥有AWIS权限）[AWIS文档](https://amazonaws-china.com/awis/getting-started/)
+
+1. 参照 .env-example, 在根目录创建 .env文件，替换你自己的key和secret。
+
+1.  安装依赖
+   ```bash
+   $ yarn install
+   ```
+   
+1.  构建项目
+    ```bash
+    $ yarn run build
+    ```
+
+1.  启动服务器，成功之后访问 localhost:3000 即可。
+    ```bash
+    $ yarn run server
+    ```
